@@ -239,7 +239,8 @@ def build_freeimage(args):
         #url = "https://kent.dl.sourceforge.net/project/freeimage/" \
         #      "Binary%20Distribution/3.18.0/FreeImage3180Win32Win64.zip"
         #To pass certificate problems URL was changed
-        url = "https://downloads.sourceforge.net/project/freeimage/Binary%20Distribution/3.18.0/FreeImage3180Win32Win64.zip?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Ffreeimage%2Ffiles%2FBinary%2520Distribution%2F3.18.0%2FFreeImage3180Win32Win64.zip%2Fdownload&ts=1563882659"
+        url = "https://downloads.sourceforge.net/project/freeimage/" \
+               "Binary%20Distribution/3.18.0/FreeImage3180Win32Win64.zip"
         archive_path = os.path.join(args.download_path, "freeimage-3.18.0.zip")
         download_zipfile(url, archive_path, args.build_path,
                          "393d3df75b14cbcb4887da1c395596e2")
@@ -309,7 +310,8 @@ def build_glew(args):
     #url = "https://kent.dl.sourceforge.net/project/glew/" \
     #      "glew/2.1.0/glew-2.1.0.zip"
     ##To pass certificate problems URL was changed
-    url = "https://downloads.sourceforge.net/project/glew/glew/2.1.0/glew-2.1.0.zip?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fglew%2Ffiles%2Fglew%2F2.1.0%2Fglew-2.1.0.zip%2Fdownload&ts=1563883121"
+    url = "https://downloads.sourceforge.net/project/glew/" \
+          "glew/2.1.0/glew-2.1.0.zip"
     archive_path = os.path.join(args.download_path, "glew-2.1.0.zip")
     download_zipfile(url, archive_path, args.build_path,
                      "dff2939fd404d054c1036cc0409d19f1")
