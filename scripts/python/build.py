@@ -236,8 +236,11 @@ def build_freeimage(args):
         return
 
     if PLATFORM_IS_WINDOWS:
-        url = "https://kent.dl.sourceforge.net/project/freeimage/" \
-              "Binary%20Distribution/3.18.0/FreeImage3180Win32Win64.zip"
+        #url = "https://kent.dl.sourceforge.net/project/freeimage/" \
+        #      "Binary%20Distribution/3.18.0/FreeImage3180Win32Win64.zip"
+        #To pass certificate problems URL was changed
+        url = "https://downloads.sourceforge.net/project/freeimage/" \
+               "Binary%20Distribution/3.18.0/FreeImage3180Win32Win64.zip"
         archive_path = os.path.join(args.download_path, "freeimage-3.18.0.zip")
         download_zipfile(url, archive_path, args.build_path,
                          "393d3df75b14cbcb4887da1c395596e2")
@@ -304,7 +307,10 @@ def build_glew(args):
     if os.path.exists(path):
         return
 
-    url = "https://kent.dl.sourceforge.net/project/glew/" \
+    #url = "https://kent.dl.sourceforge.net/project/glew/" \
+    #      "glew/2.1.0/glew-2.1.0.zip"
+    ##To pass certificate problems URL was changed
+    url = "https://downloads.sourceforge.net/project/glew/" \
           "glew/2.1.0/glew-2.1.0.zip"
     archive_path = os.path.join(args.download_path, "glew-2.1.0.zip")
     download_zipfile(url, archive_path, args.build_path,
