@@ -349,7 +349,14 @@ void SiftCPUFeatureMatcher::Run() {
           cache_->GetDescriptors(data.image_id1);
       const FeatureDescriptors descriptors2 =
           cache_->GetDescriptors(data.image_id2);
-      MatchSiftFeaturesCPU(options_, descriptors1, descriptors2, &data.matches);
+      //MatchSiftFeaturesCPU(options_, descriptors1, descriptors2, &data.matches);
+      //Trying 1st inc. Matching
+      const FeatureKeypoints keypoints1 =
+          cache_->GetKeypoints(data.image_id1);
+      const FeatureKeypoints keypoints2 =
+          cache_->GetKeypoints(data.image_id2);
+      MatchSiftFeaturesCPU1stInc(options_, descriptors1, descriptors2,
+                                 keypoints1, keypoints2, &data.matches);
 
       CHECK(output_queue_->Push(data));
     }

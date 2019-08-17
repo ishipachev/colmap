@@ -222,6 +222,13 @@ void MatchGuidedSiftFeaturesCPU(const SiftMatchingOptions& match_options,
                                 const FeatureDescriptors& descriptors2,
                                 TwoViewGeometry* two_view_geometry);
 
+void MatchSiftFeaturesCPU1stInc(const SiftMatchingOptions& match_options,
+                                const FeatureDescriptors& descriptors1,
+                                const FeatureDescriptors& descriptors2,
+                                const FeatureKeypoints& keypoints1,
+                                const FeatureKeypoints& keypoints2,
+                                FeatureMatches* matches);
+
 // Create a SiftGPU feature matcher. Note that if CUDA is not available or the
 // gpu_index is -1, the OpenGLContextManager must be created in the main thread
 // of the Qt application before calling this function. The same SiftMatchGPU
