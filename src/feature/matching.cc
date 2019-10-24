@@ -1634,10 +1634,16 @@ void FeaturePairsFeatureMatcher::Run() {
       two_view_geometry_options.ransac_options.min_inlier_ratio =
           match_options_.min_inlier_ratio;
 
-      two_view_geometry.Estimate(
+      //IS: the switcher here is required
+      two_view_geometry.EstimateUncalibratedGCRansac(
           camera1, FeatureKeypointsToPointsVector(keypoints1), camera2,
           FeatureKeypointsToPointsVector(keypoints2), matches,
           two_view_geometry_options);
+
+      //two_view_geometry.Estimate(
+      //    camera1, FeatureKeypointsToPointsVector(keypoints1), camera2,
+      //    FeatureKeypointsToPointsVector(keypoints2), matches,
+      //    two_view_geometry_options);
 
       database_.WriteTwoViewGeometry(image1.ImageId(), image2.ImageId(),
                                      two_view_geometry);

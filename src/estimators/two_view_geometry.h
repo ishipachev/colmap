@@ -199,6 +199,24 @@ struct TwoViewGeometry {
                           const FeatureMatches& matches,
                           const Options& options);
 
+
+  // Estimate two-view geometry from uncalibrated image pair.
+  // Compare also different Ransac approaches (GC-RASAC)
+  //
+  // @param camera1         Camera of first image.
+  // @param points1         Feature points in first image.
+  // @param camera2         Camera of second image.
+  // @param points2         Feature points in second image.
+  // @param matches         Feature matches between first and second image.
+  // @param options         Two-view geometry estimation options.
+  void EstimateUncalibratedGCRansac(const Camera& camera1,
+                            const std::vector<Eigen::Vector2d>& points1,
+                            const Camera& camera2,
+                            const std::vector<Eigen::Vector2d>& points2,
+                            const FeatureMatches& matches,
+                            const Options& options);
+
+
   // Estimate two-view geometry from uncalibrated image pair.
   //
   // @param camera1         Camera of first image.
