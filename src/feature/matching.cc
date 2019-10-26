@@ -589,15 +589,26 @@ void TwoViewGeometryVerifier::Run() {
       const auto points1 = FeatureKeypointsToPointsVector(keypoints1);
       const auto points2 = FeatureKeypointsToPointsVector(keypoints2);
 
-      if (options_.multiple_models) {
-        data.two_view_geometry.EstimateMultiple(camera1, points1, camera2,
-                                                points2, data.matches,
-                                                two_view_geometry_options_);
-      } else {
-        data.two_view_geometry.Estimate(camera1, points1, camera2, points2,
-                                        data.matches,
-                                        two_view_geometry_options_);
-      }
+      data.two_view_geometry.EstimateUncalibratedGCRansac(
+          camera1, points1, camera2, points2, data.matches,
+          two_view_geometry_options_);
+
+      //TODO: Add calibrated camera support in GCRansac
+      //IS: OR for comparing
+      //two_view_geometry_options_.detect_watermark = false;
+      //data.two_view_geometry.EstimateUncalibrated(
+      //    camera1, points1, camera2, points2, data.matches,
+      //    two_view_geometry_options_);
+
+      //if (options_.multiple_models) {
+      //  data.two_view_geometry.EstimateMultiple(camera1, points1, camera2,
+      //                                          points2, data.matches,
+      //                                          two_view_geometry_options_);
+      //} else {
+      //  data.two_view_geometry.Estimate(camera1, points1, camera2, points2,
+      //                                  data.matches,
+      //                                  two_view_geometry_options_);
+      //}
 
       CHECK(output_queue_->Push(data));
     }
