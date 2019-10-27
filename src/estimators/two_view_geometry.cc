@@ -375,7 +375,7 @@ void TwoViewGeometry::EstimateCalibrated(
 }
 
 // IS: GCRANSAC usage
-#pragma optimize("", off)
+//#pragma optimize("", off)
 void TwoViewGeometry::EstimateUncalibratedGCRansac(
     const Camera& camera1, const std::vector<Eigen::Vector2d>& points1,
     const Camera& camera2, const std::vector<Eigen::Vector2d>& points2,
@@ -391,14 +391,11 @@ void TwoViewGeometry::EstimateUncalibratedGCRansac(
 
   //GC RANSAC HERE
   // Algorithm Params
-  const double confidence = 0.99;  // The RANSAC confidence value
   const int fps = -1;  // The required FPS limit. If it is set to -1, the
                        // algorithm will not be interrupted before finishing.
-  const double inlier_outlier_threshold_essential_matrix = 0.0003;  // The used inlier-outlier threshold in GC-RANSAC for essential
-               // matrix estimation.
   const double inlier_outlier_threshold_fundamental_matrix = 0.0005;  // The used adaptive inlier-outlier threshold in GC-RANSAC for
                // fundamental matrix estimation.
-  const double inlier_outlier_threshold_homography = 2.00;  // The used inlier-outlier threshold in GC-RANSAC for homography
+  const double inlier_outlier_threshold_homography = options.ransac_options.max_error;  // The used inlier-outlier threshold in GC-RANSAC for homography
              // estimation.
   const double spatial_coherence_weight = 0.14;  // The weight of the spatial coherence term in the graph-cut energy
              // minimization.
@@ -476,13 +473,12 @@ void TwoViewGeometry::EstimateUncalibratedGCRansac(
            neighborhood::GridNeighborhoodGraph>
             gcransac_F;
   gcransac_F.setFPS(-1);  // Set the desired FPS (-1 means no limit)
-  gcransac_F.settings.threshold = inlier_outlier_threshold_fundamental_matrix *
-      max_image_diagonal;  // The inlier-outlier threshold
+  gcransac_F.settings.threshold = options.ransac_options.max_error;  // The inlier-outlier threshold
   gcransac_F.settings.spatial_coherence_weight = spatial_coherence_weight;  // The weight of the spatial coherence term
-  gcransac_F.settings.confidence = confidence;  // The required confidence in the results
+  gcransac_F.settings.confidence = options.ransac_options.confidence;  // The required confidence in the results
   gcransac_F.settings.max_local_optimization_number = 50;  // The maximum number of local optimizations
-  gcransac_F.settings.max_iteration_number = 5000;  // The maximum number of iterations
-  gcransac_F.settings.min_iteration_number = 50;  // The minimum number of iterations
+  gcransac_F.settings.max_iteration_number = options.ransac_options.max_num_trials;  // The maximum number of iterations
+  gcransac_F.settings.min_iteration_number = options.ransac_options.min_num_trials;  // The minimum number of iterations
   gcransac_F.settings.neighborhood_sphere_radius = cell_number_in_neighborhood_graph;  // The radius of the neighborhood ball
   gcransac_F.settings.core_number = 1;  // The number of parallel processes
 
@@ -507,12 +503,12 @@ void TwoViewGeometry::EstimateUncalibratedGCRansac(
   // 1. Homography Matrix
   GCRANSAC<utils::DefaultHomographyEstimator, neighborhood::GridNeighborhoodGraph> gcransac_H;
   gcransac_H.setFPS(-1);  // Set the desired FPS (-1 means no limit)
-  gcransac_H.settings.threshold = inlier_outlier_threshold_homography;  // The inlier-outlier threshold
+  gcransac_H.settings.threshold = options.ransac_options.max_error;  // The inlier-outlier threshold
   gcransac_H.settings.spatial_coherence_weight = spatial_coherence_weight;  // The weight of the spatial coherence term
-  gcransac_H.settings.confidence = confidence;  // The required confidence in the results
+  gcransac_H.settings.confidence = options.ransac_options.confidence;  // The required confidence in the results
   gcransac_H.settings.max_local_optimization_number = 50;  // The maximum number of local optimizations
-  gcransac_H.settings.max_iteration_number = 5000;  // The maximum number of iterations
-  gcransac_H.settings.min_iteration_number = 50;  // The minimum number of iterations
+  gcransac_H.settings.max_iteration_number = options.ransac_options.max_num_trials;  // The maximum number of iterations
+  gcransac_H.settings.min_iteration_number = options.ransac_options.min_num_trials;  // The minimum number of iterations
   gcransac_H.settings.neighborhood_sphere_radius = cell_number_in_neighborhood_graph;  // The radius of the neighborhood ball
   gcransac_H.settings.core_number = 1;    // The number of parallel processes
 
@@ -589,7 +585,7 @@ void TwoViewGeometry::EstimateUncalibratedGCRansac(
     config = ConfigurationType::WATERMARK;
   }
 }
-#pragma optimize("", on)
+//#pragma optimize("", on)
 
 
 void TwoViewGeometry::EstimateUncalibrated(
