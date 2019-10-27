@@ -589,13 +589,15 @@ void TwoViewGeometryVerifier::Run() {
       const auto points1 = FeatureKeypointsToPointsVector(keypoints1);
       const auto points2 = FeatureKeypointsToPointsVector(keypoints2);
 
+
+      //GCRANSAC test
+      two_view_geometry_options_.detect_watermark = false;
       data.two_view_geometry.EstimateUncalibratedGCRansac(
           camera1, points1, camera2, points2, data.matches,
           two_view_geometry_options_);
 
       //TODO: Add calibrated camera support in GCRansac
       //IS: OR for comparing
-      //two_view_geometry_options_.detect_watermark = false;
       //data.two_view_geometry.EstimateUncalibrated(
       //    camera1, points1, camera2, points2, data.matches,
       //    two_view_geometry_options_);
