@@ -42,3 +42,6 @@ doc/_build
 *.exe
 *.out
 *.app
+
+# Disignore solution file
+!build/colmap/__build__/COLMAP.sln
