@@ -48,16 +48,16 @@
 #include "util/random.h"
 
 // IS: GCRansac additions
-#include "GCRANSAC.h"
-#include "essential_estimator.h"
-#include "fundamental_estimator.h"
-#include "gcransac_utils.h"
-#include "grid_neighborhood_graph.h"
-#include "homography_estimator.h"
-#include "model.h"
-#include "progressive_napsac_sampler.h"
-#include "uniform_sampler.h"
-#include <opencv2/core/core.hpp>
+//#include "GCRANSAC.h"
+//#include "essential_estimator.h"
+//#include "fundamental_estimator.h"
+//#include "gcransac_utils.h"
+//#include "grid_neighborhood_graph.h"
+//#include "homography_estimator.h"
+//#include "model.h"
+//#include "progressive_napsac_sampler.h"
+//#include "uniform_sampler.h"
+//#include <opencv2/core/core.hpp>
 
 namespace colmap {
 namespace {
@@ -376,6 +376,7 @@ void TwoViewGeometry::EstimateCalibrated(
 
 // IS: GCRANSAC usage
 //#pragma optimize("", off)
+/*
 void TwoViewGeometry::EstimateUncalibratedGCRansac(
     const Camera& camera1, const std::vector<Eigen::Vector2d>& points1,
     const Camera& camera2, const std::vector<Eigen::Vector2d>& points2,
@@ -594,6 +595,7 @@ void TwoViewGeometry::EstimateUncalibratedGCRansac(
     config = ConfigurationType::WATERMARK;
   }
 }
+*/
 //#pragma optimize("", on)
 
 
