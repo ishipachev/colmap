@@ -78,6 +78,8 @@ void TwoViewGeometry::EstimateUncalibratedGCRansac(
 
   options.Check();
 
+	printf("DOING GC-RANSAC STUFF LOL\n");
+
   if (matches.size() < options.min_num_inliers) {
     config = ConfigurationType::DEGENERATE;
     return;
