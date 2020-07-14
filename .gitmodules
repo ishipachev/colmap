@@ -2,3 +2,6 @@
 	path = doc/_build/html
 	url = https://github.com/colmap/colmap.github.io.git
 	ignore = all
+[submodule "src/cmplab_tests/magsac"]
+	path = src/cmplab_tests/magsac
+	url = https://github.com/ishipachev/magsac
