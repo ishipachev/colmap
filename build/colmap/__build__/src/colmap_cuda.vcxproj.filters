@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\patch_match.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\cuda.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\cudacc.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\gpu_mat_prng.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\gpu_mat_ref_image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\patch_match.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\patch_match_cuda.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\cuda.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\cudacc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\work\colmap\colmap_git\src\mvs\gpu_mat_prng.cu">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\work\colmap\colmap_git\src\mvs\gpu_mat_ref_image.cu">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\work\colmap\colmap_git\src\mvs\patch_match_cuda.cu">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\work\colmap\colmap_git\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="C:\work\colmap\colmap_git\build\colmap\__build__\src\CMakeFiles\colmap_cuda.dir\mvs\$(Configuration)\colmap_cuda_generated_gpu_mat_prng.cu.obj">
+      <Filter>Object Files</Filter>
+    </Object>
+    <Object Include="C:\work\colmap\colmap_git\build\colmap\__build__\src\CMakeFiles\colmap_cuda.dir\mvs\$(Configuration)\colmap_cuda_generated_gpu_mat_ref_image.cu.obj">
+      <Filter>Object Files</Filter>
+    </Object>
+    <Object Include="C:\work\colmap\colmap_git\build\colmap\__build__\src\CMakeFiles\colmap_cuda.dir\mvs\$(Configuration)\colmap_cuda_generated_patch_match_cuda.cu.obj">
+      <Filter>Object Files</Filter>
+    </Object>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{34AD6EEB-483B-3442-8A57-08B0C8E0C597}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Files">
+      <UniqueIdentifier>{98BDA5ED-31B8-35F7-87BE-11796DD45596}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{317D2D89-CFE5-3C2D-91F5-62EC95C16E24}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,1084 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7682EC86-FE8E-32CF-AEF5-10837CF84134}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>colmap_sources</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\work\colmap\colmap_git\build\colmap\__build__\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">colmap_sources.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">colmap_sources</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\work\colmap\colmap_git\build\colmap\__build__\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">colmap_sources.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">colmap_sources</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\work\colmap\colmap_git\build\colmap\__build__\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">colmap_sources.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">colmap_sources</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\work\colmap\colmap_git\build\colmap\__build__\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">colmap_sources.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">colmap_sources</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\work\colmap\colmap_git\build\colmap\__build__\colmap_sources_autogen\include_Debug;C:\work\colmap\colmap_git\lib;C:\work\colmap\colmap_git\src;C:\programs\boost_1_70_0;C:\work\colmap\colmap_git\build\__install__\include\eigen3;C:\work\colmap\colmap_git\build\__install__\include;C:\programs\Qt\5.13.0\msvc2017_64\include;C:\programs\Qt\5.13.0\msvc2017_64\include\QtCore;C:\programs\Qt\5.13.0\msvc2017_64\.\mkspecs\win32-msvc;C:\programs\Qt\5.13.0\msvc2017_64\include\QtOpenGL;C:\programs\Qt\5.13.0\msvc2017_64\include\QtWidgets;C:\programs\Qt\5.13.0\msvc2017_64\include\QtGui;C:\programs\Qt\5.13.0\msvc2017_64\include\QtANGLE;C:\programs\CGAL-4.13.1\build\include;C:\programs\CGAL-4.13.1\include;C:\programs\CGAL-4.13.1\auxiliary\gmp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>GOOGLE_GLOG_DLL_DECL=;GLOG_NO_ABBREVIATED_SEVERITIES;GL_GLEXT_PROTOTYPES;EIGEN_INITIALIZE_MATRICES_BY_NAN;OPENMP_ENABLED;CUDA_ENABLED;OPENGL_ENABLED;CGAL_ENABLED;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;GOOGLE_GLOG_DLL_DECL=;GLOG_NO_ABBREVIATED_SEVERITIES;GL_GLEXT_PROTOTYPES;EIGEN_INITIALIZE_MATRICES_BY_NAN;OPENMP_ENABLED;CUDA_ENABLED;OPENGL_ENABLED;CGAL_ENABLED;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\work\colmap\colmap_git\build\colmap\__build__\colmap_sources_autogen\include_Debug;C:\work\colmap\colmap_git\lib;C:\work\colmap\colmap_git\src;C:\programs\boost_1_70_0;C:\work\colmap\colmap_git\build\__install__\include\eigen3;C:\work\colmap\colmap_git\build\__install__\include;C:\programs\Qt\5.13.0\msvc2017_64\include;C:\programs\Qt\5.13.0\msvc2017_64\include\QtCore;C:\programs\Qt\5.13.0\msvc2017_64\.\mkspecs\win32-msvc;C:\programs\Qt\5.13.0\msvc2017_64\include\QtOpenGL;C:\programs\Qt\5.13.0\msvc2017_64\include\QtWidgets;C:\programs\Qt\5.13.0\msvc2017_64\include\QtGui;C:\programs\Qt\5.13.0\msvc2017_64\include\QtANGLE;C:\programs\CGAL-4.13.1\build\include;C:\programs\CGAL-4.13.1\include;C:\programs\CGAL-4.13.1\auxiliary\gmp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\work\colmap\colmap_git\build\colmap\__build__\colmap_sources_autogen\include_Debug;C:\work\colmap\colmap_git\lib;C:\work\colmap\colmap_git\src;C:\programs\boost_1_70_0;C:\work\colmap\colmap_git\build\__install__\include\eigen3;C:\work\colmap\colmap_git\build\__install__\include;C:\programs\Qt\5.13.0\msvc2017_64\include;C:\programs\Qt\5.13.0\msvc2017_64\include\QtCore;C:\programs\Qt\5.13.0\msvc2017_64\.\mkspecs\win32-msvc;C:\programs\Qt\5.13.0\msvc2017_64\include\QtOpenGL;C:\programs\Qt\5.13.0\msvc2017_64\include\QtWidgets;C:\programs\Qt\5.13.0\msvc2017_64\include\QtGui;C:\programs\Qt\5.13.0\msvc2017_64\include\QtANGLE;C:\programs\CGAL-4.13.1\build\include;C:\programs\CGAL-4.13.1\include;C:\programs\CGAL-4.13.1\auxiliary\gmp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\work\colmap\colmap_git\build\colmap\__build__\colmap_sources_autogen\include_Release;C:\work\colmap\colmap_git\lib;C:\work\colmap\colmap_git\src;C:\programs\boost_1_70_0;C:\work\colmap\colmap_git\build\__install__\include\eigen3;C:\work\colmap\colmap_git\build\__install__\include;C:\programs\Qt\5.13.0\msvc2017_64\include;C:\programs\Qt\5.13.0\msvc2017_64\include\QtCore;C:\programs\Qt\5.13.0\msvc2017_64\.\mkspecs\win32-msvc;C:\programs\Qt\5.13.0\msvc2017_64\include\QtOpenGL;C:\programs\Qt\5.13.0\msvc2017_64\include\QtWidgets;C:\programs\Qt\5.13.0\msvc2017_64\include\QtGui;C:\programs\Qt\5.13.0\msvc2017_64\include\QtANGLE;C:\programs\CGAL-4.13.1\build\include;C:\programs\CGAL-4.13.1\include;C:\programs\CGAL-4.13.1\auxiliary\gmp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>GOOGLE_GLOG_DLL_DECL=;NDEBUG;GLOG_NO_ABBREVIATED_SEVERITIES;GL_GLEXT_PROTOTYPES;EIGEN_INITIALIZE_MATRICES_BY_NAN;OPENMP_ENABLED;CUDA_ENABLED;OPENGL_ENABLED;CGAL_ENABLED;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;GOOGLE_GLOG_DLL_DECL=;NDEBUG;GLOG_NO_ABBREVIATED_SEVERITIES;GL_GLEXT_PROTOTYPES;EIGEN_INITIALIZE_MATRICES_BY_NAN;OPENMP_ENABLED;CUDA_ENABLED;OPENGL_ENABLED;CGAL_ENABLED;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\work\colmap\colmap_git\build\colmap\__build__\colmap_sources_autogen\include_Release;C:\work\colmap\colmap_git\lib;C:\work\colmap\colmap_git\src;C:\programs\boost_1_70_0;C:\work\colmap\colmap_git\build\__install__\include\eigen3;C:\work\colmap\colmap_git\build\__install__\include;C:\programs\Qt\5.13.0\msvc2017_64\include;C:\programs\Qt\5.13.0\msvc2017_64\include\QtCore;C:\programs\Qt\5.13.0\msvc2017_64\.\mkspecs\win32-msvc;C:\programs\Qt\5.13.0\msvc2017_64\include\QtOpenGL;C:\programs\Qt\5.13.0\msvc2017_64\include\QtWidgets;C:\programs\Qt\5.13.0\msvc2017_64\include\QtGui;C:\programs\Qt\5.13.0\msvc2017_64\include\QtANGLE;C:\programs\CGAL-4.13.1\build\include;C:\programs\CGAL-4.13.1\include;C:\programs\CGAL-4.13.1\auxiliary\gmp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\work\colmap\colmap_git\build\colmap\__build__\colmap_sources_autogen\include_Release;C:\work\colmap\colmap_git\lib;C:\work\colmap\colmap_git\src;C:\programs\boost_1_70_0;C:\work\colmap\colmap_git\build\__install__\include\eigen3;C:\work\colmap\colmap_git\build\__install__\include;C:\programs\Qt\5.13.0\msvc2017_64\include;C:\programs\Qt\5.13.0\msvc2017_64\include\QtCore;C:\programs\Qt\5.13.0\msvc2017_64\.\mkspecs\win32-msvc;C:\programs\Qt\5.13.0\msvc2017_64\include\QtOpenGL;C:\programs\Qt\5.13.0\msvc2017_64\include\QtWidgets;C:\programs\Qt\5.13.0\msvc2017_64\include\QtGui;C:\programs\Qt\5.13.0\msvc2017_64\include\QtANGLE;C:\programs\CGAL-4.13.1\build\include;C:\programs\CGAL-4.13.1\include;C:\programs\CGAL-4.13.1\auxiliary\gmp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\work\colmap\colmap_git\build\colmap\__build__\colmap_sources_autogen\include_MinSizeRel;C:\work\colmap\colmap_git\lib;C:\work\colmap\colmap_git\src;C:\programs\boost_1_70_0;C:\work\colmap\colmap_git\build\__install__\include\eigen3;C:\work\colmap\colmap_git\build\__install__\include;C:\programs\Qt\5.13.0\msvc2017_64\include;C:\programs\Qt\5.13.0\msvc2017_64\include\QtCore;C:\programs\Qt\5.13.0\msvc2017_64\.\mkspecs\win32-msvc;C:\programs\Qt\5.13.0\msvc2017_64\include\QtOpenGL;C:\programs\Qt\5.13.0\msvc2017_64\include\QtWidgets;C:\programs\Qt\5.13.0\msvc2017_64\include\QtGui;C:\programs\Qt\5.13.0\msvc2017_64\include\QtANGLE;C:\programs\CGAL-4.13.1\build\include;C:\programs\CGAL-4.13.1\include;C:\programs\CGAL-4.13.1\auxiliary\gmp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>GOOGLE_GLOG_DLL_DECL=;NDEBUG;GLOG_NO_ABBREVIATED_SEVERITIES;GL_GLEXT_PROTOTYPES;EIGEN_INITIALIZE_MATRICES_BY_NAN;OPENMP_ENABLED;CUDA_ENABLED;OPENGL_ENABLED;CGAL_ENABLED;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;GOOGLE_GLOG_DLL_DECL=;NDEBUG;GLOG_NO_ABBREVIATED_SEVERITIES;GL_GLEXT_PROTOTYPES;EIGEN_INITIALIZE_MATRICES_BY_NAN;OPENMP_ENABLED;CUDA_ENABLED;OPENGL_ENABLED;CGAL_ENABLED;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\work\colmap\colmap_git\build\colmap\__build__\colmap_sources_autogen\include_MinSizeRel;C:\work\colmap\colmap_git\lib;C:\work\colmap\colmap_git\src;C:\programs\boost_1_70_0;C:\work\colmap\colmap_git\build\__install__\include\eigen3;C:\work\colmap\colmap_git\build\__install__\include;C:\programs\Qt\5.13.0\msvc2017_64\include;C:\programs\Qt\5.13.0\msvc2017_64\include\QtCore;C:\programs\Qt\5.13.0\msvc2017_64\.\mkspecs\win32-msvc;C:\programs\Qt\5.13.0\msvc2017_64\include\QtOpenGL;C:\programs\Qt\5.13.0\msvc2017_64\include\QtWidgets;C:\programs\Qt\5.13.0\msvc2017_64\include\QtGui;C:\programs\Qt\5.13.0\msvc2017_64\include\QtANGLE;C:\programs\CGAL-4.13.1\build\include;C:\programs\CGAL-4.13.1\include;C:\programs\CGAL-4.13.1\auxiliary\gmp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\work\colmap\colmap_git\build\colmap\__build__\colmap_sources_autogen\include_MinSizeRel;C:\work\colmap\colmap_git\lib;C:\work\colmap\colmap_git\src;C:\programs\boost_1_70_0;C:\work\colmap\colmap_git\build\__install__\include\eigen3;C:\work\colmap\colmap_git\build\__install__\include;C:\programs\Qt\5.13.0\msvc2017_64\include;C:\programs\Qt\5.13.0\msvc2017_64\include\QtCore;C:\programs\Qt\5.13.0\msvc2017_64\.\mkspecs\win32-msvc;C:\programs\Qt\5.13.0\msvc2017_64\include\QtOpenGL;C:\programs\Qt\5.13.0\msvc2017_64\include\QtWidgets;C:\programs\Qt\5.13.0\msvc2017_64\include\QtGui;C:\programs\Qt\5.13.0\msvc2017_64\include\QtANGLE;C:\programs\CGAL-4.13.1\build\include;C:\programs\CGAL-4.13.1\include;C:\programs\CGAL-4.13.1\auxiliary\gmp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\work\colmap\colmap_git\build\colmap\__build__\colmap_sources_autogen\include_RelWithDebInfo;C:\work\colmap\colmap_git\lib;C:\work\colmap\colmap_git\src;C:\programs\boost_1_70_0;C:\work\colmap\colmap_git\build\__install__\include\eigen3;C:\work\colmap\colmap_git\build\__install__\include;C:\programs\Qt\5.13.0\msvc2017_64\include;C:\programs\Qt\5.13.0\msvc2017_64\include\QtCore;C:\programs\Qt\5.13.0\msvc2017_64\.\mkspecs\win32-msvc;C:\programs\Qt\5.13.0\msvc2017_64\include\QtOpenGL;C:\programs\Qt\5.13.0\msvc2017_64\include\QtWidgets;C:\programs\Qt\5.13.0\msvc2017_64\include\QtGui;C:\programs\Qt\5.13.0\msvc2017_64\include\QtANGLE;C:\programs\CGAL-4.13.1\build\include;C:\programs\CGAL-4.13.1\include;C:\programs\CGAL-4.13.1\auxiliary\gmp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>GOOGLE_GLOG_DLL_DECL=;NDEBUG;GLOG_NO_ABBREVIATED_SEVERITIES;GL_GLEXT_PROTOTYPES;EIGEN_INITIALIZE_MATRICES_BY_NAN;OPENMP_ENABLED;CUDA_ENABLED;OPENGL_ENABLED;CGAL_ENABLED;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;GOOGLE_GLOG_DLL_DECL=;NDEBUG;GLOG_NO_ABBREVIATED_SEVERITIES;GL_GLEXT_PROTOTYPES;EIGEN_INITIALIZE_MATRICES_BY_NAN;OPENMP_ENABLED;CUDA_ENABLED;OPENGL_ENABLED;CGAL_ENABLED;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\work\colmap\colmap_git\build\colmap\__build__\colmap_sources_autogen\include_RelWithDebInfo;C:\work\colmap\colmap_git\lib;C:\work\colmap\colmap_git\src;C:\programs\boost_1_70_0;C:\work\colmap\colmap_git\build\__install__\include\eigen3;C:\work\colmap\colmap_git\build\__install__\include;C:\programs\Qt\5.13.0\msvc2017_64\include;C:\programs\Qt\5.13.0\msvc2017_64\include\QtCore;C:\programs\Qt\5.13.0\msvc2017_64\.\mkspecs\win32-msvc;C:\programs\Qt\5.13.0\msvc2017_64\include\QtOpenGL;C:\programs\Qt\5.13.0\msvc2017_64\include\QtWidgets;C:\programs\Qt\5.13.0\msvc2017_64\include\QtGui;C:\programs\Qt\5.13.0\msvc2017_64\include\QtANGLE;C:\programs\CGAL-4.13.1\build\include;C:\programs\CGAL-4.13.1\include;C:\programs\CGAL-4.13.1\auxiliary\gmp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\work\colmap\colmap_git\build\colmap\__build__\colmap_sources_autogen\include_RelWithDebInfo;C:\work\colmap\colmap_git\lib;C:\work\colmap\colmap_git\src;C:\programs\boost_1_70_0;C:\work\colmap\colmap_git\build\__install__\include\eigen3;C:\work\colmap\colmap_git\build\__install__\include;C:\programs\Qt\5.13.0\msvc2017_64\include;C:\programs\Qt\5.13.0\msvc2017_64\include\QtCore;C:\programs\Qt\5.13.0\msvc2017_64\.\mkspecs\win32-msvc;C:\programs\Qt\5.13.0\msvc2017_64\include\QtOpenGL;C:\programs\Qt\5.13.0\msvc2017_64\include\QtWidgets;C:\programs\Qt\5.13.0\msvc2017_64\include\QtGui;C:\programs\Qt\5.13.0\msvc2017_64\include\QtANGLE;C:\programs\CGAL-4.13.1\build\include;C:\programs\CGAL-4.13.1\include;C:\programs\CGAL-4.13.1\auxiliary\gmp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\work\colmap\colmap_git\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/work/colmap/colmap_git/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\programs\CMake\bin\cmake.exe -SC:/work/colmap/colmap_git -BC:/work/colmap/colmap_git/build/colmap/__build__ --check-stamp-file C:/work/colmap/colmap_git/build/colmap/__build__/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\programs\CGAL-4.13.1\build\CGALConfig.cmake;C:\programs\CGAL-4.13.1\build\CGALConfigVersion.cmake;C:\programs\CGAL-4.13.1\build\CGALExports.cmake;C:\programs\CGAL-4.13.1\build\CGALLibConfig.cmake;C:\programs\CGAL-4.13.1\build\CGAL_CoreLibConfig.cmake;C:\programs\CGAL-4.13.1\build\CGAL_ImageIOLibConfig.cmake;C:\programs\CGAL-4.13.1\build\CGAL_Qt5LibConfig.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_CreateSingleSourceCGALProgram.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_Macros.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_SetupBoost.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_TweakFindBoost.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_VersionUtils.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_add_test.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_enable_end_of_configuration_hook.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeCInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeCXXInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeCommonLanguageInclude.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeFindDependencyMacro.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeGenericSystem.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeInitializeConfigs.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeLanguageInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeParseArguments.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeParseImplicitLinkInfo.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeRCInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInitialize.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CTest.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CTestTargets.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CTestUseLaunchers.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CheckCXXCompilerFlag.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CheckCXXSourceCompiles.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Compiler\MSVC-C.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Compiler\MSVC-CXX.cmake;C:\programs\CMake\share\cmake-3.15\Modules\DartConfiguration.tcl.in;C:\programs\CMake\share\cmake-3.15\Modules\FindBoost.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindCUDA.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindCUDA\select_compute_arch.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindGit.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindOpenGL.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindOpenMP.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindPackageHandleStandardArgs.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindPackageMessage.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC-C.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC-CXX.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\Windows.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\WindowsPaths.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5\Qt5Config.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5\Qt5ConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5\Qt5ModuleLocation.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QXdgDesktopPortalThemePlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5OpenGL\Qt5OpenGLConfig.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5OpenGL\Qt5OpenGLConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5Widgets_QWindowsVistaStylePlugin.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\CeresConfig.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\CeresConfigVersion.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\CeresTargets-relwithdebinfo.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\CeresTargets.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\FindEigen.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\FindGflags.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\FindGlog.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\gflags\gflags-config-version.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\gflags\gflags-config.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\gflags\gflags-nonamespace-targets-relwithdebinfo.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\gflags\gflags-nonamespace-targets.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\glog\glog-config-version.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\glog\glog-config.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\glog\glog-targets-relwithdebinfo.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\glog\glog-targets.cmake;C:\work\colmap\colmap_git\build\__install__\share\eigen3\cmake\Eigen3Config.cmake;C:\work\colmap\colmap_git\build\__install__\share\eigen3\cmake\Eigen3ConfigVersion.cmake;C:\work\colmap\colmap_git\build\__install__\share\eigen3\cmake\Eigen3Targets.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\3.15.0\CMakeCCompiler.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\3.15.0\CMakeCXXCompiler.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\3.15.0\CMakeRCCompiler.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\3.15.0\CMakeSystem.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\detect_cuda_compute_capabilities.cpp;C:\work\colmap\colmap_git\cmake\CMakeConfig.cmake.in;C:\work\colmap\colmap_git\cmake\CMakeConfigVersion.cmake.in;C:\work\colmap\colmap_git\cmake\CMakeHelper.cmake;C:\work\colmap\colmap_git\cmake\CMakeUninstall.cmake.in;C:\work\colmap\colmap_git\cmake\FindEigen3.cmake;C:\work\colmap\colmap_git\cmake\FindFreeImage.cmake;C:\work\colmap\colmap_git\cmake\FindGlew.cmake;C:\work\colmap\colmap_git\cmake\FindGlog.cmake;C:\work\colmap\colmap_git\cmake\GenerateVersionDefinitions.cmake;C:\work\colmap\colmap_git\cmake\SelectCudaComputeArch.cmake;C:\work\colmap\colmap_git\src\util\version.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/work/colmap/colmap_git/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\programs\CMake\bin\cmake.exe -SC:/work/colmap/colmap_git -BC:/work/colmap/colmap_git/build/colmap/__build__ --check-stamp-file C:/work/colmap/colmap_git/build/colmap/__build__/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\programs\CGAL-4.13.1\build\CGALConfig.cmake;C:\programs\CGAL-4.13.1\build\CGALConfigVersion.cmake;C:\programs\CGAL-4.13.1\build\CGALExports.cmake;C:\programs\CGAL-4.13.1\build\CGALLibConfig.cmake;C:\programs\CGAL-4.13.1\build\CGAL_CoreLibConfig.cmake;C:\programs\CGAL-4.13.1\build\CGAL_ImageIOLibConfig.cmake;C:\programs\CGAL-4.13.1\build\CGAL_Qt5LibConfig.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_CreateSingleSourceCGALProgram.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_Macros.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_SetupBoost.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_TweakFindBoost.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_VersionUtils.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_add_test.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_enable_end_of_configuration_hook.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeCInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeCXXInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeCommonLanguageInclude.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeFindDependencyMacro.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeGenericSystem.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeInitializeConfigs.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeLanguageInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeParseArguments.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeParseImplicitLinkInfo.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeRCInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInitialize.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CTest.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CTestTargets.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CTestUseLaunchers.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CheckCXXCompilerFlag.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CheckCXXSourceCompiles.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Compiler\MSVC-C.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Compiler\MSVC-CXX.cmake;C:\programs\CMake\share\cmake-3.15\Modules\DartConfiguration.tcl.in;C:\programs\CMake\share\cmake-3.15\Modules\FindBoost.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindCUDA.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindCUDA\select_compute_arch.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindGit.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindOpenGL.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindOpenMP.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindPackageHandleStandardArgs.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindPackageMessage.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC-C.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC-CXX.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\Windows.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\WindowsPaths.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5\Qt5Config.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5\Qt5ConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5\Qt5ModuleLocation.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QXdgDesktopPortalThemePlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5OpenGL\Qt5OpenGLConfig.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5OpenGL\Qt5OpenGLConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5Widgets_QWindowsVistaStylePlugin.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\CeresConfig.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\CeresConfigVersion.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\CeresTargets-relwithdebinfo.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\CeresTargets.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\FindEigen.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\FindGflags.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\FindGlog.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\gflags\gflags-config-version.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\gflags\gflags-config.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\gflags\gflags-nonamespace-targets-relwithdebinfo.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\gflags\gflags-nonamespace-targets.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\glog\glog-config-version.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\glog\glog-config.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\glog\glog-targets-relwithdebinfo.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\glog\glog-targets.cmake;C:\work\colmap\colmap_git\build\__install__\share\eigen3\cmake\Eigen3Config.cmake;C:\work\colmap\colmap_git\build\__install__\share\eigen3\cmake\Eigen3ConfigVersion.cmake;C:\work\colmap\colmap_git\build\__install__\share\eigen3\cmake\Eigen3Targets.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\3.15.0\CMakeCCompiler.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\3.15.0\CMakeCXXCompiler.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\3.15.0\CMakeRCCompiler.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\3.15.0\CMakeSystem.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\detect_cuda_compute_capabilities.cpp;C:\work\colmap\colmap_git\cmake\CMakeConfig.cmake.in;C:\work\colmap\colmap_git\cmake\CMakeConfigVersion.cmake.in;C:\work\colmap\colmap_git\cmake\CMakeHelper.cmake;C:\work\colmap\colmap_git\cmake\CMakeUninstall.cmake.in;C:\work\colmap\colmap_git\cmake\FindEigen3.cmake;C:\work\colmap\colmap_git\cmake\FindFreeImage.cmake;C:\work\colmap\colmap_git\cmake\FindGlew.cmake;C:\work\colmap\colmap_git\cmake\FindGlog.cmake;C:\work\colmap\colmap_git\cmake\GenerateVersionDefinitions.cmake;C:\work\colmap\colmap_git\cmake\SelectCudaComputeArch.cmake;C:\work\colmap\colmap_git\src\util\version.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/work/colmap/colmap_git/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\programs\CMake\bin\cmake.exe -SC:/work/colmap/colmap_git -BC:/work/colmap/colmap_git/build/colmap/__build__ --check-stamp-file C:/work/colmap/colmap_git/build/colmap/__build__/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\programs\CGAL-4.13.1\build\CGALConfig.cmake;C:\programs\CGAL-4.13.1\build\CGALConfigVersion.cmake;C:\programs\CGAL-4.13.1\build\CGALExports.cmake;C:\programs\CGAL-4.13.1\build\CGALLibConfig.cmake;C:\programs\CGAL-4.13.1\build\CGAL_CoreLibConfig.cmake;C:\programs\CGAL-4.13.1\build\CGAL_ImageIOLibConfig.cmake;C:\programs\CGAL-4.13.1\build\CGAL_Qt5LibConfig.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_CreateSingleSourceCGALProgram.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_Macros.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_SetupBoost.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_TweakFindBoost.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_VersionUtils.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_add_test.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_enable_end_of_configuration_hook.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeCInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeCXXInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeCommonLanguageInclude.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeFindDependencyMacro.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeGenericSystem.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeInitializeConfigs.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeLanguageInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeParseArguments.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeParseImplicitLinkInfo.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeRCInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInitialize.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CTest.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CTestTargets.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CTestUseLaunchers.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CheckCXXCompilerFlag.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CheckCXXSourceCompiles.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Compiler\MSVC-C.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Compiler\MSVC-CXX.cmake;C:\programs\CMake\share\cmake-3.15\Modules\DartConfiguration.tcl.in;C:\programs\CMake\share\cmake-3.15\Modules\FindBoost.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindCUDA.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindCUDA\select_compute_arch.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindGit.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindOpenGL.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindOpenMP.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindPackageHandleStandardArgs.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindPackageMessage.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC-C.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC-CXX.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\Windows.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\WindowsPaths.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5\Qt5Config.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5\Qt5ConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5\Qt5ModuleLocation.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QXdgDesktopPortalThemePlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5OpenGL\Qt5OpenGLConfig.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5OpenGL\Qt5OpenGLConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5Widgets_QWindowsVistaStylePlugin.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\CeresConfig.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\CeresConfigVersion.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\CeresTargets-relwithdebinfo.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\CeresTargets.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\FindEigen.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\FindGflags.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\FindGlog.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\gflags\gflags-config-version.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\gflags\gflags-config.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\gflags\gflags-nonamespace-targets-relwithdebinfo.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\gflags\gflags-nonamespace-targets.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\glog\glog-config-version.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\glog\glog-config.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\glog\glog-targets-relwithdebinfo.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\glog\glog-targets.cmake;C:\work\colmap\colmap_git\build\__install__\share\eigen3\cmake\Eigen3Config.cmake;C:\work\colmap\colmap_git\build\__install__\share\eigen3\cmake\Eigen3ConfigVersion.cmake;C:\work\colmap\colmap_git\build\__install__\share\eigen3\cmake\Eigen3Targets.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\3.15.0\CMakeCCompiler.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\3.15.0\CMakeCXXCompiler.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\3.15.0\CMakeRCCompiler.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\3.15.0\CMakeSystem.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\detect_cuda_compute_capabilities.cpp;C:\work\colmap\colmap_git\cmake\CMakeConfig.cmake.in;C:\work\colmap\colmap_git\cmake\CMakeConfigVersion.cmake.in;C:\work\colmap\colmap_git\cmake\CMakeHelper.cmake;C:\work\colmap\colmap_git\cmake\CMakeUninstall.cmake.in;C:\work\colmap\colmap_git\cmake\FindEigen3.cmake;C:\work\colmap\colmap_git\cmake\FindFreeImage.cmake;C:\work\colmap\colmap_git\cmake\FindGlew.cmake;C:\work\colmap\colmap_git\cmake\FindGlog.cmake;C:\work\colmap\colmap_git\cmake\GenerateVersionDefinitions.cmake;C:\work\colmap\colmap_git\cmake\SelectCudaComputeArch.cmake;C:\work\colmap\colmap_git\src\util\version.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/work/colmap/colmap_git/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\programs\CMake\bin\cmake.exe -SC:/work/colmap/colmap_git -BC:/work/colmap/colmap_git/build/colmap/__build__ --check-stamp-file C:/work/colmap/colmap_git/build/colmap/__build__/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\programs\CGAL-4.13.1\build\CGALConfig.cmake;C:\programs\CGAL-4.13.1\build\CGALConfigVersion.cmake;C:\programs\CGAL-4.13.1\build\CGALExports.cmake;C:\programs\CGAL-4.13.1\build\CGALLibConfig.cmake;C:\programs\CGAL-4.13.1\build\CGAL_CoreLibConfig.cmake;C:\programs\CGAL-4.13.1\build\CGAL_ImageIOLibConfig.cmake;C:\programs\CGAL-4.13.1\build\CGAL_Qt5LibConfig.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_CreateSingleSourceCGALProgram.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_Macros.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_SetupBoost.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_TweakFindBoost.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_VersionUtils.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_add_test.cmake;C:\programs\CGAL-4.13.1\cmake\modules\CGAL_enable_end_of_configuration_hook.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeCInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeCXXInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeCommonLanguageInclude.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeFindDependencyMacro.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeGenericSystem.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeInitializeConfigs.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeLanguageInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeParseArguments.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeParseImplicitLinkInfo.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeRCInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInformation.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInitialize.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CTest.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CTestTargets.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CTestUseLaunchers.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CheckCXXCompilerFlag.cmake;C:\programs\CMake\share\cmake-3.15\Modules\CheckCXXSourceCompiles.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Compiler\MSVC-C.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Compiler\MSVC-CXX.cmake;C:\programs\CMake\share\cmake-3.15\Modules\DartConfiguration.tcl.in;C:\programs\CMake\share\cmake-3.15\Modules\FindBoost.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindCUDA.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindCUDA\select_compute_arch.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindGit.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindOpenGL.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindOpenMP.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindPackageHandleStandardArgs.cmake;C:\programs\CMake\share\cmake-3.15\Modules\FindPackageMessage.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC-C.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC-CXX.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\Windows.cmake;C:\programs\CMake\share\cmake-3.15\Modules\Platform\WindowsPaths.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5\Qt5Config.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5\Qt5ConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5\Qt5ModuleLocation.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QXdgDesktopPortalThemePlugin.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5OpenGL\Qt5OpenGLConfig.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5OpenGL\Qt5OpenGLConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;C:\programs\Qt\5.13.0\msvc2017_64\lib\cmake\Qt5Widgets\Qt5Widgets_QWindowsVistaStylePlugin.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\CeresConfig.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\CeresConfigVersion.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\CeresTargets-relwithdebinfo.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\CeresTargets.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\FindEigen.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\FindGflags.cmake;C:\work\colmap\colmap_git\build\__install__\CMake\FindGlog.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\gflags\gflags-config-version.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\gflags\gflags-config.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\gflags\gflags-nonamespace-targets-relwithdebinfo.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\gflags\gflags-nonamespace-targets.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\glog\glog-config-version.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\glog\glog-config.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\glog\glog-targets-relwithdebinfo.cmake;C:\work\colmap\colmap_git\build\__install__\lib\cmake\glog\glog-targets.cmake;C:\work\colmap\colmap_git\build\__install__\share\eigen3\cmake\Eigen3Config.cmake;C:\work\colmap\colmap_git\build\__install__\share\eigen3\cmake\Eigen3ConfigVersion.cmake;C:\work\colmap\colmap_git\build\__install__\share\eigen3\cmake\Eigen3Targets.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\3.15.0\CMakeCCompiler.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\3.15.0\CMakeCXXCompiler.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\3.15.0\CMakeRCCompiler.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\3.15.0\CMakeSystem.cmake;C:\work\colmap\colmap_git\build\colmap\__build__\detect_cuda_compute_capabilities.cpp;C:\work\colmap\colmap_git\cmake\CMakeConfig.cmake.in;C:\work\colmap\colmap_git\cmake\CMakeConfigVersion.cmake.in;C:\work\colmap\colmap_git\cmake\CMakeHelper.cmake;C:\work\colmap\colmap_git\cmake\CMakeUninstall.cmake.in;C:\work\colmap\colmap_git\cmake\FindEigen3.cmake;C:\work\colmap\colmap_git\cmake\FindFreeImage.cmake;C:\work\colmap\colmap_git\cmake\FindGlew.cmake;C:\work\colmap\colmap_git\cmake\FindGlog.cmake;C:\work\colmap\colmap_git\cmake\GenerateVersionDefinitions.cmake;C:\work\colmap\colmap_git\cmake\SelectCudaComputeArch.cmake;C:\work\colmap\colmap_git\src\util\version.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\block.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\energy.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\essential_estimator.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\estimator.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\flann_neighborhood_graph.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\fundamental_estimator.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\GCoptimization.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\GCRANSAC.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\gcransac_python.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\graph.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\grid_neighborhood_graph.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\homography_estimator.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\LinkedBlockList.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\model.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\neighborhood_graph.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\perspective_n_point_estimator.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\progressive_napsac_sampler.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\prosac_sampler.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\sampler.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\sample_consensus_estimator.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\scoring_function.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\settings.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\solver_dls_pnp.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\solver_engine.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\solver_essential_matrix_five_point_stewenius.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\solver_fundamental_matrix_eight_point.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\solver_fundamental_matrix_plane_and_parallax.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\solver_fundamental_matrix_seven_point.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\solver_homography_four_point.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\solver_p3p.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\statistics.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\types.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\uniform_random_generator.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\uniform_sampler.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\utils.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\include\estimators.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\include\magsac.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\include\magsac_utils.h" />
+    <ClInclude Include="..\..\..\src\cmplab_tests\magsac\include\model_score.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\FLANN\config.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\FLANN\defines.h" />
+    <ClCompile Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\GCoptimization.cpp" />
+    <ClCompile Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\graph.cpp" />
+    <ClCompile Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\LinkedBlockList.cpp" />
+    <ClCompile Include="..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\maxflow.cpp" />
+    <ClCompile Include="..\..\..\src\cmplab_tests\magsac\include\gamma_values.cpp" />
+    <ClCompile Include="..\..\..\src\cmplab_tests\magsac\include\magsac.cpp" />
+    <ClCompile Include="..\..\..\src\cmplab_tests\magsac\include\model_score.cpp" />
+    <ClCompile Include="..\..\..\src\cmplab_tests\two_view_geometry_gcransac.cpp" />
+    <ClCompile Include="..\..\..\src\cmplab_tests\two_view_geometry_magsac.cpp" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\FLANN\flann.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\FLANN\flann.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\FLANN\flann.hpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\FLANN\general.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\LSD\lsd.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\LSD\lsd.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\PBA\ConfigBA.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PBA\ConfigBA.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\PBA\CuTexImage.cpp">
+      <ObjectFileName>$(IntDir)/lib/PBA/CuTexImage.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PBA\CuTexImage.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PBA\DataInterface.h" />
+    <None Include="C:\work\colmap\colmap_git\lib\PBA\ProgramCU.cu" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PBA\ProgramCU.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\PBA\SparseBundleCPU.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PBA\SparseBundleCPU.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\PBA\SparseBundleCU.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PBA\SparseBundleCU.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\PBA\pba.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PBA\pba.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PBA\util.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\Allocator.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\Array.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\Array.inl" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\BSplineData.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\BSplineData.inl" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\BinaryNode.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\PoissonRecon\CmdLineParser.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\CmdLineParser.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\CmdLineParser.inl" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\PoissonRecon\Factor.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\Factor.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\FunctionData.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\FunctionData.inl" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\PoissonRecon\Geometry.cpp">
+      <ObjectFileName>$(IntDir)/lib/PoissonRecon/Geometry.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\Geometry.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\Geometry.inl" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\Hash.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\MAT.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\MAT.inl" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\PoissonRecon\MarchingCubes.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\MarchingCubes.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\MemoryUsage.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\MultiGridOctreeData.Evaluation.inl" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\MultiGridOctreeData.IsoSurface.inl" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\MultiGridOctreeData.SortedTreeNodes.inl" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\MultiGridOctreeData.System.inl" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\MultiGridOctreeData.WeightedSamples.inl" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\MultiGridOctreeData.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\MultiGridOctreeData.inl" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\MyTime.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\Octree.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\Octree.inl" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\PPolynomial.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\PPolynomial.inl" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\Ply.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\PoissonRecon\PlyFile.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\PointStream.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\PointStream.inl" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\PoissonRecon\PoissonRecon.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\PoissonRecon.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\Polynomial.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\Polynomial.inl" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\SparseMatrix.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\SparseMatrix.inl" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\PoissonRecon\SurfaceTrimmer.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\PoissonRecon\SurfaceTrimmer.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\SiftGPU\CLTexImage.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SiftGPU\CLTexImage.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\SiftGPU\CuTexImage.cpp">
+      <ObjectFileName>$(IntDir)/lib/SiftGPU/CuTexImage.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SiftGPU\CuTexImage.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\SiftGPU\FrameBufferObject.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SiftGPU\FrameBufferObject.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\SiftGPU\GLTexImage.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SiftGPU\GLTexImage.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\SiftGPU\GlobalUtil.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SiftGPU\GlobalUtil.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SiftGPU\LiteWindow.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\SiftGPU\ProgramCG.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SiftGPU\ProgramCG.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\SiftGPU\ProgramCL.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SiftGPU\ProgramCL.h" />
+    <None Include="C:\work\colmap\colmap_git\lib\SiftGPU\ProgramCU.cu" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SiftGPU\ProgramCU.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\SiftGPU\ProgramGLSL.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SiftGPU\ProgramGLSL.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SiftGPU\ProgramGPU.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\SiftGPU\PyramidCL.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SiftGPU\PyramidCL.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\SiftGPU\PyramidCU.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SiftGPU\PyramidCU.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\SiftGPU\PyramidGL.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SiftGPU\PyramidGL.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\SiftGPU\ShaderMan.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SiftGPU\ShaderMan.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\SiftGPU\SiftGPU.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SiftGPU\SiftGPU.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\SiftGPU\SiftMatch.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SiftGPU\SiftMatch.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\SiftGPU\SiftMatchCU.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SiftGPU\SiftMatchCU.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\SiftGPU\SiftPyramid.cpp" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SiftGPU\SiftPyramid.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\SQLite\shell.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\SQLite\sqlite3.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SQLite\sqlite3.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\SQLite\sqlite3ext.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\aib.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\aib.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\array.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\array.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\covdet.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\covdet.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\dsift.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\dsift.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\fisher.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\fisher.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\float.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\generic.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\generic.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\getopt_long.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\getopt_long.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\gmm.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\gmm.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\heap-def.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\hikmeans.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\hikmeans.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\hog.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\hog.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\homkermap.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\homkermap.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\host.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\host.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\ikmeans.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\ikmeans.h" />
+    <None Include="C:\work\colmap\colmap_git\lib\VLFeat\ikmeans_elkan.tc" />
+    <None Include="C:\work\colmap\colmap_git\lib\VLFeat\ikmeans_init.tc" />
+    <None Include="C:\work\colmap\colmap_git\lib\VLFeat\ikmeans_lloyd.tc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\imopv.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\imopv.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\imopv_sse2.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\imopv_sse2.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\kdtree.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\kdtree.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\kmeans.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\kmeans.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\lbp.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\lbp.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\liop.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\liop.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\mathop.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\mathop.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\mathop_avx.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\mathop_avx.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\mathop_sse2.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\mathop_sse2.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\mser.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\mser.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\pgm.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\pgm.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\qsort-def.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\quickshift.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\quickshift.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\random.c">
+      <ObjectFileName>$(IntDir)/lib/VLFeat/random.c.obj</ObjectFileName>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\random.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\rodrigues.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\rodrigues.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\scalespace.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\scalespace.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\shuffle-def.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\sift.c">
+      <ObjectFileName>$(IntDir)/lib/VLFeat/sift.c.obj</ObjectFileName>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\sift.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\slic.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\slic.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\stringop.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\stringop.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\svm.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\svm.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\svmdataset.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\svmdataset.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\lib\VLFeat\vlad.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\lib\VLFeat\vlad.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\camera.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\camera.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\camera_database.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\camera_database.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\camera_database_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\camera_models.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\camera_models.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\camera_models_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\camera_rig.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\camera_rig.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\camera_rig_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\camera_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\correspondence_graph.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\correspondence_graph.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\correspondence_graph_test.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\cost_functions.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\cost_functions_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\database.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\database.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\database_cache.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\database_cache.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\database_cache_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\database_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\essential_matrix.cc">
+      <ObjectFileName>$(IntDir)/src/base/essential_matrix.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\essential_matrix.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\essential_matrix_test.cc">
+      <ObjectFileName>$(IntDir)/src/base/essential_matrix_test.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\gps.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\gps.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\gps_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\graph_cut.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\graph_cut.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\graph_cut_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\homography_matrix.cc">
+      <ObjectFileName>$(IntDir)/src/base/homography_matrix.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\homography_matrix.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\homography_matrix_test.cc">
+      <ObjectFileName>$(IntDir)/src/base/homography_matrix_test.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\image.cc">
+      <ObjectFileName>$(IntDir)/src/base/image.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\image.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\image_reader.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\image_reader.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\image_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\line.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\line.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\line_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\point2d.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\point2d.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\point2d_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\point3d.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\point3d.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\point3d_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\polynomial.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\polynomial.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\polynomial_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\pose.cc">
+      <ObjectFileName>$(IntDir)/src/base/pose.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\pose.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\pose_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\projection.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\projection.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\projection_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\reconstruction.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\reconstruction.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\reconstruction_manager.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\reconstruction_manager.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\reconstruction_manager_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\reconstruction_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\scene_clustering.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\scene_clustering.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\scene_clustering_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\similarity_transform.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\similarity_transform.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\similarity_transform_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\track.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\track.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\track_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\triangulation.cc">
+      <ObjectFileName>$(IntDir)/src/base/triangulation.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\triangulation.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\triangulation_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\undistortion.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\undistortion.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\undistortion_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\visibility_pyramid.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\visibility_pyramid.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\visibility_pyramid_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\warp.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\warp.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\warp_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\controllers\automatic_reconstruction.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\controllers\automatic_reconstruction.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\controllers\bundle_adjustment.cc">
+      <ObjectFileName>$(IntDir)/src/controllers/bundle_adjustment.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\controllers\bundle_adjustment.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\controllers\hierarchical_mapper.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\controllers\hierarchical_mapper.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\controllers\incremental_mapper.cc">
+      <ObjectFileName>$(IntDir)/src/controllers/incremental_mapper.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\controllers\incremental_mapper.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\absolute_pose.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\absolute_pose.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\absolute_pose_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\affine_transform.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\affine_transform.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\affine_transform_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\coordinate_frame.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\coordinate_frame.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\coordinate_frame_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\essential_matrix.cc">
+      <ObjectFileName>$(IntDir)/src/estimators/essential_matrix.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\essential_matrix.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\essential_matrix_coeffs.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\essential_matrix_poly.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\essential_matrix_test.cc">
+      <ObjectFileName>$(IntDir)/src/estimators/essential_matrix_test.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\euclidean_transform.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\fundamental_matrix.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\fundamental_matrix.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\fundamental_matrix_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\generalized_absolute_pose.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\generalized_absolute_pose.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\generalized_absolute_pose_coeffs.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\generalized_absolute_pose_coeffs.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\generalized_absolute_pose_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\generalized_relative_pose.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\generalized_relative_pose.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\generalized_relative_pose_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\homography_matrix.cc">
+      <ObjectFileName>$(IntDir)/src/estimators/homography_matrix.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\homography_matrix.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\homography_matrix_test.cc">
+      <ObjectFileName>$(IntDir)/src/estimators/homography_matrix_test.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\pose.cc">
+      <ObjectFileName>$(IntDir)/src/estimators/pose.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\pose.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\similarity_transform.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\translation_transform.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\translation_transform_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\triangulation.cc">
+      <ObjectFileName>$(IntDir)/src/estimators/triangulation.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\triangulation.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\two_view_geometry.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\two_view_geometry.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\two_view_geometry_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\utils.cc">
+      <ObjectFileName>$(IntDir)/src/estimators/utils.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\utils.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\utils_test.cc">
+      <ObjectFileName>$(IntDir)/src/estimators/utils_test.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\exe\colmap.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\feature\extraction.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\feature\extraction.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\feature\feature.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\feature\matching.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\feature\matching.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\feature\sift.cc">
+      <ObjectFileName>$(IntDir)/src/feature/sift.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\feature\sift.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\feature\sift_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\feature\types.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\feature\types.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\feature\types_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\feature\utils.cc">
+      <ObjectFileName>$(IntDir)/src/feature/utils.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\feature\utils.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\feature\utils_test.cc">
+      <ObjectFileName>$(IntDir)/src/feature/utils_test.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\consistency_graph.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\consistency_graph.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\consistency_graph_test.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\cuda_array_wrapper.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\cuda_flip.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\cuda_rotate.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\cuda_transpose.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\depth_map.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\depth_map.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\depth_map_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\fusion.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\fusion.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\gpu_mat.h" />
+    <None Include="C:\work\colmap\colmap_git\src\mvs\gpu_mat_prng.cu" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\gpu_mat_prng.h" />
+    <None Include="C:\work\colmap\colmap_git\src\mvs\gpu_mat_ref_image.cu" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\gpu_mat_ref_image.h" />
+    <None Include="C:\work\colmap\colmap_git\src\mvs\gpu_mat_test.cu" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\image.cc">
+      <ObjectFileName>$(IntDir)/src/mvs/image.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\image.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\mat.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\mat_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\meshing.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\meshing.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\model.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\model.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\normal_map.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\normal_map.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\normal_map_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\patch_match.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\patch_match.h" />
+    <None Include="C:\work\colmap\colmap_git\src\mvs\patch_match_cuda.cu" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\patch_match_cuda.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\workspace.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\workspace.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\bundle_adjustment.cc">
+      <ObjectFileName>$(IntDir)/src/optim/bundle_adjustment.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\optim\bundle_adjustment.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\bundle_adjustment_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\combination_sampler.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\optim\combination_sampler.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\combination_sampler_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\least_absolute_deviations.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\optim\least_absolute_deviations.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\least_absolute_deviations_test.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\optim\loransac.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\loransac_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\progressive_sampler.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\optim\progressive_sampler.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\progressive_sampler_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\random_sampler.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\optim\random_sampler.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\random_sampler_test.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\optim\ransac.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\ransac_test.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\optim\sampler.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\sprt.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\optim\sprt.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\support_measurement.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\optim\support_measurement.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\support_measurement_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\retrieval\geometry.cc">
+      <ObjectFileName>$(IntDir)/src/retrieval/geometry.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\retrieval\geometry.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\retrieval\geometry_test.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\retrieval\inverted_file.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\retrieval\inverted_file_entry.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\retrieval\inverted_file_entry_test.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\retrieval\inverted_index.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\retrieval\utils.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\retrieval\visual_index.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\retrieval\visual_index_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\retrieval\vote_and_verify.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\retrieval\vote_and_verify.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\sfm\incremental_mapper.cc">
+      <ObjectFileName>$(IntDir)/src/sfm/incremental_mapper.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\sfm\incremental_mapper.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\sfm\incremental_triangulator.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\sfm\incremental_triangulator.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\tools\example.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\automatic_reconstruction_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\automatic_reconstruction_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\bundle_adjustment_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\bundle_adjustment_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\colormaps.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\colormaps.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\database_management_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\database_management_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\dense_reconstruction_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\dense_reconstruction_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\feature_extraction_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\feature_extraction_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\feature_matching_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\feature_matching_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\image_viewer_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\image_viewer_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\license_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\license_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\line_painter.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\line_painter.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\log_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\log_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\main_window.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\main_window.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\match_matrix_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\match_matrix_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\model_viewer_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\model_viewer_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\movie_grabber_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\movie_grabber_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\options_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\options_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\point_painter.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\point_painter.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\point_viewer_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\point_viewer_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\project_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\project_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\qt_utils.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\qt_utils.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\reconstruction_manager_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\reconstruction_manager_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\reconstruction_options_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\reconstruction_options_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\reconstruction_stats_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\reconstruction_stats_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\render_options.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\render_options.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\render_options_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\render_options_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\thread_control_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\thread_control_widget.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\triangle_painter.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\triangle_painter.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\undistortion_widget.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\undistortion_widget.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\alignment.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\bitmap.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\bitmap.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\bitmap_test.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\cache.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\cache_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\camera_specs.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\camera_specs.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\cuda.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\cuda.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\cudacc.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\cudacc.h" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\endian.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\endian_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\logging.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\logging.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\math.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\math.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\math_test.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\matrix.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\matrix_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\misc.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\misc.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\misc_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\opengl_utils.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\opengl_utils.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\opengl_utils_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\option_manager.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\option_manager.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\ply.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\ply.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\random.cc">
+      <ObjectFileName>$(IntDir)/src/util/random.cc.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\random.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\random_test.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\sqlite3_utils.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\string.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\string.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\string_test.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\testing.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\threading.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\threading.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\threading_test.cc" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\timer.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\timer.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\timer_test.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\types.h" />
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\version.cc" />
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\version.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -43,7 +43,7 @@ doc/_build
 *.out
 *.app
 
-# Disignore solution file
+# Disignore solution file (doesn't work, because folder build was excluded)
 !build/colmap/__build__/COLMAP.sln
 !build/colmap/__build__/colmap_sources.vcxproj
 !build/colmap/__build__/colmap_sources.vcxproj.filters

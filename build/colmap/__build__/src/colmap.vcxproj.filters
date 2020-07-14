@@ -1,0 +1,882 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\camera.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\camera_database.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\camera_models.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\camera_rig.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\correspondence_graph.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\database.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\database_cache.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\essential_matrix.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\gps.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\graph_cut.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\homography_matrix.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\image.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\image_reader.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\line.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\point2d.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\point3d.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\polynomial.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\pose.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\projection.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\reconstruction.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\reconstruction_manager.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\scene_clustering.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\similarity_transform.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\track.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\triangulation.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\undistortion.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\visibility_pyramid.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\base\warp.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\controllers\automatic_reconstruction.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\controllers\bundle_adjustment.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\controllers\hierarchical_mapper.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\controllers\incremental_mapper.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\absolute_pose.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\affine_transform.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\coordinate_frame.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\essential_matrix.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\fundamental_matrix.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\generalized_absolute_pose.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\generalized_absolute_pose_coeffs.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\generalized_relative_pose.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\homography_matrix.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\pose.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\triangulation.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\two_view_geometry.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\estimators\utils.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\feature\extraction.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\feature\matching.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\feature\sift.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\feature\types.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\feature\utils.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\consistency_graph.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\depth_map.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\fusion.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\image.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\meshing.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\model.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\normal_map.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\mvs\workspace.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\bundle_adjustment.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\combination_sampler.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\least_absolute_deviations.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\progressive_sampler.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\random_sampler.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\sprt.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\optim\support_measurement.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\retrieval\geometry.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\retrieval\vote_and_verify.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\sfm\incremental_mapper.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\sfm\incremental_triangulator.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\automatic_reconstruction_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\bundle_adjustment_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\colormaps.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\database_management_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\dense_reconstruction_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\feature_extraction_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\feature_matching_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\image_viewer_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\license_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\line_painter.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\log_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\main_window.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\match_matrix_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\model_viewer_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\movie_grabber_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\options_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\point_painter.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\point_viewer_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\project_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\qt_utils.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\reconstruction_manager_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\reconstruction_options_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\reconstruction_stats_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\render_options.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\render_options_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\thread_control_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\triangle_painter.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\ui\undistortion_widget.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\bitmap.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\camera_specs.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\logging.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\math.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\misc.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\opengl_utils.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\option_manager.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\ply.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\random.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\string.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\threading.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\timer.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\src\util\version.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\work\colmap\colmap_git\build\colmap\__build__\src\colmap_autogen\UYX5XTB5RZ\qrc_resources.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\cmplab_tests\two_view_geometry_gcransac.cpp">
+      <Filter>Source Files\magsac_gcransac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\cmplab_tests\two_view_geometry_magsac.cpp">
+      <Filter>Source Files\magsac_gcransac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\cmplab_tests\magsac\include\gamma_values.cpp">
+      <Filter>Source Files\magsac_gcransac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\cmplab_tests\magsac\include\magsac.cpp">
+      <Filter>Source Files\magsac_gcransac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\cmplab_tests\magsac\include\model_score.cpp">
+      <Filter>Source Files\magsac_gcransac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\GCoptimization.cpp">
+      <Filter>Source Files\magsac_gcransac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\graph.cpp">
+      <Filter>Source Files\magsac_gcransac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\LinkedBlockList.cpp">
+      <Filter>Source Files\magsac_gcransac</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\maxflow.cpp">
+      <Filter>Source Files\magsac_gcransac</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\camera_database.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\camera_models.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\camera_rig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\correspondence_graph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\database.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\database_cache.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\essential_matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\gps.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\graph_cut.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\homography_matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\image_reader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\line.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\point2d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\point3d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\polynomial.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\pose.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\projection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\reconstruction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\reconstruction_manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\scene_clustering.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\similarity_transform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\track.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\triangulation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\undistortion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\visibility_pyramid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\base\warp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\controllers\automatic_reconstruction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\controllers\bundle_adjustment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\controllers\hierarchical_mapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\controllers\incremental_mapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\absolute_pose.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\affine_transform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\coordinate_frame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\essential_matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\euclidean_transform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\fundamental_matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\generalized_absolute_pose.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\generalized_absolute_pose_coeffs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\generalized_relative_pose.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\homography_matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\pose.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\similarity_transform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\translation_transform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\triangulation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\two_view_geometry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\estimators\utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\feature\extraction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\feature\matching.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\feature\sift.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\feature\types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\feature\utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\consistency_graph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\depth_map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\fusion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\meshing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\normal_map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\mvs\workspace.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\optim\bundle_adjustment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\optim\combination_sampler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\optim\least_absolute_deviations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\optim\progressive_sampler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\optim\random_sampler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\optim\sprt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\optim\support_measurement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\retrieval\geometry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\retrieval\inverted_file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\retrieval\inverted_file_entry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\retrieval\inverted_index.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\retrieval\utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\retrieval\visual_index.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\retrieval\vote_and_verify.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\sfm\incremental_mapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\sfm\incremental_triangulator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\automatic_reconstruction_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\bundle_adjustment_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\colormaps.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\database_management_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\dense_reconstruction_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\feature_extraction_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\feature_matching_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\image_viewer_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\license_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\line_painter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\log_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\main_window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\match_matrix_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\model_viewer_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\movie_grabber_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\options_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\point_painter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\point_viewer_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\project_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\qt_utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\reconstruction_manager_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\reconstruction_options_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\reconstruction_stats_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\render_options.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\render_options_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\thread_control_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\triangle_painter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\ui\undistortion_widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\alignment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\bitmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\cache.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\camera_specs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\logging.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\math.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\misc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\opengl_utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\option_manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\ply.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\random.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\sqlite3_utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\string.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\threading.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\testing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\work\colmap\colmap_git\src\util\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\block.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\energy.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\essential_estimator.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\estimator.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\flann_neighborhood_graph.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\fundamental_estimator.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\GCoptimization.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\GCRANSAC.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\gcransac_python.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\graph.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\grid_neighborhood_graph.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\homography_estimator.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\LinkedBlockList.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\model.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\neighborhood_graph.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\perspective_n_point_estimator.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\progressive_napsac_sampler.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\prosac_sampler.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\sample_consensus_estimator.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\sampler.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\scoring_function.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\settings.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\solver_dls_pnp.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\solver_engine.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\solver_essential_matrix_five_point_stewenius.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\solver_fundamental_matrix_eight_point.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\solver_fundamental_matrix_plane_and_parallax.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\solver_fundamental_matrix_seven_point.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\solver_homography_four_point.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\solver_p3p.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\statistics.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\types.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\uniform_random_generator.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\uniform_sampler.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\graph-cut-ransac\src\pygcransac\include\utils.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\include\estimators.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\include\magsac.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\include\magsac_utils.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\cmplab_tests\magsac\include\model_score.h">
+      <Filter>Header Files\magsac_gcransac</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\work\colmap\colmap_git\build\colmap\__build__\CMakeFiles\a9fbee559139000e3f44f1f217049e77\qrc_resources.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\work\colmap\colmap_git\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\work\colmap\colmap_git\src\ui\resources.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{059873C8-C5D3-32CC-8566-FDF37E3633BA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{34AD6EEB-483B-3442-8A57-08B0C8E0C597}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{317D2D89-CFE5-3C2D-91F5-62EC95C16E24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\magsac_gcransac">
+      <UniqueIdentifier>{c2f1eb2b-1346-4473-b893-3d1086fa72af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\magsac_gcransac">
+      <UniqueIdentifier>{bc522c0e-15bc-4509-b056-734cee9b6c12}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
