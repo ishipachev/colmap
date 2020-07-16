@@ -427,7 +427,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="..\..\..\..\src\cmplab_tests\magsac\include\gamma_values.cpp" />
     <ClCompile Include="..\..\..\..\src\cmplab_tests\magsac\include\magsac.cpp" />
     <ClCompile Include="..\..\..\..\src\cmplab_tests\magsac\include\model_score.cpp" />
-    <ClCompile Include="..\..\..\..\src\cmplab_tests\two_view_geometry_gcransac.cpp" />
     <ClCompile Include="..\..\..\..\src\cmplab_tests\two_view_geometry_magsac.cpp" />
     <ClCompile Include="C:\work\colmap\colmap_git\src\base\camera.cc" />
     <ClInclude Include="C:\work\colmap\colmap_git\src\base\camera_database.h" />

@@ -41,6 +41,8 @@
 #include "util/cuda.h"
 #include "util/misc.h"
 
+#define IS_MAGSAC_ON false
+
 namespace colmap {
 namespace {
 
@@ -590,19 +592,41 @@ void TwoViewGeometryVerifier::Run() {
       const auto points2 = FeatureKeypointsToPointsVector(keypoints2);
 
 
-      //GCRANSAC test
-      two_view_geometry_options_.detect_watermark = false;
-      data.two_view_geometry.EstimateUncalibratedGCRansac(
-          camera1, points1, camera2, points2, data.matches,
-          two_view_geometry_options_);
+			// MAGSAC test
+			//TODO: Add switcher between normal functions and magsac functions
+			//and pass this switcher to command line arguments or to gui,
+			//so it can be easily applied without recompiling the whole project
 
-      //TODO: Add calibrated camera support in GCRansac
-      //IS: OR for comparing
-      //data.two_view_geometry.EstimateUncalibrated(
+      // IS: the switcher here is required
+      // TODO: Implement EstimateCalibrated
+      // TODO: Implement switch through .ini file
+      if (IS_MAGSAC_ON) {
+        printf("Verifier: Running MAGSAC matching...\n");
+        data.two_view_geometry.EstimateUncalibratedMAGSAC(
+            camera1, FeatureKeypointsToPointsVector(keypoints1), camera2,
+            FeatureKeypointsToPointsVector(keypoints2), data.matches,
+            two_view_geometry_options_);
+      } else {
+        printf("Verifier: Running default LORANSAC matching...\n");
+        data.two_view_geometry.EstimateUncalibrated(
+            camera1, FeatureKeypointsToPointsVector(keypoints1), camera2,
+            FeatureKeypointsToPointsVector(keypoints2), data.matches,
+            two_view_geometry_options_);
+      }
+
+      // GCRANSAC test
+      // two_view_geometry_options_.detect_watermark = false;
+      // data.two_view_geometry.EstimateUncalibratedGCRansac(
       //    camera1, points1, camera2, points2, data.matches,
       //    two_view_geometry_options_);
 
-      //if (options_.multiple_models) {
+      // TODO: Add calibrated camera support in GCRansac
+      // IS: OR for comparing
+      // data.two_view_geometry.EstimateUncalibrated(
+      //    camera1, points1, camera2, points2, data.matches,
+      //    two_view_geometry_options_);
+
+      // if (options_.multiple_models) {
       //  data.two_view_geometry.EstimateMultiple(camera1, points1, camera2,
       //                                          points2, data.matches,
       //                                          two_view_geometry_options_);
@@ -1648,12 +1672,25 @@ void FeaturePairsFeatureMatcher::Run() {
           match_options_.min_inlier_ratio;
 
       //IS: the switcher here is required
-      two_view_geometry.EstimateUncalibratedGCRansac(
+      //TODO: Implement EstimateCalibrated
+      //TODO: Implement switch through .ini file
+      if (IS_MAGSAC_ON) {
+        printf("Feature Matcher: Running MAGSAC matching...\n");
+        two_view_geometry.EstimateUncalibratedMAGSAC(
           camera1, FeatureKeypointsToPointsVector(keypoints1), camera2,
           FeatureKeypointsToPointsVector(keypoints2), matches,
           two_view_geometry_options);
+      } else {
+        printf("Feature Matcher: Running default LORANSAC matching...\n");
+        two_view_geometry.EstimateUncalibrated(
+            camera1, FeatureKeypointsToPointsVector(keypoints1), camera2,
+            FeatureKeypointsToPointsVector(keypoints2), matches,
+            two_view_geometry_options);
+      }
 
-      //two_view_geometry.Estimate(
+
+      // Right version with everything in it
+      // two_view_geometry.Estimate(
       //    camera1, FeatureKeypointsToPointsVector(keypoints1), camera2,
       //    FeatureKeypointsToPointsVector(keypoints2), matches,
       //    two_view_geometry_options);

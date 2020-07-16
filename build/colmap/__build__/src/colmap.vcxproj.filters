@@ -334,9 +334,6 @@
     <ClCompile Include="C:\work\colmap\colmap_git\build\colmap\__build__\src\colmap_autogen\UYX5XTB5RZ\qrc_resources.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\src\cmplab_tests\two_view_geometry_gcransac.cpp">
-      <Filter>Source Files\magsac_gcransac</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\src\cmplab_tests\two_view_geometry_magsac.cpp">
       <Filter>Source Files\magsac_gcransac</Filter>
     </ClCompile>
