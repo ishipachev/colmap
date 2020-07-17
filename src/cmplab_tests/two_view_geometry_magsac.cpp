@@ -117,7 +117,7 @@ inline bool IsImagePointInBoundingBox(const Eigen::Vector2d& point,
 bool setAndRunMAGSAC_F(const cv::Mat& cvPoints,
                        const TwoViewGeometry::Options& options,
                        Eigen::Matrix3d& F, std::vector<char>& inlier_mask,
-                       uint& inlier_cnt) {
+                       size_t& inlier_cnt) {
   // Estimate epipolar model.
   // MAGSAC way
   gcransac::sampler::UniformSampler main_sampler_F(&cvPoints);
@@ -128,8 +128,8 @@ bool setAndRunMAGSAC_F(const cv::Mat& cvPoints,
   MAGSAC<cv::Mat, magsac::utils::DefaultFundamentalMatrixEstimator> magsac_F;
   // max_sigma will be twice max error
   magsac::utils::DefaultFundamentalMatrixEstimator estimator_F(
-      options.ransac_options.max_error * 2);
-  magsac_F.setMaximumThreshold(options.ransac_options.max_error * 2);
+      options.ransac_options.max_error * 3);
+  magsac_F.setMaximumThreshold(options.ransac_options.max_error * 4);
   magsac_F.setReferenceThreshold(options.ransac_options.max_error);
   magsac_F.setIterationLimit(options.ransac_options.max_num_trials);
   magsac_F.setMinimumIterationNumber(options.ransac_options.min_num_trials);
@@ -137,8 +137,7 @@ bool setAndRunMAGSAC_F(const cv::Mat& cvPoints,
 
   bool success =
       magsac_F.run(cvPoints,  // The data points
-                   options.ransac_options
-                       .confidence,   // The required confidence in the results
+                   options.ransac_options.confidence,   // The required confidence in the results
                    estimator_F,       // The used estimator
                    main_sampler_F,    // The sampler used for selecting minimal
                                       // samples in each iteration
@@ -170,7 +169,7 @@ bool setAndRunMAGSAC_F(const cv::Mat& cvPoints,
 bool setAndRunMAGSAC_H(const cv::Mat& cvPoints,
                        const TwoViewGeometry::Options& options,
                        Eigen::Matrix3d& H, std::vector<char>& inlier_mask,
-                       uint& inlier_cnt) {
+                       size_t& inlier_cnt) {
   // Estimate epipolar model.
   // MAGSAC way
   gcransac::sampler::UniformSampler main_sampler_F(&cvPoints);
@@ -179,7 +178,7 @@ bool setAndRunMAGSAC_H(const cv::Mat& cvPoints,
   magsac::utils::DefaultHomographyEstimator estimator_H;
   MAGSAC<cv::Mat, magsac::utils::DefaultHomographyEstimator> magsac_H;
   // max_sigma will be twice max error
-  magsac_H.setMaximumThreshold(options.ransac_options.max_error * 2);
+  magsac_H.setMaximumThreshold(options.ransac_options.max_error * 4);
   magsac_H.setReferenceThreshold(options.ransac_options.max_error);
   magsac_H.setIterationLimit(options.ransac_options.max_num_trials);
   magsac_H.setMinimumIterationNumber(options.ransac_options.min_num_trials);
@@ -189,8 +188,7 @@ bool setAndRunMAGSAC_H(const cv::Mat& cvPoints,
 
   bool success =
       magsac_H.run(cvPoints,  // The data points
-                   options.ransac_options
-                       .confidence,   // The required confidence in the results
+                   options.ransac_options.confidence,   // The required confidence in the results
                    estimator_H,       // The used estimator
                    main_sampler_F,    // The sampler used for selecting minimal
                                       // samples in each iteration
@@ -425,7 +423,7 @@ void TwoViewGeometry::EstimateUncalibratedMAGSAC(
     return;
   }
 
-  printf("\tUncalibrated MAGSAC is running...\n");
+  //printf("\tUncalibrated MAGSAC is running...\n");
 
   // Extract corresponding points.
   // And transforming the input
@@ -446,32 +444,61 @@ void TwoViewGeometry::EstimateUncalibratedMAGSAC(
     *(cvPointsPtr++) = points2[idx2](1);
   }
 
+  // Estimate epipolar model
+  // Default way
+  LORANSAC<FundamentalMatrixSevenPointEstimator,
+           FundamentalMatrixEightPointEstimator>
+      F_ransac(options.ransac_options);
+  const auto F_report = F_ransac.Estimate(matched_points1, matched_points2);
+  F = F_report.model;
+
   // Estimate epipolar model.
   // MAGSAC way
+  // Using default ransac::report structure to have a report
+  LORANSAC<FundamentalMatrixSevenPointEstimator,
+           FundamentalMatrixEightPointEstimator>::Report F_magsac_report;
+  F_magsac_report.success = setAndRunMAGSAC_F(cvPoints, 
+                                              options, 
+                                              F, 
+                                              F_magsac_report.inlier_mask, 
+                                              F_magsac_report.support.num_inliers);
 
-  std::vector<char> inlier_mask_F(cvPoints.rows);
-  uint inlier_cnt_F;
-  bool success_F =
-      setAndRunMAGSAC_F(cvPoints, options, F, inlier_mask_F, inlier_cnt_F);
+  // Estimate planar or panoramic model.
+  // Default way
+  LORANSAC<HomographyMatrixEstimator, HomographyMatrixEstimator> H_ransac(
+      options.ransac_options);
+  const auto H_report = H_ransac.Estimate(matched_points1, matched_points2);
+  H = H_report.model;
 
   // Estimate planar or panoramic model.
   // MAGSAC way
+  // Using default ransac::report structure to have a report
+  LORANSAC<HomographyMatrixEstimator, 
+           HomographyMatrixEstimator>::Report H_magsac_report;
+  H_magsac_report.success = setAndRunMAGSAC_H(cvPoints, 
+                                              options, 
+                                              H, 
+                                              H_magsac_report.inlier_mask, 
+                                              H_magsac_report.support.num_inliers);
 
-  std::vector<char> inlier_mask_H(cvPoints.rows);
-  uint inlier_cnt_H;
-  bool success_H =
-      setAndRunMAGSAC_H(cvPoints, options, H, inlier_mask_H, inlier_cnt_H);
-
-  if ((!success_F && !success_H) || (inlier_cnt_F < options.min_num_inliers &&
-                                     inlier_cnt_H < options.min_num_inliers)) {
+  if ((!F_magsac_report.success && !H_magsac_report.success) ||
+      (F_magsac_report.support.num_inliers < options.min_num_inliers &&
+       H_magsac_report.support.num_inliers < options.min_num_inliers)) {
     config = ConfigurationType::DEGENERATE;
     return;
   }
 
+  printf("F, default   : %5d\n", F_report.support.num_inliers);
+  printf("F, magsac    : %5d\n", F_magsac_report.support.num_inliers);
+  printf("H, default: %5d\n", H_report.support.num_inliers);
+  printf("H, magsac : %5d\n", H_magsac_report.support.num_inliers);
+
+
   // Determine inlier ratios of different models.
 
   const double H_F_inlier_ratio =
-      static_cast<double>(inlier_cnt_H) / inlier_cnt_F;
+      static_cast<double>(H_magsac_report.support.num_inliers) /
+      F_magsac_report.support.num_inliers;
 
   if (H_F_inlier_ratio > options.max_H_inlier_ratio) {
     config = ConfigurationType::PLANAR_OR_PANORAMIC;
@@ -479,11 +506,16 @@ void TwoViewGeometry::EstimateUncalibratedMAGSAC(
     config = ConfigurationType::UNCALIBRATED;
   }
 
-  inlier_matches = ExtractInlierMatches(matches, inlier_cnt_F, inlier_mask_F);
+  inlier_matches = ExtractInlierMatches(
+      matches, 
+      F_magsac_report.support.num_inliers, 
+      F_magsac_report.inlier_mask);
 
   if (options.detect_watermark &&
       DetectWatermarkMAGSAC(camera1, matched_points1, camera2, matched_points2,
-                            inlier_cnt_F, inlier_mask_F, options)) {
+                            F_magsac_report.support.num_inliers,
+                            F_magsac_report.inlier_mask,
+                            options)) {
     config = ConfigurationType::WATERMARK;
   }
 }

@@ -41,7 +41,7 @@
 #include "util/cuda.h"
 #include "util/misc.h"
 
-#define IS_MAGSAC_ON false
+#define IS_MAGSAC_ON true
 
 namespace colmap {
 namespace {
