@@ -41,6 +41,8 @@
 #include "util/cuda.h"
 #include "util/misc.h"
 
+#define IS_MAGSAC_ON true
+
 namespace colmap {
 namespace {
 
@@ -589,15 +591,50 @@ void TwoViewGeometryVerifier::Run() {
       const auto points1 = FeatureKeypointsToPointsVector(keypoints1);
       const auto points2 = FeatureKeypointsToPointsVector(keypoints2);
 
-      if (options_.multiple_models) {
-        data.two_view_geometry.EstimateMultiple(camera1, points1, camera2,
-                                                points2, data.matches,
-                                                two_view_geometry_options_);
+
+			// MAGSAC test
+			//TODO: Add switcher between normal functions and magsac functions
+			//and pass this switcher to command line arguments or to gui,
+			//so it can be easily applied without recompiling the whole project
+
+      // IS: the switcher here is required
+      // TODO: Implement EstimateCalibrated
+      // TODO: Implement switch through .ini file
+      if (IS_MAGSAC_ON) {
+        printf("Verifier: Running MAGSAC matching...\n");
+        data.two_view_geometry.EstimateUncalibratedMAGSAC(
+            camera1, FeatureKeypointsToPointsVector(keypoints1), camera2,
+            FeatureKeypointsToPointsVector(keypoints2), data.matches,
+            two_view_geometry_options_);
       } else {
-        data.two_view_geometry.Estimate(camera1, points1, camera2, points2,
-                                        data.matches,
-                                        two_view_geometry_options_);
+        printf("Verifier: Running default LORANSAC matching...\n");
+        data.two_view_geometry.EstimateUncalibrated(
+            camera1, FeatureKeypointsToPointsVector(keypoints1), camera2,
+            FeatureKeypointsToPointsVector(keypoints2), data.matches,
+            two_view_geometry_options_);
       }
+
+      // GCRANSAC test
+      // two_view_geometry_options_.detect_watermark = false;
+      // data.two_view_geometry.EstimateUncalibratedGCRansac(
+      //    camera1, points1, camera2, points2, data.matches,
+      //    two_view_geometry_options_);
+
+      // TODO: Add calibrated camera support in GCRansac
+      // IS: OR for comparing
+      // data.two_view_geometry.EstimateUncalibrated(
+      //    camera1, points1, camera2, points2, data.matches,
+      //    two_view_geometry_options_);
+
+      // if (options_.multiple_models) {
+      //  data.two_view_geometry.EstimateMultiple(camera1, points1, camera2,
+      //                                          points2, data.matches,
+      //                                          two_view_geometry_options_);
+      //} else {
+      //  data.two_view_geometry.Estimate(camera1, points1, camera2, points2,
+      //                                  data.matches,
+      //                                  two_view_geometry_options_);
+      //}
 
       CHECK(output_queue_->Push(data));
     }
@@ -1641,10 +1678,29 @@ void FeaturePairsFeatureMatcher::Run() {
       two_view_geometry_options.ransac_options.min_inlier_ratio =
           match_options_.min_inlier_ratio;
 
-      two_view_geometry.Estimate(
+      //IS: the switcher here is required
+      //TODO: Implement EstimateCalibrated
+      //TODO: Implement switch through .ini file
+      if (IS_MAGSAC_ON) {
+        printf("Feature Matcher: Running MAGSAC matching...\n");
+        two_view_geometry.EstimateUncalibratedMAGSAC(
           camera1, FeatureKeypointsToPointsVector(keypoints1), camera2,
           FeatureKeypointsToPointsVector(keypoints2), matches,
           two_view_geometry_options);
+      } else {
+        printf("Feature Matcher: Running default LORANSAC matching...\n");
+        two_view_geometry.EstimateUncalibrated(
+            camera1, FeatureKeypointsToPointsVector(keypoints1), camera2,
+            FeatureKeypointsToPointsVector(keypoints2), matches,
+            two_view_geometry_options);
+      }
+
+
+      // Right version with everything in it
+      // two_view_geometry.Estimate(
+      //    camera1, FeatureKeypointsToPointsVector(keypoints1), camera2,
+      //    FeatureKeypointsToPointsVector(keypoints2), matches,
+      //    two_view_geometry_options);
 
       database_.WriteTwoViewGeometry(image1.ImageId(), image2.ImageId(),
                                      two_view_geometry);

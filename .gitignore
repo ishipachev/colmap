@@ -42,3 +42,12 @@ doc/_build
 *.exe
 *.out
 *.app
+
+# Disignore solution file (doesn't work, because folder build was excluded)
+!build/colmap/__build__/COLMAP.sln
+!build/colmap/__build__/colmap_sources.vcxproj
+!build/colmap/__build__/colmap_sources.vcxproj.filters
+!build/colmap/__build__/src/colmap.vcxproj
+!build/colmap/__build__/src/colmap.vcxproj.filters
+!build/colmap/__build__/src/colmap_cuda.vcxproj
+!build/colmap/__build__/src/colmap_cuda.vcxproj.filters
