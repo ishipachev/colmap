@@ -554,7 +554,10 @@ bool Reconstruction::Align(const std::vector<std::string>& image_names,
   }
 
   SimilarityTransform3 tform;
-  tform.Estimate(src, dst);
+  if (!tform.Estimate(src, dst)) {
+    return false;
+  }
+
   Transform(tform);
 
   return true;
@@ -1239,7 +1242,9 @@ void Reconstruction::ExtractColorsForAllImages(const std::string& path) {
     if (color_sums.count(point3D.first)) {
       Eigen::Vector3d color =
           color_sums[point3D.first] / color_counts[point3D.first];
-      color.unaryExpr(std::ptr_fun<double, double>(std::round));
+      for (Eigen::Index i = 0; i < color.size(); ++i) {
+        color[i] = std::round(color[i]);
+      }
       point3D.second.SetColor(color.cast<uint8_t>());
     } else {
       point3D.second.SetColor(kBlackColor);
@@ -1723,6 +1728,9 @@ void Reconstruction::WriteCamerasText(const std::string& path) const {
   std::ofstream file(path, std::ios::trunc);
   CHECK(file.is_open()) << path;
 
+  // Ensure that we don't loose any precision by storing in text.
+  file.precision(17);
+
   file << "# Camera list with one line of data per camera:" << std::endl;
   file << "#   CAMERA_ID, MODEL, WIDTH, HEIGHT, PARAMS[]" << std::endl;
   file << "# Number of cameras: " << cameras_.size() << std::endl;
@@ -1749,6 +1757,9 @@ void Reconstruction::WriteCamerasText(const std::string& path) const {
 void Reconstruction::WriteImagesText(const std::string& path) const {
   std::ofstream file(path, std::ios::trunc);
   CHECK(file.is_open()) << path;
+
+  // Ensure that we don't loose any precision by storing in text.
+  file.precision(17);
 
   file << "# Image list with two lines of data per image:" << std::endl;
   file << "#   IMAGE_ID, QW, QX, QY, QZ, TX, TY, TZ, CAMERA_ID, "
@@ -1809,6 +1820,9 @@ void Reconstruction::WriteImagesText(const std::string& path) const {
 void Reconstruction::WritePoints3DText(const std::string& path) const {
   std::ofstream file(path, std::ios::trunc);
   CHECK(file.is_open()) << path;
+
+  // Ensure that we don't loose any precision by storing in text.
+  file.precision(17);
 
   file << "# 3D point list with one line of data per point:" << std::endl;
   file << "#   POINT3D_ID, X, Y, Z, R, G, B, ERROR, "
