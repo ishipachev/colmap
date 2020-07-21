@@ -751,9 +751,6 @@
     <ClCompile Include="C:\work\colmap\colmap_git\src\util\version.cc">
       <Filter>src\util</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\cmplab_tests\two_view_geometry_gcransac.cpp">
-      <Filter>cmp_src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\cmplab_tests\two_view_geometry_magsac.cpp">
       <Filter>cmp_src</Filter>
     </ClCompile>
