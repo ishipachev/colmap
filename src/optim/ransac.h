@@ -65,6 +65,8 @@ struct RANSACOptions {
   size_t min_num_trials = 0;
   size_t max_num_trials = std::numeric_limits<size_t>::max();
 
+  bool magsac = true;
+
   void Check() const {
     CHECK_GT(max_error, 0);
     CHECK_GE(min_inlier_ratio, 0);

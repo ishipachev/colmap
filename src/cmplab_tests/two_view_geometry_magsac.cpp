@@ -128,7 +128,7 @@ bool setAndRunMAGSAC_F(const cv::Mat& cvPoints,
   MAGSAC<cv::Mat, magsac::utils::DefaultFundamentalMatrixEstimator> magsac_F;
   // max_sigma will be twice max error
   magsac::utils::DefaultFundamentalMatrixEstimator estimator_F(
-      options.ransac_options.max_error * 3);
+      options.ransac_options.max_error * 4);
   magsac_F.setMaximumThreshold(options.ransac_options.max_error * 4);
   magsac_F.setReferenceThreshold(options.ransac_options.max_error);
   magsac_F.setIterationLimit(options.ransac_options.max_num_trials);

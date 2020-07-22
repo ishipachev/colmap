@@ -565,6 +565,7 @@ TwoViewGeometryVerifier::TwoViewGeometryVerifier(
       static_cast<size_t>(options_.max_num_trials);
   two_view_geometry_options_.ransac_options.min_inlier_ratio =
       options_.min_inlier_ratio;
+  two_view_geometry_options_.ransac_options.magsac = options_.magsac;
 }
 
 void TwoViewGeometryVerifier::Run() {
@@ -593,21 +594,21 @@ void TwoViewGeometryVerifier::Run() {
 
 
 			// MAGSAC test
-			//TODO: Add switcher between normal functions and magsac functions
-			//and pass this switcher to command line arguments or to gui,
-			//so it can be easily applied without recompiling the whole project
 
-      // IS: the switcher here is required
+      bool is_magsac_on = two_view_geometry_options_.ransac_options.magsac;
+
+
       // TODO: Implement EstimateCalibrated
-      // TODO: Implement switch through .ini file
-      if (IS_MAGSAC_ON) {
-        printf("Verifier: Running MAGSAC matching...\n");
+      if (is_magsac_on) {
+        //printf("Verifier: Running MAGSAC matching...\n");
+        printf("MAGSAC ON: %d \n", int(is_magsac_on));
         data.two_view_geometry.EstimateUncalibratedMAGSAC(
             camera1, FeatureKeypointsToPointsVector(keypoints1), camera2,
             FeatureKeypointsToPointsVector(keypoints2), data.matches,
             two_view_geometry_options_);
       } else {
-        printf("Verifier: Running default LORANSAC matching...\n");
+        //printf("Verifier: Running default LORANSAC matching...\n");
+        printf("MAGSAC ON: %d \n", int(is_magsac_on));
         data.two_view_geometry.EstimateUncalibrated(
             camera1, FeatureKeypointsToPointsVector(keypoints1), camera2,
             FeatureKeypointsToPointsVector(keypoints2), data.matches,
@@ -1678,17 +1679,19 @@ void FeaturePairsFeatureMatcher::Run() {
       two_view_geometry_options.ransac_options.min_inlier_ratio =
           match_options_.min_inlier_ratio;
 
-      //IS: the switcher here is required
+      bool is_magsac_on = match_options_.magsac;
+
       //TODO: Implement EstimateCalibrated
-      //TODO: Implement switch through .ini file
-      if (IS_MAGSAC_ON) {
-        printf("Feature Matcher: Running MAGSAC matching...\n");
+      if (is_magsac_on) {
+        //printf("Feature Matcher: Running MAGSAC matching...\n");
+        printf("MAGSAC ON: %d \n", int(is_magsac_on));
         two_view_geometry.EstimateUncalibratedMAGSAC(
           camera1, FeatureKeypointsToPointsVector(keypoints1), camera2,
           FeatureKeypointsToPointsVector(keypoints2), matches,
           two_view_geometry_options);
       } else {
-        printf("Feature Matcher: Running default LORANSAC matching...\n");
+        printf("MAGSAC OFF: %d \n", int(is_magsac_on));
+        //printf("Feature Matcher: Running default LORANSAC matching...\n");
         two_view_geometry.EstimateUncalibrated(
             camera1, FeatureKeypointsToPointsVector(keypoints1), camera2,
             FeatureKeypointsToPointsVector(keypoints2), matches,

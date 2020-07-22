@@ -318,6 +318,10 @@ void OptionManager::AddMatchingOptions() {
                               &sift_matching->multiple_models);
   AddAndRegisterDefaultOption("SiftMatching.guided_matching",
                               &sift_matching->guided_matching);
+
+  //IS: Magsac switcher
+  AddAndRegisterDefaultOption("SiftMatching.magsac",
+                              &sift_matching->magsac);
 }
 
 void OptionManager::AddExhaustiveMatchingOptions() {

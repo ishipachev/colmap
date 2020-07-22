@@ -161,6 +161,9 @@ struct SiftMatchingOptions {
   // Whether to perform guided matching, if geometric verification succeeds.
   bool guided_matching = false;
 
+  //IS: Option to turn on or off MAGSAC variant
+  bool magsac = true;
+
   bool Check() const;
 };
 
