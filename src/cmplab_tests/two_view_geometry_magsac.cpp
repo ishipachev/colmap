@@ -128,8 +128,8 @@ bool setAndRunMAGSAC_F(const cv::Mat& cvPoints,
   MAGSAC<cv::Mat, magsac::utils::DefaultFundamentalMatrixEstimator> magsac_F;
   // max_sigma will be twice max error
   magsac::utils::DefaultFundamentalMatrixEstimator estimator_F(
-      options.ransac_options.max_error * 1);
-  magsac_F.setMaximumThreshold(options.ransac_options.max_error * 1);
+      options.ransac_options.max_error * 2);
+  magsac_F.setMaximumThreshold(options.ransac_options.max_error * 2);
   magsac_F.setReferenceThreshold(options.ransac_options.max_error);
   magsac_F.setIterationLimit(options.ransac_options.max_num_trials);
   magsac_F.setMinimumIterationNumber(options.ransac_options.min_num_trials);
@@ -178,7 +178,7 @@ bool setAndRunMAGSAC_H(const cv::Mat& cvPoints,
   magsac::utils::DefaultHomographyEstimator estimator_H;
   MAGSAC<cv::Mat, magsac::utils::DefaultHomographyEstimator> magsac_H;
   // max_sigma will be twice max error
-  magsac_H.setMaximumThreshold(options.ransac_options.max_error * 1);
+  magsac_H.setMaximumThreshold(options.ransac_options.max_error * 2);
   magsac_H.setReferenceThreshold(options.ransac_options.max_error);
   magsac_H.setIterationLimit(options.ransac_options.max_num_trials);
   magsac_H.setMinimumIterationNumber(options.ransac_options.min_num_trials);
