@@ -50,6 +50,7 @@ void ProgressiveSampler::Initialize(const size_t total_num_samples) {
   CHECK_LE(num_samples_, total_num_samples);
   total_num_samples_ = total_num_samples;
 
+  printf("ProgressiveSampler initialized\n");
   t_ = 0;
   n_ = num_samples_;
 

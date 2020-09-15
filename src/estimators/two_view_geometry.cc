@@ -47,6 +47,11 @@
 #include "optim/ransac.h"
 #include "util/random.h"
 
+//Testing inlier in inlier with PROSAC
+#include "optim/progressive_sampler.h"
+#include "optim/support_measurement.h"
+
+
 namespace colmap {
 namespace {
 
@@ -233,6 +238,8 @@ void TwoViewGeometry::EstimateCalibrated(
     const FeatureMatches& matches, const Options& options) {
   options.Check();
 
+  printf("\nTwoViewGeometry::EstimateCalibrated: I'm here\n");
+
   if (matches.size() < options.min_num_inliers) {
     config = ConfigurationType::DEGENERATE;
     return;
@@ -260,24 +267,38 @@ void TwoViewGeometry::EstimateCalibrated(
        camera2.ImageToWorldThreshold(options.ransac_options.max_error)) /
       2;
 
-  LORANSAC<EssentialMatrixFivePointEstimator, EssentialMatrixFivePointEstimator>
+  LORANSAC<EssentialMatrixFivePointEstimator, 
+           EssentialMatrixFivePointEstimator,
+           InlierSupportMeasurer,
+           ProgressiveSampler>
       E_ransac(E_ransac_options);
   const auto E_report =
       E_ransac.Estimate(matched_points1_normalized, matched_points2_normalized);
   E = E_report.model;
 
+  printf("E trials: %5d\n", E_report.num_trials);
+  
   LORANSAC<FundamentalMatrixSevenPointEstimator,
-           FundamentalMatrixEightPointEstimator>
+           FundamentalMatrixEightPointEstimator, 
+           InlierSupportMeasurer,
+           ProgressiveSampler>
       F_ransac(options.ransac_options);
   const auto F_report = F_ransac.Estimate(matched_points1, matched_points2);
   F = F_report.model;
 
+  printf("F trials: %5d\n", F_report.num_trials);
+
   // Estimate planar or panoramic model.
 
-  LORANSAC<HomographyMatrixEstimator, HomographyMatrixEstimator> H_ransac(
-      options.ransac_options);
+  LORANSAC<HomographyMatrixEstimator, 
+           HomographyMatrixEstimator,
+           InlierSupportMeasurer, 
+           ProgressiveSampler>
+      H_ransac(options.ransac_options);
   const auto H_report = H_ransac.Estimate(matched_points1, matched_points2);
   H = H_report.model;
+
+  printf("H trials: %5d\n", H_report.num_trials);
 
   if ((!E_report.success && !F_report.success && !H_report.success) ||
       (E_report.support.num_inliers < options.min_num_inliers &&
@@ -368,6 +389,9 @@ void TwoViewGeometry::EstimateUncalibrated(
     const FeatureMatches& matches, const Options& options) {
   options.Check();
 
+  printf("\nTwoViewGeometry::EstimateUncalibrated: I'm here\n");
+
+
   if (matches.size() < options.min_num_inliers) {
     config = ConfigurationType::DEGENERATE;
     return;
@@ -384,17 +408,27 @@ void TwoViewGeometry::EstimateUncalibrated(
   // Estimate epipolar model.
 
   LORANSAC<FundamentalMatrixSevenPointEstimator,
-           FundamentalMatrixEightPointEstimator>
+           FundamentalMatrixEightPointEstimator, 
+           InlierSupportMeasurer,
+           ProgressiveSampler>
       F_ransac(options.ransac_options);
   const auto F_report = F_ransac.Estimate(matched_points1, matched_points2);
   F = F_report.model;
 
+  printf("F trials: %5d\n", F_report.num_trials);
+
   // Estimate planar or panoramic model.
 
-  LORANSAC<HomographyMatrixEstimator, HomographyMatrixEstimator> H_ransac(
+  LORANSAC<HomographyMatrixEstimator, 
+           HomographyMatrixEstimator,
+           InlierSupportMeasurer, 
+           ProgressiveSampler>
+      H_ransac(
       options.ransac_options);
   const auto H_report = H_ransac.Estimate(matched_points1, matched_points2);
   H = H_report.model;
+
+  printf("H trials: %5d\n", H_report.num_trials);
 
   if ((!F_report.success && !H_report.success) ||
       (F_report.support.num_inliers < options.min_num_inliers &&

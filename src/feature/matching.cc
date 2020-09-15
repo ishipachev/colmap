@@ -41,7 +41,14 @@
 #include "util/cuda.h"
 #include "util/misc.h"
 
+#include "feature/inlier_passing.h"
+
+#pragma optimize( "", off )
+
 namespace colmap {
+
+InlierPassing inlierPassing;
+
 namespace {
 
 void PrintElapsedTime(const Timer& timer) {
@@ -589,10 +596,32 @@ void TwoViewGeometryVerifier::Run() {
       const auto points1 = FeatureKeypointsToPointsVector(keypoints1);
       const auto points2 = FeatureKeypointsToPointsVector(keypoints2);
 
+      // IS: OLD BLOCK OF CODE
+      // if (options_.multiple_models) {
+      //  data.two_view_geometry.EstimateMultiple(camera1, points1, camera2,
+      //                                          points2, data.matches,
+      //                                          two_view_geometry_options_);
+      //} else {
+      //  data.two_view_geometry.Estimate(camera1, points1, camera2, points2,
+      //                                  data.matches,
+      //                                  two_view_geometry_options_);
+
+#define INL_PASSING_ON true
+      // IS: New block of code with prosac
       if (options_.multiple_models) {
         data.two_view_geometry.EstimateMultiple(camera1, points1, camera2,
                                                 points2, data.matches,
                                                 two_view_geometry_options_);
+      } else if (INL_PASSING_ON) {
+
+        inlierPassing.reorder_matches_by_passed_inliers(data.image_id1, 
+                                                        data.image_id2, 
+                                                        data.matches);
+        data.two_view_geometry.Estimate(camera1, points1, camera2, points2,
+                                        data.matches,
+                                        two_view_geometry_options_);
+        inlierPassing.write_inliers(data.image_id1, data.image_id2,
+                                    data.two_view_geometry.inlier_matches);
       } else {
         data.two_view_geometry.Estimate(camera1, points1, camera2, points2,
                                         data.matches,
