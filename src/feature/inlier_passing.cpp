@@ -8,8 +8,9 @@ namespace colmap {
 
 //calculate intersection indicies related to matches array
 //both 1d arrays inliers and matches are expected to be sorted
+//const std::vector<size_t> &get_intersection_ids(std::vector<point2D_t> &inliers, 
 void get_intersection_ids(std::vector<point2D_t> &inliers, 
-                          std::vector<point2D_t> &matches, 
+                          std::vector<point2D_t> &matches,
                           std::vector<size_t> &pci) {
   size_t i_idx = 0;
   size_t m_idx = 0;
@@ -36,6 +37,7 @@ void get_intersection_ids(std::vector<point2D_t> &inliers,
   }
 
   pci.resize(pci_idx);
+  //return pci;
 }
 
 InlierPassing::InlierPassing(){
@@ -62,29 +64,35 @@ void InlierPassing::write_inliers(image_t img_i, image_t img_j, FeatureMatches& 
 void InlierPassing::reorder_matches_by_passed_inliers(image_t img_j, 
                                                       image_t img_k, 
                                                       FeatureMatches& matches_jk) {
-  printf("\nReordering matches for images %d and %d\n", img_j, img_k);
-  //get rid of second index which we don't need
-  //suppose to be sorted by point2D_idx1 field
-  std::vector<point2D_t> matches_jk_j(matches_jk.size());
-  for (int s = 0; s < matches_jk_j.size(); ++s) {
-    matches_jk_j[s] = matches_jk[s].point2D_idx1;   //from pair copying only indicies of j's image 
-  }
-  CHECK(std::is_sorted(matches_jk_j.begin(), matches_jk_j.end()));
-
   if (connected_by.size() > img_j) {
+    printf("Reordering matches for images %d and %d\n", img_j, img_k);
+    //get rid of the second index which we don't need
+    //suppose to be sorted by point2D_idx1 field
+    std::vector<point2D_t> matches_jk_j(matches_jk.size());
+    for (int s = 0; s < matches_jk_j.size(); ++s) {
+      matches_jk_j[s] = matches_jk[s].point2D_idx1;   //from pair copying only indicies of j's image 
+    }
+    CHECK(std::is_sorted(matches_jk_j.begin(), matches_jk_j.end()));
+
     size_t reord_idx = 0;
     for (image_t img_i : connected_by[img_j]) {      
       std::vector<point2D_t> &inliers_ij_j = pair_inliers[{img_i, img_j}];
       std::vector<size_t> pci_ijk;
+      //std::vector<size_t> pci_ijk = get_intersection_ids(inliers_ij_j, matches_jk_j, pci_ijk);
       get_intersection_ids(inliers_ij_j, matches_jk_j, pci_ijk);
       for (auto s: pci_ijk) {
         std::swap(matches_jk[reord_idx++], matches_jk[s]);
       }
-      printf("%d matches were reordered\n using model from %d to %d\n", inl_idx, img_i, img_j);
+      printf("%d matches were reordered of %d total matches by using model from %d to %d\n", reord_idx, matches_jk.size(), img_i, img_j);
+      if (reord_idx >= matches_jk.size()) {
+        break; //this part should be rewritten that prioritize points which we often have as inliers for other models
+               //maybe just implement as a simple counter and order them in this way
+      }
+      break; //right now we will do only one iteratin for the testing purpose
     }
   }
   else {
-    printf("No existing models to image %d", img_j);
+    printf("No existing models to image %d\n", img_j);
   }
 }
 

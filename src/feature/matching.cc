@@ -606,8 +606,8 @@ void TwoViewGeometryVerifier::Run() {
       //                                  data.matches,
       //                                  two_view_geometry_options_);
 
-#define INL_PASSING_ON true
       // IS: New block of code with prosac
+      printf("\nMatching images %d and %d:\n", data.image_id1, data.image_id2);
       if (options_.multiple_models) {
         data.two_view_geometry.EstimateMultiple(camera1, points1, camera2,
                                                 points2, data.matches,

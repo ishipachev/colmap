@@ -4,6 +4,8 @@
 #include <unordered_map>
 #include <vector>
 
+#define INL_PASSING_ON false
+
 namespace colmap {
 
 class InlierPassing {
