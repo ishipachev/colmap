@@ -57,6 +57,20 @@
 namespace colmap {
 namespace {
 
+//IS: Weird function to transfer data from different templated report in standart one
+template <typename Estimator, 
+          typename SupportMeasurer,
+          typename SamplerFrom,
+          typename SamplerTo>
+void copyLoransacReport(typename const RANSAC<Estimator, SupportMeasurer, SamplerFrom>::Report &reportFrom,
+                        typename RANSAC<Estimator, SupportMeasurer, SamplerTo>::Report &reportTo) {
+  reportTo.success = reportFrom.success;
+  reportTo.num_trials = reportFrom.num_trials;
+  reportTo.support = std::move(reportFrom.support);
+  reportTo.inlier_mask = std::move(reportFrom.inlier_mask);
+  reportTo.model = reportFrom.model;
+}
+
 FeatureMatches ExtractInlierMatches(const FeatureMatches& matches,
                                     const size_t num_inliers,
                                     const std::vector<char>& inlier_mask) {
@@ -269,62 +283,110 @@ void TwoViewGeometry::EstimateCalibrated(
        camera2.ImageToWorldThreshold(options.ransac_options.max_error)) /
       2;
 
-#if (INL_PASSING_ON)
   LORANSAC<EssentialMatrixFivePointEstimator, 
            EssentialMatrixFivePointEstimator,
            InlierSupportMeasurer,
            ProgressiveSampler>
-      E_ransac(E_ransac_options);
-#else
-  LORANSAC<EssentialMatrixFivePointEstimator, 
-          EssentialMatrixFivePointEstimator,
-          InlierSupportMeasurer,
-          RandomSampler>
-       E_ransac(E_ransac_options);
-#endif
+      E_ransac_prog(E_ransac_options);
 
-  const auto E_report =
-      E_ransac.Estimate(matched_points1_normalized, matched_points2_normalized);
+  LORANSAC<EssentialMatrixFivePointEstimator, 
+           EssentialMatrixFivePointEstimator,
+           InlierSupportMeasurer,
+           RandomSampler>
+      E_ransac_rand(E_ransac_options);
+
+  LORANSAC<EssentialMatrixFivePointEstimator,
+           EssentialMatrixFivePointEstimator>::Report
+    E_report;
+
+  if (options.ransac_options.inlier_passing) {
+    const auto E_report_prog = E_ransac_prog.Estimate(matched_points1_normalized, matched_points2_normalized);
+    copyLoransacReport<EssentialMatrixFivePointEstimator, 
+      InlierSupportMeasurer, 
+      ProgressiveSampler, 
+      RandomSampler>
+      (E_report_prog, E_report);
+  } else {
+    const auto E_report_rand = E_ransac_rand.Estimate(matched_points1_normalized, matched_points2_normalized);
+    copyLoransacReport<EssentialMatrixFivePointEstimator, 
+      InlierSupportMeasurer, 
+      RandomSampler, 
+      RandomSampler>
+      (E_report_rand, E_report);
+  }
+
   E = E_report.model;
 
   printf("E trials: %5d; inliers: %5d\n", E_report.num_trials, E_report.support.num_inliers);
   
-#if (INL_PASSING_ON)
   LORANSAC<FundamentalMatrixSevenPointEstimator,
            FundamentalMatrixEightPointEstimator, 
            InlierSupportMeasurer,
            ProgressiveSampler>
-      F_ransac(options.ransac_options);
-#else
+      F_ransac_prog(options.ransac_options);
+
   LORANSAC<FundamentalMatrixSevenPointEstimator,
           FundamentalMatrixEightPointEstimator, 
           InlierSupportMeasurer,
           RandomSampler>
-      F_ransac(options.ransac_options);
-#endif
+      F_ransac_rand(options.ransac_options);
 
-  const auto F_report = F_ransac.Estimate(matched_points1, matched_points2);
+  LORANSAC<FundamentalMatrixSevenPointEstimator,
+    FundamentalMatrixEightPointEstimator>::Report
+    F_report;
+
+  if (options.ransac_options.inlier_passing) {
+    const auto F_report_prog = F_ransac_prog.Estimate(matched_points1, matched_points2);
+    copyLoransacReport<FundamentalMatrixSevenPointEstimator, 
+      InlierSupportMeasurer, 
+      ProgressiveSampler, 
+      RandomSampler>
+      (F_report_prog, F_report);
+  } else {
+    const auto F_report_rand = F_ransac_rand.Estimate(matched_points1, matched_points2);
+    copyLoransacReport<FundamentalMatrixSevenPointEstimator, 
+      InlierSupportMeasurer, 
+      RandomSampler, 
+      RandomSampler>
+      (F_report_rand, F_report);
+  }
+
   F = F_report.model;
 
   printf("F trials: %5d; inliers: %5d\n", F_report.num_trials, F_report.support.num_inliers);
 
   // Estimate planar or panoramic model.
 
-#if (INL_PASSING_ON)
   LORANSAC<HomographyMatrixEstimator, 
            HomographyMatrixEstimator,
            InlierSupportMeasurer, 
            ProgressiveSampler>
-      H_ransac(options.ransac_options);
-#else
+      H_ransac_prog(options.ransac_options);
+
   LORANSAC<HomographyMatrixEstimator, 
            HomographyMatrixEstimator,
            InlierSupportMeasurer, 
            RandomSampler>
-      H_ransac(options.ransac_options);
-#endif
+      H_ransac_rand(options.ransac_options);
 
-  const auto H_report = H_ransac.Estimate(matched_points1, matched_points2);
+  LORANSAC<HomographyMatrixEstimator, HomographyMatrixEstimator>::Report H_report;
+
+  if (options.ransac_options.inlier_passing) {
+    const auto H_report_prog = H_ransac_prog.Estimate(matched_points1, matched_points2);
+    copyLoransacReport<HomographyMatrixEstimator, 
+      InlierSupportMeasurer, 
+      ProgressiveSampler, 
+      RandomSampler>
+      (H_report_prog, H_report);
+  } else {
+    const auto H_report_rand = H_ransac_rand.Estimate(matched_points1, matched_points2);
+    copyLoransacReport<HomographyMatrixEstimator, 
+      InlierSupportMeasurer, 
+      RandomSampler, 
+      RandomSampler>
+      (H_report_rand, H_report);
+  }
+
   H = H_report.model;
 
   printf("H trials: %5d; inliers: %5d\n", H_report.num_trials, H_report.support.num_inliers);
@@ -436,42 +498,75 @@ void TwoViewGeometry::EstimateUncalibrated(
 
   // Estimate epipolar model.
 
-#if (INL_PASSING_ON)
   LORANSAC<FundamentalMatrixSevenPointEstimator,
-           FundamentalMatrixEightPointEstimator, 
-           InlierSupportMeasurer,
-           ProgressiveSampler>
-    F_ransac(options.ransac_options);
-#else
-  LORANSAC<FundamentalMatrixSevenPointEstimator,
-           FundamentalMatrixEightPointEstimator, 
-           InlierSupportMeasurer,
-           RandomSampler>
-    F_ransac(options.ransac_options);
-#endif
+    FundamentalMatrixEightPointEstimator, 
+    InlierSupportMeasurer,
+    ProgressiveSampler>
+    F_ransac_prog(options.ransac_options);
 
-  const auto F_report = F_ransac.Estimate(matched_points1, matched_points2);
+  LORANSAC<FundamentalMatrixSevenPointEstimator,
+    FundamentalMatrixEightPointEstimator, 
+    InlierSupportMeasurer,
+    RandomSampler>
+    F_ransac_rand(options.ransac_options);
+
+  LORANSAC<FundamentalMatrixSevenPointEstimator,
+    FundamentalMatrixEightPointEstimator>::Report
+    F_report;
+
+  if (options.ransac_options.inlier_passing) {
+    const auto F_report_prog = F_ransac_prog.Estimate(matched_points1, matched_points2);
+    copyLoransacReport<FundamentalMatrixSevenPointEstimator,
+      InlierSupportMeasurer,
+      ProgressiveSampler,
+      RandomSampler>
+      (F_report_prog, F_report);
+  } else {
+    const auto F_report_rand = F_ransac_rand.Estimate(matched_points1, matched_points2);
+    copyLoransacReport<FundamentalMatrixSevenPointEstimator,
+      InlierSupportMeasurer,
+      RandomSampler,
+      RandomSampler>
+      (F_report_rand, F_report);
+  }
+
   F = F_report.model;
 
   printf("F trials: %5d; inliers: %5d\n", F_report.num_trials, F_report.support.num_inliers);
 
   // Estimate planar or panoramic model.
 
-#if (INL_PASSING_ON)
   LORANSAC<HomographyMatrixEstimator, 
-           HomographyMatrixEstimator,
-           InlierSupportMeasurer, 
-           ProgressiveSampler>
-      H_ransac(options.ransac_options);
-#else
-  LORANSAC<HomographyMatrixEstimator, 
-           HomographyMatrixEstimator,
-           InlierSupportMeasurer, 
-           RandomSampler>
-      H_ransac(options.ransac_options);
-#endif
+    HomographyMatrixEstimator,
+    InlierSupportMeasurer, 
+    ProgressiveSampler>
+    H_ransac_prog(options.ransac_options);
 
-  const auto H_report = H_ransac.Estimate(matched_points1, matched_points2);
+  LORANSAC<HomographyMatrixEstimator, 
+    HomographyMatrixEstimator,
+    InlierSupportMeasurer, 
+    RandomSampler>
+    H_ransac_rand(options.ransac_options);
+
+  LORANSAC<HomographyMatrixEstimator, HomographyMatrixEstimator>::Report H_report;
+
+  if (options.ransac_options.inlier_passing) {
+    const auto H_report_prog = H_ransac_prog.Estimate(matched_points1, matched_points2);
+    copyLoransacReport<HomographyMatrixEstimator,
+      InlierSupportMeasurer,
+      ProgressiveSampler,
+      RandomSampler>
+      (H_report_prog, H_report);
+
+  } else {
+    const auto H_report_rand = H_ransac_rand.Estimate(matched_points1, matched_points2);
+    copyLoransacReport<HomographyMatrixEstimator,
+      InlierSupportMeasurer,
+      RandomSampler,
+      RandomSampler>
+      (H_report_rand, H_report);
+  }
+
   H = H_report.model;
 
   printf("H trials: %5d; inliers: %5d\n", H_report.num_trials, H_report.support.num_inliers);

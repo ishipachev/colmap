@@ -570,6 +570,10 @@ TwoViewGeometryVerifier::TwoViewGeometryVerifier(
       static_cast<size_t>(options_.max_num_trials);
   two_view_geometry_options_.ransac_options.min_inlier_ratio =
       options_.min_inlier_ratio;
+
+  two_view_geometry_options_.ransac_options.inlier_passing = 
+      options_.inlier_passing;
+
 }
 
 void TwoViewGeometryVerifier::Run() {
@@ -606,13 +610,15 @@ void TwoViewGeometryVerifier::Run() {
       //                                  data.matches,
       //                                  two_view_geometry_options_);
 
-      // IS: New block of code with prosac
+      //IS: New block of code with inlier passing and PROSAC
+      bool inlier_passing = two_view_geometry_options_.ransac_options.inlier_passing;
+
       printf("\nMatching images %d and %d:\n", data.image_id1, data.image_id2);
       if (options_.multiple_models) {
         data.two_view_geometry.EstimateMultiple(camera1, points1, camera2,
                                                 points2, data.matches,
                                                 two_view_geometry_options_);
-      } else if (INL_PASSING_ON) {
+      } else if (inlier_passing) {
 
         inlierPassing.reorder_matches_by_passed_inliers(data.image_id1, 
                                                         data.image_id2, 

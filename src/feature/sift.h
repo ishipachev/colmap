@@ -161,6 +161,9 @@ struct SiftMatchingOptions {
   // Whether to perform guided matching, if geometric verification succeeds.
   bool guided_matching = false;
 
+  //IS: Whether to use inlier passing method as a prosac seed for geometric verification
+  bool inlier_passing = false;
+
   bool Check() const;
 };
 

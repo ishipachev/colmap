@@ -318,6 +318,8 @@ void OptionManager::AddMatchingOptions() {
                               &sift_matching->multiple_models);
   AddAndRegisterDefaultOption("SiftMatching.guided_matching",
                               &sift_matching->guided_matching);
+  AddAndRegisterDefaultOption("SiftMatching.inlier_passing",
+                              &sift_matching->inlier_passing);
 }
 
 void OptionManager::AddExhaustiveMatchingOptions() {

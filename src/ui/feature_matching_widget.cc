@@ -132,6 +132,8 @@ void FeatureMatchingTab::CreateGeneralOptions() {
                                  "multiple_models");
   options_widget_->AddOptionBool(&options_->sift_matching->guided_matching,
                                  "guided_matching");
+  options_widget_->AddOptionBool(&options_->sift_matching->inlier_passing,
+                                 "inlier_passing");
 
   options_widget_->AddSpacer();
 
@@ -166,6 +168,7 @@ void ExhaustiveMatchingTab::Run() {
 SequentialMatchingTab::SequentialMatchingTab(QWidget* parent,
                                              OptionManager* options)
     : FeatureMatchingTab(parent, options) {
+
   options_widget_->AddOptionInt(&options_->sequential_matching->overlap,
                                 "overlap");
   options_widget_->AddOptionBool(
