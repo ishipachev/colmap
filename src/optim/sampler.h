@@ -67,6 +67,9 @@ class Sampler {
   // should equal `num_samples`. The same applies for `Y` and `Y_rand`.
   template <typename X_t, typename Y_t>
   void SampleXY(const X_t& X, const Y_t& Y, X_t* X_rand, Y_t* Y_rand);
+
+  template <typename X_t, typename Y_t>
+  std::vector<size_t> SampleXY_ids(const X_t& X, const Y_t& Y, X_t* X_rand, Y_t* Y_rand);
 };
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -90,6 +93,19 @@ void Sampler::SampleXY(const X_t& X, const Y_t& Y, X_t* X_rand, Y_t* Y_rand) {
     (*X_rand)[i] = X[sample_idxs[i]];
     (*Y_rand)[i] = Y[sample_idxs[i]];
   }
+}
+
+template <typename X_t, typename Y_t>
+std::vector<size_t> Sampler::SampleXY_ids(const X_t& X, const Y_t& Y, X_t* X_rand, Y_t* Y_rand) {
+  CHECK_EQ(X.size(), Y.size());
+  CHECK_EQ(X_rand->size(), Y_rand->size());
+  const auto sample_idxs = Sample();
+  for (size_t i = 0; i < X_rand->size(); ++i) {
+    (*X_rand)[i] = X[sample_idxs[i]];
+    (*Y_rand)[i] = Y[sample_idxs[i]];
+  }
+
+  return sample_idxs;
 }
 
 }  // namespace colmap

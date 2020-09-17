@@ -1,6 +1,7 @@
 #include "inlier_passing.h"
 #include "feature/types.h"
 #include "util/logging.h"
+#include <vector>
 
 #pragma optimize( "", off )
 
@@ -9,16 +10,15 @@ namespace colmap {
 //calculate intersection indicies related to matches array
 //both 1d arrays inliers and matches are expected to be sorted
 //const std::vector<size_t> &get_intersection_ids(std::vector<point2D_t> &inliers, 
-void get_intersection_ids(std::vector<point2D_t> &inliers, 
-                          std::vector<point2D_t> &matches,
-                          std::vector<size_t> &pci) {
+std::vector<size_t> get_intersection_ids(std::vector<point2D_t> &inliers, 
+                                         std::vector<point2D_t> &matches) {
   size_t i_idx = 0;
   size_t m_idx = 0;
 
   point2D_t i;
   point2D_t m;
 
-  pci.resize(inliers.size());
+  std::vector<size_t> pci(inliers.size());
   size_t pci_idx = 0;
 
   while ((i_idx < inliers.size()) && (m_idx < inliers.size())) {
@@ -37,7 +37,7 @@ void get_intersection_ids(std::vector<point2D_t> &inliers,
   }
 
   pci.resize(pci_idx);
-  //return pci;
+  return pci;
 }
 
 InlierPassing::InlierPassing(){
@@ -79,7 +79,7 @@ void InlierPassing::reorder_matches_by_passed_inliers(image_t img_j,
       std::vector<point2D_t> &inliers_ij_j = pair_inliers[{img_i, img_j}];
       std::vector<size_t> pci_ijk;
       //std::vector<size_t> pci_ijk = get_intersection_ids(inliers_ij_j, matches_jk_j, pci_ijk);
-      get_intersection_ids(inliers_ij_j, matches_jk_j, pci_ijk);
+      pci_ijk = get_intersection_ids(inliers_ij_j, matches_jk_j);
       for (auto s: pci_ijk) {
         std::swap(matches_jk[reord_idx++], matches_jk[s]);
       }

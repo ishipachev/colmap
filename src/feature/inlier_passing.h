@@ -13,14 +13,9 @@ class InlierPassing {
   InlierPassing();
 
   void write_inliers(image_t img1, image_t img2, FeatureMatches &inliers);
-  //void reorder_matches_by_passed_inliers(image_t img_i, 
-  //                                       image_t img_j,
-  //                                       image_t img_k,
-  //                                       FeatureMatches& matches);
   void reorder_matches_by_passed_inliers(image_t img_j,
                                          image_t img_k,
                                          FeatureMatches& matches);
-  //bool is_geom_found(image_t img1, image_t img2);
 
  private:
   //std::unordered_map<std::pair<image_t, image_t>, FeatureMatches> pair_inliers; //inliers of model i-to-j

@@ -90,8 +90,8 @@ template <typename Estimator, typename LocalEstimator, typename SupportMeasurer,
           typename Sampler>
 typename LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Report
 LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
-    const std::vector<typename Estimator::X_t>& X,
-    const std::vector<typename Estimator::Y_t>& Y) {
+  const std::vector<typename Estimator::X_t>& X,
+  const std::vector<typename Estimator::Y_t>& Y) {
   CHECK_EQ(X.size(), Y.size());
 
   const size_t num_samples = X.size();
@@ -127,6 +127,8 @@ LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
   max_num_trials = std::min<size_t>(max_num_trials, sampler.MaxNumSamples());
   size_t dyn_max_num_trials = max_num_trials;
 
+  printf("LORANSAC:\n");
+
   for (report.num_trials = 0; report.num_trials < max_num_trials;
        ++report.num_trials) {
     if (abort) {
@@ -134,7 +136,7 @@ LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
       break;
     }
 
-    sampler.SampleXY(X, Y, &X_rand, &Y_rand);
+    auto sample_ids= sampler.SampleXY_ids(X, Y, &X_rand, &Y_rand);
 
     // Estimate model for current subset.
     const std::vector<typename Estimator::M_t> sample_models =
@@ -157,7 +159,7 @@ LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
         if (support.num_inliers > Estimator::kMinNumSamples &&
             support.num_inliers >= LocalEstimator::kMinNumSamples) {
           // Recursive local optimization to expand inlier set.
-          const size_t kMaxNumLocalTrials = 10;
+          const size_t kMaxNumLocalTrials = 1;   //IS: Switched off from 10 to 1 this recursive LO
           for (size_t local_num_trials = 0;
                local_num_trials < kMaxNumLocalTrials; ++local_num_trials) {
             X_inlier.clear();
@@ -208,6 +210,12 @@ LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
             RANSAC<Estimator, SupportMeasurer, Sampler>::ComputeNumTrials(
                 best_support.num_inliers, num_samples, options_.confidence,
                 options_.dyn_num_trials_multiplier);
+
+        printf("\t\t %5d, %5d: ", report.num_trials, best_support.num_inliers);
+        for (auto idx: sample_ids) {
+          printf("%4d ", idx);
+        }
+        printf("\n");
       }
 
       if (report.num_trials >= dyn_max_num_trials &&
