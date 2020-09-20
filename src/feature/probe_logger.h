@@ -56,16 +56,14 @@ namespace colmap {
     //2tab -- tvgs -- END
     
     void finile_write_all();
-
+    //1tab -- header -- END
 
     ~ProbeLogger();
     
   private:
-
-    int current_tab_cnt = 0;
-    std::string current_tab = "";
-    
     bool isOneLiner = false;
+    std::string current_tab = "";
+  
     std::ofstream ostream;
 
     std::string inner_dict_start();
@@ -80,10 +78,6 @@ namespace colmap {
 
     std::string ProbeLogger::tab_key_string(const std::string &key);
 
-    //std::unordered_map<std::pair<image_t, image_t>, FeatureMatches> pair_inliers; //inliers of model i-to-j
-    std::unordered_map<std::pair<image_t, image_t>, std::vector<point2D_t>> pair_inliers; //j's inliers of model i-to-j
-
-    std::vector<std::vector<image_t>> connected_by; //list of all models builded to i-s image
   };
 
 }  // namespace colmap

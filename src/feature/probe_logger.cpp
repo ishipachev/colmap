@@ -181,5 +181,4 @@ namespace colmap {
   std::string ProbeLogger::tab_key_string(const std::string &key) {
     return current_tab + key + std::string(":");
   }
-
 }
