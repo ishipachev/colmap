@@ -1,3 +1,5 @@
+//Ilia Shipachev, CVUT-FEL, CMP lab, 2020
+
 #include "inlier_passing.h"
 #include "feature/types.h"
 #include "util/logging.h"
@@ -94,6 +96,15 @@ void InlierPassing::reorder_matches_by_passed_inliers(image_t img_j,
   else {
     printf("No existing models to image %d\n", img_j);
   }
+}
+
+std::unordered_map<image_t, size_t> InlierPassing::calc_inliers_passed(image_t img_j) {
+  std::unordered_map<image_t, size_t> res;
+  for (auto img_i : connected_by[img_j]) {
+    CHECK(img_i < img_j);   //not implemented inlier passing storage for img_i > img_j
+    res[img_i] = pair_inliers[{img_i, img_j}].size();
+  }
+  return res;
 }
 
 //bool InlierPassing::is_geom_found(image_t img1, image_t img2) { 

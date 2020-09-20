@@ -1,3 +1,5 @@
+//Ilia Shipachev, CVUT-FEL, CMP lab, 2020
+
 #pragma once
 #include "util/types.h"
 #include "feature/types.h"
@@ -16,6 +18,8 @@ class InlierPassing {
   void reorder_matches_by_passed_inliers(image_t img_j,
                                          image_t img_k,
                                          FeatureMatches& matches);
+  //get list of amount of inliers passed to img_j from all other img_i for all i's
+  std::unordered_map<image_t, size_t> calc_inliers_passed(image_t img_j);
 
  private:
   //std::unordered_map<std::pair<image_t, image_t>, FeatureMatches> pair_inliers; //inliers of model i-to-j
