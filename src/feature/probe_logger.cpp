@@ -10,47 +10,44 @@ namespace colmap {
 
   ProbeLogger::ProbeLogger(const std::string &filename, const bool isOneLiner_) :
     isOneLiner(isOneLiner_) {
-
     ostream.open(filename, std::ios::out);
-    //ostream << "{";
-
     current_tab = isOneLiner ? " " : "\n";
-
-    //ostream << inner_dict_start();
   }
 
-  void ProbeLogger::write_header(const std::string &version, 
-                                 const std::string &comment) {
+  void ProbeLogger::write_head_open(const std::string &version, 
+                                    const std::string &comment) {
     inner_dict_start();
     ostream << tab_kv_string("json_version", version);
     ostream << tab_kv_string("json_comment", comment);
   }
 
-  void ProbeLogger::init_write_conf() {
+  void ProbeLogger::write_conf_open() {
     ostream << tab_key_string("conf");
     ostream << inner_dict_start();
   }
 
-  void ProbeLogger::write_algo_conf(const std::unordered_map<std::string, int> &algo_conf) {
+  void ProbeLogger::write_conf_algo(const std::unordered_map<std::string, int> &algo_conf) {
     ostream << tab_key_string("algo");
+
     ostream << inner_dict_start();
     for (auto key_val : algo_conf) {
-      ostream << tab_kv_string(key_val.first, std::to_string(key_val.second));
+      ostream << tab_kv_string(key_val.first, key_val.second);
     }
     ostream << inner_dict_end();
   }
 
   void ProbeLogger::write_sequential_matching_conf(const SequentialMatchingOptions &options) { 
     ostream << tab_key_string("sequential_matching");
-    ostream << inner_dict_start();
 
+    ostream << inner_dict_start();
     ostream << tab_kv_string("overlap", std::to_string(options.overlap));
+    ostream << inner_dict_end();
   }
 
   void ProbeLogger::write_tvg_matching_conf(const SiftMatchingOptions& options) {
     ostream << tab_key_string("tvg_matching");
-    ostream << inner_dict_start();
 
+    ostream << inner_dict_start();
     ostream << tab_kv_string("num_threads", options.num_threads);
     ostream << tab_kv_string("use_gpu", options.use_gpu);
     ostream << tab_kv_string("max_ratio", options.max_ratio);
@@ -65,16 +62,16 @@ namespace colmap {
     ostream << inner_dict_end();
   }
 
-  void ProbeLogger::finale_write_conf() {
+  void ProbeLogger::write_conf_close() {
     ostream << inner_dict_end();
   }
 
-  void ProbeLogger::init_write_tvgs() {
+  void ProbeLogger::write_tvgs_open() {
     ostream << tab_key_string("tvgs");
     ostream << inner_arr_start();
   }
 
-  void ProbeLogger::write_summary_tvg(image_t img1, image_t img2, int matches_num,
+  void ProbeLogger::write_summary_tvg_open(image_t img1, image_t img2, int matches_num,
                                       int inl_num, int config, double time) {
     ostream << inner_dict_start();
     ostream << tab_kv_string("img_pair", img1, img2);
@@ -112,15 +109,16 @@ namespace colmap {
     ostream << inner_arr_end();
   }
 
-  void ProbeLogger::finale_write_tvgs() {
+  void ProbeLogger::write_tvgs_close() {
     ostream << inner_dict_end();
   }
 
-  void ProbeLogger::finile_write_all() {
+  void ProbeLogger::write_head_close() {
     ostream << inner_dict_end();
   }
 
   ProbeLogger::~ProbeLogger() {
+    inner_dict_end();
     ostream.close();
   }
 

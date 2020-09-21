@@ -18,28 +18,29 @@
 
 namespace colmap {
 
+  
   class ProbeLogger {
 
   public:
+    //0tab, begin of the file
     ProbeLogger(const std::string &filename, const bool isOneLine);
-    void init_write_all();
+    //void init_write_all();
 
     //1tab -- header -- BEGIN
-    void write_header(const std::string &version, const std::string &comment); //writes header of the version and some comment about the application
+    void write_head_open(const std::string &version, const std::string &comment); //writes header of the version and some comment about the application
 
     //2tab -- configs -- BEGIN
-    void init_write_conf();
-    void write_algo_conf(const std::unordered_map<std::string, int> &algo_conf);
+    void write_conf_open();
+    void write_conf_algo(const std::unordered_map<std::string, int> &algo_conf);
     void write_sequential_matching_conf(const SequentialMatchingOptions &options);
     void write_tvg_matching_conf(const SiftMatchingOptions& options);
-    void write_inl_passed_stat(image_t img_id, 
-                               const std::unordered_map<image_t, size_t> &inl_passed);
-    void finale_write_conf();
+    void write_inl_passed_stat(image_t img_id, const std::unordered_map<image_t, size_t> &inl_passed);
+    void write_conf_close();
     //2tab -- configs -- END
 
     //2tab -- tvgs -- BEGIN
-    void init_write_tvgs();   //two view geometries
-    void write_summary_tvg(image_t img1, image_t img2, int matches_num,
+    void write_tvgs_open();   //two view geometries
+    void write_summary_tvg_open(image_t img1, image_t img2, int matches_num,
                            int inl_num, int config, double time);
 
     template <typename Estimator, 
@@ -47,17 +48,17 @@ namespace colmap {
     void write_model_report(typename const RANSAC<Estimator, 
                                               InlierSupportMeasurer,
                                               Sampler>::Report &report,
-                        const std::string model_type,
-                        double time);
+                            const std::string model_type,
+                            double time);
     void write_inl_passed_stat(image_t img_id,
                                const std::unordered_map<image_t, size_t> &inl_passed);
-
-    void finale_write_tvgs();
+    void write_tvgs_close();
     //2tab -- tvgs -- END
     
-    void finile_write_all();
+    void write_head_close();
     //1tab -- header -- END
 
+    //0tab -- end of the file
     ~ProbeLogger();
     
   private:
