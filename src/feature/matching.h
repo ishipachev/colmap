@@ -43,6 +43,7 @@
 #include "util/opengl_utils.h"
 #include "util/threading.h"
 #include "util/timer.h"
+#include "feature/probe_logger.h"
 
 namespace colmap {
 
@@ -429,7 +430,6 @@ class SequentialFeatureMatcher : public Thread {
   SequentialFeatureMatcher(const SequentialMatchingOptions& options,
                            const SiftMatchingOptions& match_options,
                            const std::string& database_path);
-
  private:
   void Run() override;
 

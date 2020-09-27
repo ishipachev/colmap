@@ -51,6 +51,8 @@
 #include "util/opengl_utils.h"
 #include "util/version.h"
 
+#include "feature/probe_logger.h"
+
 using namespace colmap;
 
 #ifdef CUDA_ENABLED

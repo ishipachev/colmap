@@ -42,14 +42,34 @@
 #include "util/misc.h"
 
 #include "feature/inlier_passing.h"
+#include "feature/probe_logger.h"
 
-#pragma optimize( "", off )
+//#pragma optimize( "", off )
 
 namespace colmap {
 
 InlierPassing inlierPassing;
 
 namespace {
+
+void StartProbeLogging(const SequentialMatchingOptions &seq_options,
+                       const SiftMatchingOptions &match_options) {
+  probeLogger.init("test.txt", false);
+  probeLogger.write_head_open("v0.1", "fist_debug_iteration");
+  probeLogger.write_conf_open();
+  probeLogger.write_conf_algo( {
+    {"inlier_passing", match_options.inlier_passing},
+                              {"num_prog_iters", 10000}
+                              } );
+  probeLogger.write_conf_sequential_matching(seq_options);
+  probeLogger.write_conf_tvg_matching(match_options);
+  probeLogger.write_conf_close();
+}
+
+void FinishProbeLogging() {
+  probeLogger.write_head_close();
+  probeLogger.deinit();
+}
 
 void PrintElapsedTime(const Timer& timer) {
   std::cout << StringPrintf(" in %.3fs", timer.ElapsedSeconds()) << std::endl;
@@ -618,20 +638,33 @@ void TwoViewGeometryVerifier::Run() {
         data.two_view_geometry.EstimateMultiple(camera1, points1, camera2,
                                                 points2, data.matches,
                                                 two_view_geometry_options_);
-      } else if (inlier_passing) {
-
-        inlierPassing.reorder_matches_by_passed_inliers(data.image_id1, 
-                                                        data.image_id2, 
-                                                        data.matches);
-        data.two_view_geometry.Estimate(camera1, points1, camera2, points2,
-                                        data.matches,
-                                        two_view_geometry_options_);
-        inlierPassing.write_inliers(data.image_id1, data.image_id2,
-                                    data.two_view_geometry.inlier_matches);
       } else {
+        Timer timer;
+        timer.Start();
+        probeLogger.write_tvg_open(data.image_id1, data.image_id2,
+                                           data.matches.size());
+        if (inlier_passing) { //if we use inlier_passing than reorder matches
+          inlierPassing.reorder_by_passed_inliers(data.image_id1,
+                                                  data.image_id2,
+                                                  data.matches);
+          probeLogger.write_inl_passed_stat(inlierPassing.calc_inliers_passed(data.image_id1,
+                                                                              data.image_id2));
+        }
+
+        //IS: Main function where everything is happening
         data.two_view_geometry.Estimate(camera1, points1, camera2, points2,
                                         data.matches,
                                         two_view_geometry_options_);
+        //----
+
+        if (inlier_passing) { //if we use inlier passing than save inliers
+          inlierPassing.write_inliers(data.image_id1, 
+                                      data.image_id2,
+                                      data.two_view_geometry.inlier_matches);
+        }
+        probeLogger.write_tvg_close(data.two_view_geometry.inlier_matches.size(),
+                                    data.two_view_geometry.config,
+                                    timer.ElapsedSeconds());
       }
 
       CHECK(output_queue_->Push(data));
@@ -962,6 +995,10 @@ SequentialFeatureMatcher::SequentialFeatureMatcher(
 }
 
 void SequentialFeatureMatcher::Run() {
+
+  //IS: Logging
+  StartProbeLogging(options_, match_options_);
+
   PrintHeading1("Sequential feature matching");
 
   if (!matcher_.Setup()) {
@@ -978,6 +1015,9 @@ void SequentialFeatureMatcher::Run() {
   }
 
   GetTimer().PrintMinutes();
+
+  //IS: Logging
+  FinishProbeLogging();
 }
 
 std::vector<image_t> SequentialFeatureMatcher::GetOrderedImageIds() const {
@@ -1007,6 +1047,8 @@ void SequentialFeatureMatcher::RunSequentialMatching(
     const std::vector<image_t>& image_ids) {
   std::vector<std::pair<image_t, image_t>> image_pairs;
   image_pairs.reserve(options_.overlap);
+
+  probeLogger.write_tvgs_open();
 
   for (size_t image_idx1 = 0; image_idx1 < image_ids.size(); ++image_idx1) {
     if (IsStopped()) {
@@ -1044,6 +1086,8 @@ void SequentialFeatureMatcher::RunSequentialMatching(
 
     PrintElapsedTime(timer);
   }
+
+  probeLogger.write_tvgs_close();
 }
 
 void SequentialFeatureMatcher::RunLoopDetection(

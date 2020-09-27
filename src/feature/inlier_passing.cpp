@@ -5,7 +5,7 @@
 #include "util/logging.h"
 #include <vector>
 
-#pragma optimize( "", off )
+//#pragma optimize( "", off )
 
 namespace colmap {
 
@@ -63,9 +63,14 @@ void InlierPassing::write_inliers(image_t img_i, image_t img_j, FeatureMatches& 
 
 //Reordering matches_jk by putting first inliers from aldready calculated models from i to j
 //for all such i
-void InlierPassing::reorder_matches_by_passed_inliers(image_t img_j, 
-                                                      image_t img_k, 
-                                                      FeatureMatches& matches_jk) {
+void InlierPassing::reorder_by_passed_inliers(image_t img_j, 
+                                              image_t img_k, 
+                                              FeatureMatches& matches_jk) {
+
+//TODO: Rewrite into: check the size, is smaller -- resize
+//if bigger, at fist check the connected_by[img_j].size()
+//otherwise no point to sort matches and do other unnececarliy job
+
   if (connected_by.size() > img_j) {
     printf("Reordering matches for images %d and %d\n", img_j, img_k);
     //get rid of the second index which we don't need
@@ -82,6 +87,7 @@ void InlierPassing::reorder_matches_by_passed_inliers(image_t img_j,
       std::vector<size_t> pci_ijk;
       //std::vector<size_t> pci_ijk = get_intersection_ids(inliers_ij_j, matches_jk_j, pci_ijk);
       pci_ijk = get_intersection_ids(inliers_ij_j, matches_jk_j);
+      pci[{img_i, img_j, img_k}] = pci_ijk.size();
       for (auto s: pci_ijk) {
         std::swap(matches_jk[reord_idx++], matches_jk[s]);
       }
@@ -92,17 +98,20 @@ void InlierPassing::reorder_matches_by_passed_inliers(image_t img_j,
       }
       break; //right now we will do only one iteratin for the testing purpose
     }
-  }
-  else {
+  } else {
+    connected_by.resize(img_j + 1);
     printf("No existing models to image %d\n", img_j);
   }
 }
 
-std::unordered_map<image_t, size_t> InlierPassing::calc_inliers_passed(image_t img_j) {
+std::unordered_map<image_t, size_t> const InlierPassing::calc_inliers_passed(image_t img_j, image_t img_k) {
   std::unordered_map<image_t, size_t> res;
-  for (auto img_i : connected_by[img_j]) {
-    CHECK(img_i < img_j);   //not implemented inlier passing storage for img_i > img_j
-    res[img_i] = pair_inliers[{img_i, img_j}].size();
+  if (connected_by.size() >= img_j + 1) {
+    for (auto img_i : connected_by[img_j]) {
+      CHECK(img_i < img_j);   //not implemented for img_i > img_j
+      CHECK(img_j < img_k);   //not implemented for img_j > img_k
+      res[img_i] = pci[{img_i, img_j, img_k}];
+    }
   }
   return res;
 }
