@@ -222,10 +222,22 @@ void MatchSiftFeaturesCPUFLANN(const SiftMatchingOptions& match_options,
                                const FeatureDescriptors& descriptors1,
                                const FeatureDescriptors& descriptors2,
                                FeatureMatches* matches);
+//IS: New overloaded variant with distances
+void MatchSiftFeaturesCPUFLANN(const SiftMatchingOptions& match_options,
+                               const FeatureDescriptors& descriptors1,
+                               const FeatureDescriptors& descriptors2,
+                               FeatureMatches* matches,
+                               std::vector<float>* matches_dist);
 void MatchSiftFeaturesCPU(const SiftMatchingOptions& match_options,
                           const FeatureDescriptors& descriptors1,
                           const FeatureDescriptors& descriptors2,
                           FeatureMatches* matches);
+//IS: New overloaded variant with distances
+void MatchSiftFeaturesCPU(const SiftMatchingOptions& match_options,
+                          const FeatureDescriptors& descriptors1,
+                          const FeatureDescriptors& descriptors2,
+                          FeatureMatches* matches,
+                          std::vector<float>* matches_dist);
 void MatchGuidedSiftFeaturesCPU(const SiftMatchingOptions& match_options,
                                 const FeatureKeypoints& keypoints1,
                                 const FeatureKeypoints& keypoints2,

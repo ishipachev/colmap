@@ -6,6 +6,7 @@
 #include <unordered_map>
 #include <vector>
 #include <string>
+#include <utility>
 #include "feature/matching.h"
 #include "feature/sift.h"
 #include <fstream>
@@ -40,6 +41,10 @@ class ProbeLogger {
     //2tab -- tvgs -- BEGIN
     void write_tvgs_open();   //two view geometries
     void write_tvg_open(image_t img1, image_t img2, int matches_num);
+    
+    void store_matches_dist(image_t img1, image_t img2, std::vector<float> &matches_dist);
+    void write_stored_matches_dist(image_t img1, image_t img2);
+
     void write_inl_passed_stat(const std::unordered_map<image_t, size_t> &inl_passed);
 
     template <typename Estimator, typename SupportMeasurer>
@@ -74,8 +79,11 @@ class ProbeLogger {
     std::string ProbeLogger::tab_kv_string(const std::string &key, size_t val);
     std::string ProbeLogger::tab_kv_string(const std::string &key, double val);
     std::string ProbeLogger::tab_kv_string(const std::string &key, int val1, int val2);
+    std::string ProbeLogger::tab_kvs_string(const std::string &key, const std::vector<float> &vals);
 
     std::string ProbeLogger::tab_key_string(const std::string &key);
+
+    std::unordered_map<std::pair<image_t, image_t>, std::vector<float>> m_dists;
 
   };
 

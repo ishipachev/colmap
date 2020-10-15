@@ -3,6 +3,7 @@
 #include "probe_logger.h"
 #include <iostream>
 #include <fstream>
+#include <utility>
 #include "optim/ransac.h"
 #include "optim/support_measurement.h"
 #include "estimators/essential_matrix.h"
@@ -84,6 +85,18 @@ namespace colmap {
     ostream << tab_kv_string("matches_num",  matches_num);
   }
 
+  void ProbeLogger::store_matches_dist(image_t img1, image_t img2, 
+                                       std::vector<float> &matches_dist) {
+    m_dists[{img1, img2}] = std::move(matches_dist);
+  }
+
+  void ProbeLogger::write_stored_matches_dist(image_t img1, image_t img2) {
+    ostream << tab_kvs_string("matches_distances", m_dists[{img1, img2}]);
+    m_dists.erase({img1, img2});  //we don't need this array after printing
+  }
+
+
+
   template <typename Estimator, 
             typename SupportMeasurer>
   void ProbeLogger::write_model_report(typename const RANSAC<Estimator, 
@@ -114,7 +127,7 @@ namespace colmap {
     ostream << tab_kv_string("inl_num", static_cast<int>(inl_num));
     ostream << tab_kv_string("config", config);
     ostream << tab_kv_string("time", time);
-    ostream << inner_arr_end();
+    ostream << inner_dict_end();
   }
 
   void ProbeLogger::write_tvgs_close() {
@@ -190,11 +203,23 @@ namespace colmap {
   }
 
   std::string ProbeLogger::tab_kv_string(const std::string &key, int val1, int val2) {
-    return (  current_tab + key + std::string("\": ") 
-            + std::string("[") + std::to_string(val1) + std::string(", ")
-            + std::to_string(val2) + std::string("]")
-            + std::string(",")
+    return (  current_tab + key + std::string("\": ") + std::string("[") 
+            + std::to_string(val1) + std::string(", ")
+            + std::to_string(val2) + std::string("],")
            );
+  }
+
+  std::string ProbeLogger::tab_kvs_string(const std::string &key, const std::vector<float> &vals) {
+    std::string res;
+    res = current_tab + std::string("\"") + key + std::string("\": [");
+    char s_buf[8];
+    for (auto v : vals) {
+      std::sprintf(s_buf, "%4.3f", v);
+      res += std::string(s_buf) + std::string(", ");
+    }
+    res += std::string("],");
+
+    return res;
   }
 
   std::string ProbeLogger::tab_key_string(const std::string &key) {
