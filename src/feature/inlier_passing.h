@@ -16,12 +16,13 @@ class InlierPassing {
  public:
   InlierPassing();
 
-  void write_inliers(image_t img1, image_t img2, FeatureMatches &inliers);
+  void save_inliers(image_t img1, image_t img2, FeatureMatches &inliers);
   void reorder_by_passed_inliers(image_t img_j,
                                  image_t img_k,
                                  FeatureMatches& matches);
   //get list of amount of inliers passed to img_j from all other img_i for all i's
   std::unordered_map<image_t, size_t> const calc_inliers_passed(image_t img_j, image_t img_k);
+  std::unordered_map<image_t, std::vector<size_t>> const InlierPassing::get_inliers_passed(image_t img_j, image_t img_k);
 
  private:
   //std::unordered_map<std::pair<image_t, image_t>, FeatureMatches> pair_inliers; //inliers of model i-to-j
@@ -51,7 +52,7 @@ class InlierPassing {
   //auto equal = [](const Node& l, const Node& r){return l.a == r.a && l.b == r.b && l.c == r.c;};
   //std::unordered_map<Node, int, decltype(hash), decltype(equal)> m(8, hash, equal);
   //std::unordered_map<std::pair<image_t, std::pair<image_t, image_t>>, size_t> pci; //pci from image i to j intersected with matches k
-  std::unordered_map<triplet_t, size_t, hash_fn> pci;
+  std::unordered_map<triplet_t, std::vector<size_t>, hash_fn> pci;
 };
 
 }  // namespace colmap

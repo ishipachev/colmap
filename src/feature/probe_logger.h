@@ -46,12 +46,15 @@ class ProbeLogger {
     void write_stored_matches_dist(image_t img1, image_t img2);
 
     void write_inl_passed_stat(const std::unordered_map<image_t, size_t> &inl_passed);
+    void write_inl_passed_stat(const std::unordered_map<image_t, std::vector<size_t>> &inl_passed);
+
 
     template <typename Estimator, typename SupportMeasurer>
     void write_model_report(typename const RANSAC<Estimator, 
                                                   SupportMeasurer>::Report &report,
                             const std::string model_type,
                             double time);
+    void write_inliers(const std::vector<char>* const best_inlier_mask);
     void write_tvg_close(size_t inl_num, int config, double time);
     void write_tvgs_close();
     //2tab -- tvgs -- END
@@ -80,6 +83,7 @@ class ProbeLogger {
     std::string ProbeLogger::tab_kv_string(const std::string &key, double val);
     std::string ProbeLogger::tab_kv_string(const std::string &key, int val1, int val2);
     std::string ProbeLogger::tab_kvs_string(const std::string &key, const std::vector<float> &vals);
+    std::string ProbeLogger::tab_kvs_string(const std::string &key, const std::vector<size_t> &vals);
 
     std::string ProbeLogger::tab_key_string(const std::string &key);
 

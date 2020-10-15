@@ -45,7 +45,7 @@ std::vector<size_t> get_intersection_ids(std::vector<point2D_t> &inliers,
 InlierPassing::InlierPassing(){
 }
 
-void InlierPassing::write_inliers(image_t img_i, image_t img_j, FeatureMatches& inliers) {
+void InlierPassing::save_inliers(image_t img_i, image_t img_j, FeatureMatches& inliers) {
 
   //pair_inliers[{img_i, img_j}].resize(inliers.size());
 
@@ -87,7 +87,7 @@ void InlierPassing::reorder_by_passed_inliers(image_t img_j,
       std::vector<size_t> pci_ijk;
       //std::vector<size_t> pci_ijk = get_intersection_ids(inliers_ij_j, matches_jk_j, pci_ijk);
       pci_ijk = get_intersection_ids(inliers_ij_j, matches_jk_j);
-      pci[{img_i, img_j, img_k}] = pci_ijk.size();
+      pci[{img_i, img_j, img_k}] = pci_ijk;
       for (auto s: pci_ijk) {
         std::swap(matches_jk[reord_idx++], matches_jk[s]);
       }
@@ -104,8 +104,22 @@ void InlierPassing::reorder_by_passed_inliers(image_t img_j,
   }
 }
 
-std::unordered_map<image_t, size_t> const InlierPassing::calc_inliers_passed(image_t img_j, image_t img_k) {
+std::unordered_map<image_t, size_t> 
+const InlierPassing::calc_inliers_passed(image_t img_j, image_t img_k) {
   std::unordered_map<image_t, size_t> res;
+  if (connected_by.size() >= img_j + 1) {
+    for (auto img_i : connected_by[img_j]) {
+      CHECK(img_i < img_j);   //not implemented for img_i > img_j
+      CHECK(img_j < img_k);   //not implemented for img_j > img_k
+      res[img_i] = pci[{img_i, img_j, img_k}].size();
+    }
+  }
+  return res;
+}
+
+std::unordered_map<image_t, std::vector<size_t>> 
+const InlierPassing::get_inliers_passed(image_t img_j, image_t img_k) {
+  std::unordered_map<image_t, std::vector<size_t>> res;
   if (connected_by.size() >= img_j + 1) {
     for (auto img_i : connected_by[img_j]) {
       CHECK(img_i < img_j);   //not implemented for img_i > img_j

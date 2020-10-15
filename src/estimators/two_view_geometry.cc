@@ -489,6 +489,8 @@ void TwoViewGeometry::EstimateCalibrated(
     return;
   }
 
+  probeLogger.write_inliers(best_inlier_mask);
+
   if (best_inlier_mask != nullptr) {
     inlier_matches =
         ExtractInlierMatches(matches, num_inliers, *best_inlier_mask);
@@ -638,6 +640,8 @@ void TwoViewGeometry::EstimateUncalibrated(
   } else {
     config = ConfigurationType::UNCALIBRATED;
   }
+
+  probeLogger.write_inliers(&F_report.inlier_mask);
 
   inlier_matches = ExtractInlierMatches(matches, F_report.support.num_inliers,
                                         F_report.inlier_mask);

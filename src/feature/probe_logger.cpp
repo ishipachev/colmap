@@ -123,6 +123,31 @@ namespace colmap {
     ostream << inner_arr_end();
   }
 
+  void ProbeLogger::write_inl_passed_stat(const std::unordered_map<image_t, std::vector<size_t>> &inl_passed) {
+    ostream << tab_key_string("inl_passing");
+    ostream << inner_arr_start();
+    for (auto key_val : inl_passed) {
+      ostream << inner_dict_start();
+      ostream << tab_kv_string("from", static_cast<size_t>(key_val.first));
+      ostream << tab_kv_string("pci", static_cast<size_t>(key_val.second.size()));
+      ostream << tab_kvs_string("inds", key_val.second);
+      ostream << inner_dict_end();
+    }
+    ostream << inner_arr_end();
+  }
+
+  void ProbeLogger::write_inliers(const std::vector<char>* const inlier_mask) {
+    std::vector<size_t> inds(inlier_mask->size());
+    int cnt=0;
+    for (int i=0; i < inlier_mask->size(); ++i) {
+      if ((*inlier_mask)[i]) {
+        inds[cnt++] = i;
+      }
+    }
+    inds.resize(cnt);
+    ostream << tab_kvs_string("inliers", inds);
+  }
+
   void ProbeLogger::write_tvg_close(size_t inl_num, int config, double time) {
     ostream << tab_kv_string("inl_num", static_cast<int>(inl_num));
     ostream << tab_kv_string("config", config);
@@ -218,7 +243,16 @@ namespace colmap {
       res += std::string(s_buf) + std::string(", ");
     }
     res += std::string("],");
+    return res;
+  }
 
+  std::string ProbeLogger::tab_kvs_string(const std::string &key, const std::vector<size_t> &vals) {
+    std::string res;
+    res = current_tab + std::string("\"") + key + std::string("\": [");
+    for (auto v : vals) {
+      res += std::to_string(v) + std::string(", ");
+    }
+    res += std::string("],");
     return res;
   }
 
