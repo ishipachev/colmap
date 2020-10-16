@@ -25,8 +25,8 @@ class InlierPassing {
   std::unordered_map<image_t, std::vector<size_t>> const InlierPassing::get_inliers_passed(image_t img_j, image_t img_k);
 
  private:
-  //std::unordered_map<std::pair<image_t, image_t>, FeatureMatches> pair_inliers; //inliers of model i-to-j
-  std::unordered_map<std::pair<image_t, image_t>, std::vector<point2D_t>> pair_inliers; //j's inliers of model i-to-j
+   //j's inliers of model i-to-j related to j's detections
+  std::unordered_map<std::pair<image_t, image_t>, std::vector<point2D_t>> pair_inliers; 
   std::vector<std::vector<image_t>> connected_by; //list of all models builded to i-s image
 
   typedef std::tuple<image_t, image_t, image_t> triplet_t;
@@ -48,10 +48,8 @@ class InlierPassing {
       return res;
     };
   };
-      //return ((17 * 31 + h()(std::get<0>(t))) * 31 + h()(std::get<1>(t)) * 31 + h()(std::get<2>(t)));};
-  //auto equal = [](const Node& l, const Node& r){return l.a == r.a && l.b == r.b && l.c == r.c;};
-  //std::unordered_map<Node, int, decltype(hash), decltype(equal)> m(8, hash, equal);
-  //std::unordered_map<std::pair<image_t, std::pair<image_t, image_t>>, size_t> pci; //pci from image i to j intersected with matches k
+
+
   std::unordered_map<triplet_t, std::vector<size_t>, hash_fn> pci;
 };
 

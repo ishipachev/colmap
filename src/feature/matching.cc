@@ -657,7 +657,7 @@ void TwoViewGeometryVerifier::Run() {
           //probeLogger.write_inl_passed_stat(inlierPassing.calc_inliers_passed(data.image_id1,
           //                                                                    data.image_id2));
           probeLogger.write_inl_passed_stat(inlierPassing.get_inliers_passed(data.image_id1,
-                                                                              data.image_id2));
+                                                                             data.image_id2));
         }
 
         //IS: Main function where everything is happening
@@ -668,8 +668,8 @@ void TwoViewGeometryVerifier::Run() {
 
         if (inlier_passing) { //if we use inlier passing than save inliers
           inlierPassing.save_inliers(data.image_id1, 
-                                      data.image_id2,
-                                      data.two_view_geometry.inlier_matches);
+                                     data.image_id2,
+                                     data.two_view_geometry.inlier_matches);
         }
         probeLogger.write_tvg_close(data.two_view_geometry.inlier_matches.size(),
                                     data.two_view_geometry.config,

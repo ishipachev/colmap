@@ -74,7 +74,7 @@ void InlierPassing::reorder_by_passed_inliers(image_t img_j,
   if (connected_by.size() > img_j) {
     printf("Reordering matches for images %d and %d\n", img_j, img_k);
     //get rid of the second index which we don't need
-    //suppose to be sorted by point2D_idx1 field
+    //supposed to be sorted by point2D_idx1 field
     std::vector<point2D_t> matches_jk_j(matches_jk.size());
     for (int s = 0; s < matches_jk_j.size(); ++s) {
       matches_jk_j[s] = matches_jk[s].point2D_idx1;   //from pair copying only indicies of j's image 
@@ -85,7 +85,6 @@ void InlierPassing::reorder_by_passed_inliers(image_t img_j,
     for (image_t img_i : connected_by[img_j]) {      
       std::vector<point2D_t> &inliers_ij_j = pair_inliers[{img_i, img_j}];
       std::vector<size_t> pci_ijk;
-      //std::vector<size_t> pci_ijk = get_intersection_ids(inliers_ij_j, matches_jk_j, pci_ijk);
       pci_ijk = get_intersection_ids(inliers_ij_j, matches_jk_j);
       pci[{img_i, img_j, img_k}] = pci_ijk;
       for (auto s: pci_ijk) {
