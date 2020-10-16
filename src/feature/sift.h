@@ -164,6 +164,9 @@ struct SiftMatchingOptions {
   //IS: Whether to use inlier passing method as a prosac seed for geometric verification
   bool inlier_passing = false;
 
+  //IS: path to ouput .txt file create by probeLogger class (see probe_logger.cpp)
+  std::string probe_logger_output = "test.txt";  //by default next to .exe file
+
   bool Check() const;
 };
 

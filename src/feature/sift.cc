@@ -253,13 +253,13 @@ size_t FindBestMatchesOneWayFLANN(
         distances,
     const float max_ratio, const float max_distance,
     std::vector<int>* matches,
-    std::vector<float>* matches_dist) {
+    std::vector<float>* matches_qual) {
   // SIFT descriptor vectors are normalized to length 512.
   const float kDistNorm = 1.0f / (512.0f * 512.0f);
 
   size_t num_matches = 0;
   matches->resize(indices.rows(), -1);
-  matches_dist->resize(indices.rows(), -1);
+  matches_qual->resize(indices.rows(), -1);
 
   for (int d1_idx = 0; d1_idx < indices.rows(); ++d1_idx) {
     int best_i2 = -1;
@@ -301,7 +301,7 @@ size_t FindBestMatchesOneWayFLANN(
 
     num_matches += 1;
     (*matches)[d1_idx] = best_i2;
-    (*matches_dist)[d1_idx] = best_dist_normed;
+    (*matches_qual)[d1_idx] = best_dist_normed / second_best_dist_normed;
   }
 
   return num_matches;
@@ -318,21 +318,21 @@ void FindBestMatchesFLANN(
         distances_2to1,
     const float max_ratio, const float max_distance, const bool cross_check,
     FeatureMatches* matches,
-    std::vector<float>* matches_dist) {
+    std::vector<float>* matches_qual) {
   matches->clear();
-  matches_dist->clear();
+  matches_qual->clear();
 
   std::vector<int> matches12;
-  std::vector<float> matches12_dist;
+  std::vector<float> matches12_qual;
   const size_t num_matches12 = FindBestMatchesOneWayFLANN(
-      indices_1to2, distances_1to2, max_ratio, max_distance, &matches12, &matches12_dist);
+      indices_1to2, distances_1to2, max_ratio, max_distance, &matches12, &matches12_qual);
 
   if (cross_check && indices_2to1.rows()) {
     std::vector<int> matches21;
     const size_t num_matches21 = FindBestMatchesOneWayFLANN(
-        indices_2to1, distances_2to1, max_ratio, max_distance, &matches21, &matches12_dist);
+        indices_2to1, distances_2to1, max_ratio, max_distance, &matches21, &matches12_qual);
     matches->reserve(std::min(num_matches12, num_matches21));
-    matches_dist->reserve(std::min(num_matches12, num_matches21));
+    matches_qual->reserve(std::min(num_matches12, num_matches21));
     for (size_t i1 = 0; i1 < matches12.size(); ++i1) {
       if (matches12[i1] != -1 && matches21[matches12[i1]] != -1 &&
           matches21[matches12[i1]] == static_cast<int>(i1)) {
@@ -342,13 +342,13 @@ void FindBestMatchesFLANN(
         matches->push_back(match);
 
         float dist;
-        dist = matches12_dist[i1];
-        matches_dist->push_back(dist);
+        dist = matches12_qual[i1];
+        matches_qual->push_back(dist);
       }
     }
   } else {
     matches->reserve(num_matches12);
-    matches_dist->reserve(num_matches12);
+    matches_qual->reserve(num_matches12);
     for (size_t i1 = 0; i1 < matches12.size(); ++i1) {
       if (matches12[i1] != -1) {
         FeatureMatch match;
@@ -357,8 +357,8 @@ void FindBestMatchesFLANN(
         matches->push_back(match);
 
         float dist;
-        dist = matches12_dist[i1];
-        matches_dist->push_back(dist);
+        dist = matches12_qual[i1];
+        matches_qual->push_back(dist);
       }
     }
   }
@@ -1002,7 +1002,7 @@ void MatchSiftFeaturesCPUFLANN(const SiftMatchingOptions& match_options,
                                const FeatureDescriptors& descriptors1,
                                const FeatureDescriptors& descriptors2,
                                FeatureMatches* matches,
-                               std::vector<float>* matches_dist) {
+                               std::vector<float>* matches_qual) {
   CHECK(match_options.Check());
   CHECK_NOTNULL(matches);
 
@@ -1025,7 +1025,7 @@ void MatchSiftFeaturesCPUFLANN(const SiftMatchingOptions& match_options,
   FindBestMatchesFLANN(indices_1to2, distances_1to2, indices_2to1,
                        distances_2to1, match_options.max_ratio,
                        match_options.max_distance, match_options.cross_check,
-                       matches, matches_dist);
+                       matches, matches_qual);
 }
 
 void MatchSiftFeaturesCPU(const SiftMatchingOptions& match_options,
@@ -1111,12 +1111,12 @@ void MatchGuidedSiftFeaturesCPU(const SiftMatchingOptions& match_options,
                                                      indices_2to1.cols() - 1);
   }
 
-  std::vector<float> dummy_dist; //IS: Pass it just for consistency
+  std::vector<float> dummy_qual; //IS: Pass it just for consistency
   FindBestMatchesFLANN(indices_1to2, distances_1to2, indices_2to1,
                        distances_2to1, match_options.max_ratio,
                        match_options.max_distance, match_options.cross_check,
                        &two_view_geometry->inlier_matches,
-                       &dummy_dist); //IS: Pass it just for consistency
+                       &dummy_qual); //IS: Pass it just for consistency
 }
 
 bool CreateSiftGPUMatcher(const SiftMatchingOptions& match_options,

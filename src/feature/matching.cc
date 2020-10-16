@@ -54,7 +54,9 @@ namespace {
 
 void StartProbeLogging(const SequentialMatchingOptions &seq_options,
                        const SiftMatchingOptions &match_options) {
-  probeLogger.init("c:\\work\\colmap\\tests\\ip_in_colmap\\test.txt", false);
+
+  //probeLogger.init("c:\\work\\colmap\\tests\\ip_in_colmap\\test.txt", false);
+  probeLogger.init(match_options.probe_logger_output, false);
   probeLogger.write_head_open("v0.1", "fist_debug_iteration");
   probeLogger.write_conf_open();
   probeLogger.write_conf_algo( {
@@ -378,9 +380,9 @@ void SiftCPUFeatureMatcher::Run() {
           cache_->GetDescriptors(data.image_id2);
       
       //Getting distances also and writing them through logger
-      std::vector<float> matches_dist;
-      MatchSiftFeaturesCPU(options_, descriptors1, descriptors2, &data.matches, &matches_dist);
-      probeLogger.store_matches_dist(data.image_id1, data.image_id2, matches_dist);
+      std::vector<float> matches_qual;
+      MatchSiftFeaturesCPU(options_, descriptors1, descriptors2, &data.matches, &matches_qual);
+      probeLogger.store_matches_qual(data.image_id1, data.image_id2, matches_qual);
       CHECK(output_queue_->Push(data));
     }
   }
@@ -597,6 +599,7 @@ TwoViewGeometryVerifier::TwoViewGeometryVerifier(
   two_view_geometry_options_.ransac_options.inlier_passing = 
       options_.inlier_passing;
 
+
 }
 
 void TwoViewGeometryVerifier::Run() {
@@ -646,7 +649,7 @@ void TwoViewGeometryVerifier::Run() {
         timer.Start();
         probeLogger.write_tvg_open(data.image_id1, data.image_id2,
                                            data.matches.size());
-        probeLogger.write_stored_matches_dist(data.image_id1, data.image_id2);
+        probeLogger.write_stored_matches_qual(data.image_id1, data.image_id2);
         if (inlier_passing) { //if we use inlier_passing than reorder matches
           inlierPassing.reorder_by_passed_inliers(data.image_id1,
                                                   data.image_id2,

@@ -85,14 +85,14 @@ namespace colmap {
     ostream << tab_kv_string("matches_num",  matches_num);
   }
 
-  void ProbeLogger::store_matches_dist(image_t img1, image_t img2, 
-                                       std::vector<float> &matches_dist) {
-    m_dists[{img1, img2}] = std::move(matches_dist);
+  void ProbeLogger::store_matches_qual(image_t img1, image_t img2, 
+                                       std::vector<float> &matches_qual) {
+    m_qual[{img1, img2}] = std::move(matches_qual);
   }
 
-  void ProbeLogger::write_stored_matches_dist(image_t img1, image_t img2) {
-    ostream << tab_kvs_string("matches_distances", m_dists[{img1, img2}]);
-    m_dists.erase({img1, img2});  //we don't need this array after printing
+  void ProbeLogger::write_stored_matches_qual(image_t img1, image_t img2) {
+    ostream << tab_kvs_string("matches_quality", m_qual[{img1, img2}]);
+    m_qual.erase({img1, img2});  //we don't need this array after printing
   }
 
 
@@ -112,7 +112,7 @@ namespace colmap {
   }
 
   void ProbeLogger::write_inl_passed_stat(const std::unordered_map<image_t, size_t> &inl_passed) {
-    ostream << tab_key_string("inl_passing");
+    ostream << tab_key_string("inl_passed");
     ostream << inner_arr_start();
     for (auto key_val : inl_passed) {
       ostream << inner_dict_start();
@@ -124,7 +124,7 @@ namespace colmap {
   }
 
   void ProbeLogger::write_inl_passed_stat(const std::unordered_map<image_t, std::vector<size_t>> &inl_passed) {
-    ostream << tab_key_string("inl_passing");
+    ostream << tab_key_string("inl_passed");
     ostream << inner_arr_start();
     for (auto key_val : inl_passed) {
       ostream << inner_dict_start();
@@ -156,11 +156,14 @@ namespace colmap {
   }
 
   void ProbeLogger::write_tvgs_close() {
-    ostream << inner_dict_end();
+    ostream << inner_arr_end();
   }
 
   void ProbeLogger::write_head_close() {
-    ostream << inner_dict_end();
+    std::string last_line;
+    last_line = inner_dict_end();
+    last_line.pop_back(); //getting rid of trailing comma
+    ostream << last_line;
   }
 
   void ProbeLogger::deinit() {
@@ -179,7 +182,7 @@ namespace colmap {
     std::string res;
     res = current_tab + std::string("{");
     if (!isOneLiner) {
-      current_tab.append("\t");
+      current_tab.append(tab_str);
     }
     return res;
   }
@@ -188,28 +191,30 @@ namespace colmap {
     std::string res;
     res = current_tab + std::string("[");
     if (!isOneLiner) {
-      current_tab.append("\t");
+      current_tab.append(tab_str);
     }
     return res;
   }
 
   std::string ProbeLogger::inner_dict_end() {
     if (!isOneLiner) {
-      current_tab.pop_back();
+      current_tab.erase(current_tab.size() - tab_str.size() - 1, tab_str.size());
+      //current_tab.pop_back(); //was done for '\t' symbol
     }
     return current_tab + std::string("}") + std::string(",");
   }
 
   std::string ProbeLogger::inner_arr_end() {
     if (!isOneLiner) {
-      current_tab.pop_back();
+      current_tab.erase(current_tab.size() - tab_str.size() - 1, tab_str.size());
+      //current_tab.pop_back(); //was done for '\t' symbol
     }
     return current_tab + std::string("]") + std::string(",");
   }
 
   std::string ProbeLogger::tab_kv_string(const std::string &key, const std::string &val) {
     return current_tab + std::string("\"") + key + std::string("\": ") 
-         + val + std::string(",");
+         + std::string("\"") + val + std::string("\",");
   }
 
   std::string ProbeLogger::tab_kv_string(const std::string &key, int val) {
@@ -228,8 +233,8 @@ namespace colmap {
   }
 
   std::string ProbeLogger::tab_kv_string(const std::string &key, int val1, int val2) {
-    return (  current_tab + key + std::string("\": ") + std::string("[") 
-            + std::to_string(val1) + std::string(", ")
+    return (  current_tab + std::string("\"") + key + std::string("\": ") 
+            + std::string("[") + std::to_string(val1) + std::string(", ")
             + std::to_string(val2) + std::string("],")
            );
   }

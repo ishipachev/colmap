@@ -42,8 +42,8 @@ class ProbeLogger {
     void write_tvgs_open();   //two view geometries
     void write_tvg_open(image_t img1, image_t img2, int matches_num);
     
-    void store_matches_dist(image_t img1, image_t img2, std::vector<float> &matches_dist);
-    void write_stored_matches_dist(image_t img1, image_t img2);
+    void store_matches_qual(image_t img1, image_t img2, std::vector<float> &matches_dist);
+    void write_stored_matches_qual(image_t img1, image_t img2);
 
     void write_inl_passed_stat(const std::unordered_map<image_t, size_t> &inl_passed);
     void write_inl_passed_stat(const std::unordered_map<image_t, std::vector<size_t>> &inl_passed);
@@ -69,6 +69,9 @@ class ProbeLogger {
   private:
     bool isOneLiner = false;
     std::string current_tab = "";
+
+    //const std::string tab_str = "\t"; 
+    const std::string tab_str = "    "; //YAML reader don't like '\t' tabs
   
     std::ofstream ostream;
 
@@ -87,7 +90,7 @@ class ProbeLogger {
 
     std::string ProbeLogger::tab_key_string(const std::string &key);
 
-    std::unordered_map<std::pair<image_t, image_t>, std::vector<float>> m_dists;
+    std::unordered_map<std::pair<image_t, image_t>, std::vector<float>> m_qual;
 
   };
 
