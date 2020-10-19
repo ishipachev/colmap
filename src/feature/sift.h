@@ -144,7 +144,8 @@ struct SiftMatchingOptions {
 
   // Minimum/maximum number of RANSAC iterations. Note that this option
   // overrules the min_inlier_ratio option.
-  int min_num_trials = 100;
+  //IS: changed to 0 for a clearence
+  int min_num_trials = 10;
   int max_num_trials = 10000;
 
   // A priori assumed minimum inlier ratio, which determines the maximum

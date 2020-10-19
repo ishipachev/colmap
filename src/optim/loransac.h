@@ -43,6 +43,8 @@
 #include "util/alignment.h"
 #include "util/logging.h"
 
+#include "feature/probe_logger.h"
+
 namespace colmap {
 
 // Implementation of LO-RANSAC (Locally Optimized RANSAC).
@@ -129,12 +131,16 @@ LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
 
   printf("LORANSAC:\n");
 
+  //probeLogger.write_ransac_open();
+
   for (report.num_trials = 0; report.num_trials < max_num_trials;
        ++report.num_trials) {
     if (abort) {
       report.num_trials += 1;
       break;
     }
+
+    int logger_num_inliers = 0; //we will store support for this trail, but only best one among all models
 
     auto sample_ids= sampler.SampleXY_ids(X, Y, &X_rand, &Y_rand);
 
@@ -148,6 +154,10 @@ LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
       CHECK_EQ(residuals.size(), num_samples);
 
       const auto support = support_measurer.Evaluate(residuals, max_residual);
+
+      if (support.num_inliers >= logger_num_inliers) {
+        logger_num_inliers = support.num_inliers;
+      }
 
       // Do local optimization if better than all previous subsets.
       if (support_measurer.Compare(support, best_support)) {
@@ -224,7 +234,10 @@ LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
         break;
       }
     }
+    //probeLogger.write_ransac_inlier_cnt(logger_num_inliers);
   }
+
+  //probeLogger.write_ransac_close();
 
   report.support = best_support;
   report.model = best_model;

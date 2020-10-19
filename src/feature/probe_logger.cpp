@@ -95,19 +95,38 @@ namespace colmap {
     m_qual.erase({img1, img2});  //we don't need this array after printing
   }
 
+  void ProbeLogger::write_ransac_open() {
+    ostream << tab_key_string("inl_cnt") << std::string("[");
+  }
 
+  void ProbeLogger::write_ransac_inlier_cnt(size_t cnt) {
+    ostream << std::to_string(cnt) << std::string(", ");
+  }
+
+  void ProbeLogger::write_ransac_close() {
+    ostream << "]";
+  }
+
+  void ProbeLogger::write_model_report_open(const std::string model_type) {
+    ostream << tab_key_string(model_type);  //F or H or E
+    ostream << inner_dict_start();
+  }
 
   template <typename Estimator, 
             typename SupportMeasurer>
   void ProbeLogger::write_model_report(typename const RANSAC<Estimator, 
                                                              SupportMeasurer>::Report &report, 
-                                       const std::string model_type,
+                                       //const std::string model_type,
                                        double time) {
-    ostream << tab_key_string(model_type);  //F or H or E
-    ostream << inner_dict_start();
+    //ostream << tab_key_string(model_type);  //F or H or E
+    //ostream << inner_dict_start();
     ostream << tab_kv_string("num_trials", report.num_trials);  //F or H or E
     ostream << tab_kv_string("num_inliers", report.support.num_inliers);
     ostream << tab_kv_string("time", time);
+    //ostream << inner_dict_end();
+  }
+
+  void ProbeLogger::write_model_report_close() {
     ostream << inner_dict_end();
   }
 
@@ -269,21 +288,21 @@ namespace colmap {
     EssentialMatrixFivePointEstimator,
     InlierSupportMeasurer>(typename const RANSAC<EssentialMatrixFivePointEstimator,
                            InlierSupportMeasurer>::Report &report,
-                           const std::string model_type,
+                           //const std::string model_type,
                            double time);
 
   template void ProbeLogger::write_model_report<
     FundamentalMatrixSevenPointEstimator,
     InlierSupportMeasurer>(typename const RANSAC<FundamentalMatrixSevenPointEstimator,
                            InlierSupportMeasurer>::Report &report,
-                           const std::string model_type,
+                           //const std::string model_type,
                            double time);
 
   template void ProbeLogger::write_model_report<
     HomographyMatrixEstimator,
     InlierSupportMeasurer>(typename const RANSAC<HomographyMatrixEstimator,
                            InlierSupportMeasurer>::Report &report,
-                           const std::string model_type,
+                           //const std::string model_type,
                            double time);
 }
 

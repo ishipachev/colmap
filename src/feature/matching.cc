@@ -648,7 +648,7 @@ void TwoViewGeometryVerifier::Run() {
         Timer timer;
         timer.Start();
         probeLogger.write_tvg_open(data.image_id1, data.image_id2,
-                                           data.matches.size());
+                                   data.matches.size());
         probeLogger.write_stored_matches_qual(data.image_id1, data.image_id2);
         if (inlier_passing) { //if we use inlier_passing than reorder matches
           inlierPassing.reorder_by_passed_inliers(data.image_id1,

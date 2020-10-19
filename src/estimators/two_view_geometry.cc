@@ -304,6 +304,8 @@ void TwoViewGeometry::EstimateCalibrated(
   Timer timer;
   timer.Start();
 
+  probeLogger.write_model_report_open("E");
+
   if (options.ransac_options.inlier_passing) {
     const auto E_report_prog = E_ransac_prog.Estimate(matched_points1_normalized, matched_points2_normalized);
     copyLoransacReport<EssentialMatrixFivePointEstimator, 
@@ -325,9 +327,14 @@ void TwoViewGeometry::EstimateCalibrated(
   probeLogger.write_model_report
     <EssentialMatrixFivePointEstimator,
     InlierSupportMeasurer>
-    (E_report, "E", timer.ElapsedSeconds());
+    (E_report, timer.ElapsedSeconds());
 
-  //printf("E trials: %5d; inliers: %5d\n", E_report.num_trials, E_report.support.num_inliers);
+  //printf("E it: %4d; inl: %4d: time: %2.4f\n", 
+  //       E_report.num_trials, 
+  //       E_report.support.num_inliers, 
+  //       timer.ElapsedSeconds());
+
+  probeLogger.write_model_report_close();
   
   LORANSAC<FundamentalMatrixSevenPointEstimator,
            FundamentalMatrixEightPointEstimator, 
@@ -347,6 +354,8 @@ void TwoViewGeometry::EstimateCalibrated(
 
   timer.Reset();
   timer.Start();
+
+  probeLogger.write_model_report_open("F");
 
   if (options.ransac_options.inlier_passing) {
     const auto F_report_prog = F_ransac_prog.Estimate(matched_points1, matched_points2);
@@ -369,9 +378,14 @@ void TwoViewGeometry::EstimateCalibrated(
   probeLogger.write_model_report
     <FundamentalMatrixSevenPointEstimator,
     InlierSupportMeasurer>
-    (F_report, "F", timer.ElapsedSeconds());
+    (F_report, timer.ElapsedSeconds());
 
-  printf("F trials: %5d; inliers: %5d\n", F_report.num_trials, F_report.support.num_inliers);
+  printf("F it: %4d; inl: %4d: time: %2.4f\n", 
+         F_report.num_trials, 
+         F_report.support.num_inliers, 
+         timer.ElapsedSeconds());
+
+  probeLogger.write_model_report_close();
 
   // Estimate planar or panoramic model.
 
@@ -392,6 +406,8 @@ void TwoViewGeometry::EstimateCalibrated(
   timer.Reset();
   timer.Start();
 
+  probeLogger.write_model_report_open("H");
+
   if (options.ransac_options.inlier_passing) {
     const auto H_report_prog = H_ransac_prog.Estimate(matched_points1, matched_points2);
     copyLoransacReport<HomographyMatrixEstimator, 
@@ -410,13 +426,17 @@ void TwoViewGeometry::EstimateCalibrated(
 
   H = H_report.model;
 
-
   probeLogger.write_model_report
     <HomographyMatrixEstimator,
     InlierSupportMeasurer>
-    (H_report, "H", timer.ElapsedSeconds());
+    (H_report, timer.ElapsedSeconds());
 
-  printf("H trials: %5d; inliers: %5d\n", H_report.num_trials, H_report.support.num_inliers);
+  printf("H it: %4d; inl: %4d: time: %2.4f\n", 
+         H_report.num_trials, 
+         H_report.support.num_inliers, 
+         timer.ElapsedSeconds());
+
+  probeLogger.write_model_report_close();
 
   if ((!E_report.success && !F_report.success && !H_report.success) ||
       (E_report.support.num_inliers < options.min_num_inliers &&
@@ -546,6 +566,8 @@ void TwoViewGeometry::EstimateUncalibrated(
   Timer timer;
   timer.Start();
 
+  probeLogger.write_model_report_open("F");
+
   if (options.ransac_options.inlier_passing) {
     const auto F_report_prog = F_ransac_prog.Estimate(matched_points1, matched_points2);
     copyLoransacReport<FundamentalMatrixSevenPointEstimator,
@@ -567,12 +589,16 @@ void TwoViewGeometry::EstimateUncalibrated(
   probeLogger.write_model_report
     <FundamentalMatrixSevenPointEstimator,
     InlierSupportMeasurer>
-    (F_report, "F", timer.ElapsedSeconds());
+    (F_report, timer.ElapsedSeconds());
 
   printf("F it: %4d; inl: %4d: time: %2.4f\n", 
-          F_report.num_trials, 
-          F_report.support.num_inliers, 
-          timer.ElapsedSeconds());
+         F_report.num_trials, 
+         F_report.support.num_inliers, 
+         timer.ElapsedSeconds());
+
+  probeLogger.write_model_report_close();
+
+
   
   // Estimate planar or panoramic model.
 
@@ -592,6 +618,8 @@ void TwoViewGeometry::EstimateUncalibrated(
 
   timer.Reset();
   timer.Start();
+
+  probeLogger.write_model_report_open("H");
 
   if (options.ransac_options.inlier_passing) {
     const auto H_report_prog = H_ransac_prog.Estimate(matched_points1, matched_points2);
@@ -615,12 +643,15 @@ void TwoViewGeometry::EstimateUncalibrated(
   probeLogger.write_model_report
     <HomographyMatrixEstimator,
     InlierSupportMeasurer>
-    (H_report, "H", timer.ElapsedSeconds());
+    (H_report, timer.ElapsedSeconds());
 
   printf("H it: %4d; inl: %4d: time: %2.4f\n",
          H_report.num_trials,
          H_report.support.num_inliers,
          timer.ElapsedSeconds());
+
+  probeLogger.write_model_report_close();
+
 
   if ((!F_report.success && !H_report.success) ||
       (F_report.support.num_inliers < options.min_num_inliers &&

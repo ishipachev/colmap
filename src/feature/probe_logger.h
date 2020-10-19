@@ -48,12 +48,18 @@ class ProbeLogger {
     void write_inl_passed_stat(const std::unordered_map<image_t, size_t> &inl_passed);
     void write_inl_passed_stat(const std::unordered_map<image_t, std::vector<size_t>> &inl_passed);
 
+    void write_ransac_open();
+    void write_ransac_inlier_cnt(size_t cnt);
+    void write_ransac_close();
 
+    void write_model_report_open(const std::string model_type);
     template <typename Estimator, typename SupportMeasurer>
     void write_model_report(typename const RANSAC<Estimator, 
                                                   SupportMeasurer>::Report &report,
-                            const std::string model_type,
+                            //const std::string model_type,
                             double time);
+    void write_model_report_close();
+
     void write_inliers(const std::vector<char>* const best_inlier_mask);
     void write_tvg_close(size_t inl_num, int config, double time);
     void write_tvgs_close();

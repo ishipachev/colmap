@@ -56,7 +56,7 @@ void ProgressiveSampler::Initialize(const size_t total_num_samples) {
 
   // Number of iterations before PROSAC behaves like RANSAC. Default value
   // is chosen according to the recommended value in the paper.
-  const size_t kNumProgressiveIterations = 25000;
+  const size_t kNumProgressiveIterations = 500;
 
   // Compute T_n using recurrent relation in equation 3 (first part).
   T_n_ = kNumProgressiveIterations;
