@@ -169,7 +169,7 @@ LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
         if (support.num_inliers > Estimator::kMinNumSamples &&
             support.num_inliers >= LocalEstimator::kMinNumSamples) {
           // Recursive local optimization to expand inlier set.
-          const size_t kMaxNumLocalTrials = 1;   //IS: Switched off from 10 to 1 this recursive LO
+          const size_t kMaxNumLocalTrials = 10;   //IS: Switched off from 10 to 1 this recursive LO
           for (size_t local_num_trials = 0;
                local_num_trials < kMaxNumLocalTrials; ++local_num_trials) {
             X_inlier.clear();
@@ -177,7 +177,7 @@ LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
             X_inlier.reserve(num_samples);
             Y_inlier.reserve(num_samples);
             for (size_t i = 0; i < residuals.size(); ++i) {
-              if (residuals[i] <= max_residual) {
+              if (residuals[i] <= max_residual) {   //IS: just for test increased by 2 (rolled back)
                 X_inlier.push_back(X[i]);
                 Y_inlier.push_back(Y[i]);
               }
