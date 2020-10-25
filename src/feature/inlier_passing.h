@@ -22,7 +22,7 @@ class InlierPassing {
                                  FeatureMatches& matches);
   //get list of amount of inliers passed to img_j from all other img_i for all i's
   std::unordered_map<image_t, size_t> const calc_inliers_passed(image_t img_j, image_t img_k);
-  std::unordered_map<image_t, std::vector<size_t>> const InlierPassing::get_inliers_passed(image_t img_j, image_t img_k);
+  std::unordered_map<image_t, std::vector<size_t>> const get_inliers_passed(image_t img_j, image_t img_k);
 
  private:
    //j's inliers of model i-to-j related to j's detections

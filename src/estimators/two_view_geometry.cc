@@ -64,7 +64,7 @@ template <typename Estimator,
           typename SupportMeasurer,
           typename SamplerFrom,
           typename SamplerTo>
-void copyLoransacReport(typename const RANSAC<Estimator, SupportMeasurer, SamplerFrom>::Report &reportFrom,
+void copyLoransacReport(const typename RANSAC<Estimator, SupportMeasurer, SamplerFrom>::Report &reportFrom,
                         typename RANSAC<Estimator, SupportMeasurer, SamplerTo>::Report &reportTo) {
   reportTo.success = reportFrom.success;
   reportTo.num_trials = reportFrom.num_trials;

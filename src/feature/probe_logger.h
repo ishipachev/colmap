@@ -54,10 +54,10 @@ class ProbeLogger {
 
     void write_model_report_open(const std::string model_type);
     template <typename Estimator, typename SupportMeasurer>
-    void write_model_report(typename const RANSAC<Estimator, 
-                                                  SupportMeasurer>::Report &report,
+    void write_model_report(const typename RANSAC<Estimator, 
+                                  SupportMeasurer>::Report &report,
                             //const std::string model_type,
-                            double time);
+                                  double time);
     void write_model_report_close();
 
     void write_inliers(const std::vector<char>* const best_inlier_mask);
@@ -86,15 +86,15 @@ class ProbeLogger {
     std::string inner_arr_start();
     std::string inner_arr_end();
 
-    std::string ProbeLogger::tab_kv_string(const std::string &key, const std::string &val);
-    std::string ProbeLogger::tab_kv_string(const std::string &key, int val);
-    std::string ProbeLogger::tab_kv_string(const std::string &key, size_t val);
-    std::string ProbeLogger::tab_kv_string(const std::string &key, double val);
-    std::string ProbeLogger::tab_kv_string(const std::string &key, int val1, int val2);
-    std::string ProbeLogger::tab_kvs_string(const std::string &key, const std::vector<float> &vals);
-    std::string ProbeLogger::tab_kvs_string(const std::string &key, const std::vector<size_t> &vals);
+    std::string tab_kv_string(const std::string &key, const std::string &val);
+    std::string tab_kv_string(const std::string &key, int val);
+    std::string tab_kv_string(const std::string &key, size_t val);
+    std::string tab_kv_string(const std::string &key, double val);
+    std::string tab_kv_string(const std::string &key, int val1, int val2);
+    std::string tab_kvs_string(const std::string &key, const std::vector<float> &vals);
+    std::string tab_kvs_string(const std::string &key, const std::vector<size_t> &vals);
 
-    std::string ProbeLogger::tab_key_string(const std::string &key);
+    std::string tab_key_string(const std::string &key);
 
     std::unordered_map<std::pair<image_t, image_t>, std::vector<float>> m_qual;
 
