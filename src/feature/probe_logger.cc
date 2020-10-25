@@ -114,7 +114,7 @@ namespace colmap {
 
   template <typename Estimator, 
             typename SupportMeasurer>
-  void ProbeLogger::write_model_report(typename const RANSAC<Estimator, 
+  void ProbeLogger::write_model_report(const typename RANSAC<Estimator, 
                                                              SupportMeasurer>::Report &report, 
                                        //const std::string model_type,
                                        double time) {
@@ -217,7 +217,10 @@ namespace colmap {
 
   std::string ProbeLogger::inner_dict_end() {
     if (!isOneLiner) {
-      current_tab.erase(current_tab.size() - tab_str.size() - 1, tab_str.size());
+      //printf("Debug print:\n");
+      //printf("\t current_tab=%s, size=%d\n;\t tab_str=%s, size=%d\n",
+		//current_tab, current_tab.size(), tab_str, tab_str.size());
+      current_tab.erase(current_tab.end() - tab_str.size());
       //current_tab.pop_back(); //was done for '\t' symbol
     }
     return current_tab + std::string("}") + std::string(",");
@@ -286,21 +289,21 @@ namespace colmap {
 
   template void ProbeLogger::write_model_report<
     EssentialMatrixFivePointEstimator,
-    InlierSupportMeasurer>(typename const RANSAC<EssentialMatrixFivePointEstimator,
+    InlierSupportMeasurer>(const typename RANSAC<EssentialMatrixFivePointEstimator,
                            InlierSupportMeasurer>::Report &report,
                            //const std::string model_type,
                            double time);
 
   template void ProbeLogger::write_model_report<
     FundamentalMatrixSevenPointEstimator,
-    InlierSupportMeasurer>(typename const RANSAC<FundamentalMatrixSevenPointEstimator,
+    InlierSupportMeasurer>(const typename RANSAC<FundamentalMatrixSevenPointEstimator,
                            InlierSupportMeasurer>::Report &report,
                            //const std::string model_type,
                            double time);
 
   template void ProbeLogger::write_model_report<
     HomographyMatrixEstimator,
-    InlierSupportMeasurer>(typename const RANSAC<HomographyMatrixEstimator,
+    InlierSupportMeasurer>(const typename RANSAC<HomographyMatrixEstimator,
                            InlierSupportMeasurer>::Report &report,
                            //const std::string model_type,
                            double time);

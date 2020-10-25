@@ -37,6 +37,8 @@ COLMAP_ADD_SOURCES(
     sift.h sift.cc
     types.h types.cc
     utils.h utils.cc
+    inlier_passing.h inlier_passing.cc
+    probe_logger.h probe_logger.cc
 )
 
 COLMAP_ADD_TEST(feature_utils_test utils_test.cc)
