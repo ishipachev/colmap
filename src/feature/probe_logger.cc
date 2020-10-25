@@ -19,6 +19,7 @@ namespace colmap {
 
   void ProbeLogger::init(const std::string &filename, const bool isOneLiner_) {
     isOneLiner = isOneLiner_;
+    printf("ProbeLogger filename: %s \n", filename);
     ostream.open(filename);
     current_tab = isOneLiner ? " " : "\n";
   }
@@ -91,7 +92,9 @@ namespace colmap {
   }
 
   void ProbeLogger::write_stored_matches_qual(image_t img1, image_t img2) {
-    ostream << tab_kvs_string("matches_quality", m_qual[{img1, img2}]);
+    //ostream << tab_kvs_string("matches_quality", m_qual[{img1, img2}]);
+    //to decrease the size of logs have it commented out
+    ostream << tab_kv_string("matches_quality:","[]");
     m_qual.erase({img1, img2});  //we don't need this array after printing
   }
 
@@ -149,7 +152,9 @@ namespace colmap {
       ostream << inner_dict_start();
       ostream << tab_kv_string("from", static_cast<size_t>(key_val.first));
       ostream << tab_kv_string("pci", static_cast<size_t>(key_val.second.size()));
-      ostream << tab_kvs_string("inds", key_val.second);
+      //to decrease the size of logs commented out array logs
+      //ostream << tab_kvs_string("inds", key_val.second);
+      ostream << tab_kv_string("inds:", "[]");
       ostream << inner_dict_end();
     }
     ostream << inner_arr_end();
@@ -164,7 +169,9 @@ namespace colmap {
       }
     }
     inds.resize(cnt);
-    ostream << tab_kvs_string("inliers", inds);
+    //ostream << tab_kvs_string("inliers", inds);
+    //to decrease the size of logs commented out array logs
+    ostream << tab_kv_string("inliers:", "[]");
   }
 
   void ProbeLogger::write_tvg_close(size_t inl_num, int config, double time) {
