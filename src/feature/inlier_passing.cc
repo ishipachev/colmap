@@ -121,8 +121,10 @@ const InlierPassing::get_inliers_passed(image_t img_j, image_t img_k) {
   std::unordered_map<image_t, std::vector<size_t>> res;
   if (connected_by.size() >= img_j + 1) {
     for (auto img_i : connected_by[img_j]) {
-      CHECK(img_i < img_j);   //not implemented for img_i > img_j
-      CHECK(img_j < img_k);   //not implemented for img_j > img_k
+      //CHECK(img_i < img_j);   //not implemented for img_i > img_j
+      //CHECK(img_j < img_k);   //not implemented for img_j > img_k
+      //have to work without those checks
+      //CHECK(pci.find[{img_i, img_j, img_k}] != pci.end());
       res[img_i] = pci[{img_i, img_j, img_k}];
     }
   }

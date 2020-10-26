@@ -227,7 +227,7 @@ namespace colmap {
       //printf("Debug print:\n");
       //printf("\t current_tab=%s, size=%d\n;\t tab_str=%s, size=%d\n",
 		//current_tab, current_tab.size(), tab_str, tab_str.size());
-      current_tab.erase(current_tab.end() - tab_str.size());
+      current_tab.erase(current_tab.end() - tab_str.size(), current_tab.end());
       //current_tab.pop_back(); //was done for '\t' symbol
     }
     return current_tab + std::string("}") + std::string(",");

@@ -31,14 +31,6 @@ class InlierPassing {
 
   typedef std::tuple<image_t, image_t, image_t> triplet_t;
 
-  //size_t hash_fn (const triplet_t& t) {
-  //  size_t res = 17;
-  //  res = res * 31 + std::hash<image_t>()(std::get<0>(t));
-  //  res = res * 31 + std::hash<image_t>()(std::get<1>(t));
-  //  res = res * 31 + std::hash<image_t>()(std::get<2>(t));
-  //  return res;  
-  //};
-
   struct hash_fn : public std::unary_function<triplet_t, size_t> {
     size_t operator()(const triplet_t& t) const {
       size_t res = 17;
