@@ -647,15 +647,16 @@ void TwoViewGeometryVerifier::Run() {
       } else {
         Timer timer;
         timer.Start();
+	const std::string &name1 = cache_->GetImage(data.image_id1).Name();
+	const std::string &name2 = cache_->GetImage(data.image_id2).Name();
         probeLogger.write_tvg_open(data.image_id1, data.image_id2,
+				   name1, name2,
                                    data.matches.size());
         probeLogger.write_stored_matches_qual(data.image_id1, data.image_id2);
         if (inlier_passing) { //if we use inlier_passing than reorder matches
           inlierPassing.reorder_by_passed_inliers(data.image_id1,
                                                   data.image_id2,
                                                   data.matches);
-          //probeLogger.write_inl_passed_stat(inlierPassing.calc_inliers_passed(data.image_id1,
-          //                                                                    data.image_id2));
           probeLogger.write_inl_passed_stat(inlierPassing.get_inliers_passed(data.image_id1,
                                                                              data.image_id2));
         }

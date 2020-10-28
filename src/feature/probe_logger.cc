@@ -80,9 +80,14 @@ namespace colmap {
     ostream << inner_arr_start();
   }
 
-  void ProbeLogger::write_tvg_open(image_t img1, image_t img2, int matches_num) {
+  void ProbeLogger::write_tvg_open(image_t img1, image_t img2,
+                                   const std::string &name1,
+				   const std::string &name2,
+				    int matches_num) {
     ostream << inner_dict_start();
     ostream << tab_kv_string("img_pair", img1, img2);
+    ostream << tab_kv_string("img1_name", name1);
+    ostream << tab_kv_string("img2_name", name2);
     ostream << tab_kv_string("matches_num",  matches_num);
   }
 

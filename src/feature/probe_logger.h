@@ -40,7 +40,10 @@ class ProbeLogger {
 
     //2tab -- tvgs -- BEGIN
     void write_tvgs_open();   //two view geometries
-    void write_tvg_open(image_t img1, image_t img2, int matches_num);
+    void write_tvg_open(image_t img1, image_t img2, 
+		        const std::string &name1, 
+			const std::string &name2,
+			int matches_num);
     
     void store_matches_qual(image_t img1, image_t img2, std::vector<float> &matches_dist);
     void write_stored_matches_qual(image_t img1, image_t img2);
