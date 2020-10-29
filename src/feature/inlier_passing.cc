@@ -81,22 +81,36 @@ void InlierPassing::reorder_by_passed_inliers(image_t img_j,
     }
     CHECK(std::is_sorted(matches_jk_j.begin(), matches_jk_j.end()));
 
-    size_t reord_idx = 0;
+    size_t best_i = 0;
+    size_t best_pci_size = 0;
     for (image_t img_i : connected_by[img_j]) {      
       std::vector<point2D_t> &inliers_ij_j = pair_inliers[{img_i, img_j}];
       std::vector<size_t> pci_ijk;
       pci_ijk = get_intersection_ids(inliers_ij_j, matches_jk_j);
+      std::sort(pci_ijk.begin(), pci_ijk.end());
       pci[{img_i, img_j, img_k}] = pci_ijk;
-      for (auto s: pci_ijk) {
-        std::swap(matches_jk[reord_idx++], matches_jk[s]);
+      if (best_pci_size < pci_ijk.size()){
+        best_pci_size = pci_ijk.size();
+        best_i = img_i;
       }
-      printf("%d matches were reordered of %d total matches by using model from %d to %d\n", reord_idx, matches_jk.size(), img_i, img_j);
-      if (reord_idx >= matches_jk.size()) {
-        break; //this part should be rewritten that prioritize points which we often have as inliers for other models
-               //maybe just implement as a simple counter and order them in this way
+    }      
+    size_t reord_idx = 0;
+    for (auto s: pci[{best_i, img_j, img_k}]) {
+      if (reord_idx >= matches_jk.size() || s >= matches_jk.size()) { //Not needed but just in case to keep it
+        break;
       }
-      break; //right now we will do only one iteratin for the testing purpose
+      if (reord_idx == s) {
+	reord_idx++;
+	continue;
+      }
+      std::swap(matches_jk[reord_idx++], matches_jk[s]);
     }
+    printf("IP: %d out of %d matches were reordered by model from %d to %d\n", reord_idx, matches_jk.size(), best_i, img_j);
+    //if (reord_idx >= matches_jk.size()) {
+     // break; //this part should be rewritten that prioritize points which we often have as inliers for other models
+               //maybe just implement as a simple counter and order them in this way
+    //}
+    //break; //right now we will do only one iteratin for the testing purpose
   } else {
     connected_by.resize(img_j + 1);
     printf("No existing models to image %d\n", img_j);
@@ -125,7 +139,11 @@ const InlierPassing::get_inliers_passed(image_t img_j, image_t img_k) {
       //CHECK(img_j < img_k);   //not implemented for img_j > img_k
       //have to work without those checks
       //CHECK(pci.find[{img_i, img_j, img_k}] != pci.end());
-      res[img_i] = pci[{img_i, img_j, img_k}];
+      if (pci.find({img_i, img_j, img_k}) != pci.end()){      
+        res[img_i] = pci[{img_i, img_j, img_k}];
+      } else {
+        res[img_i] = std::vector<size_t>(0);	      
+      }
     }
   }
   return res;

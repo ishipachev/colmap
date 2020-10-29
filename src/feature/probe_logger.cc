@@ -154,13 +154,15 @@ namespace colmap {
     ostream << tab_key_string("inl_passed");
     ostream << inner_arr_start();
     for (auto key_val : inl_passed) {
-      ostream << inner_dict_start();
-      ostream << tab_kv_string("from", static_cast<size_t>(key_val.first));
-      ostream << tab_kv_string("pci", static_cast<size_t>(key_val.second.size()));
-      //to decrease the size of logs commented out array logs
-      //ostream << tab_kvs_string("inds", key_val.second);
-      ostream << tab_kv_string("inds:", "[]");
-      ostream << inner_dict_end();
+      if (key_val.second.size() > 0) {
+        ostream << inner_dict_start();
+        ostream << tab_kv_string("from", static_cast<size_t>(key_val.first));
+        ostream << tab_kv_string("pci", static_cast<size_t>(key_val.second.size()));
+        //to decrease the size of logs commented out array logs
+        //ostream << tab_kvs_string("inds", key_val.second);
+        ostream << tab_kv_string("inds:", "[]");
+        ostream << inner_dict_end();
+      }
     }
     ostream << inner_arr_end();
   }
