@@ -645,20 +645,24 @@ void TwoViewGeometryVerifier::Run() {
                                                 points2, data.matches,
                                                 two_view_geometry_options_);
       } else {
-        Timer timer;
-        timer.Start();
+        Timer timer_all;
+        timer_all.Start();
 	const std::string &name1 = cache_->GetImage(data.image_id1).Name();
 	const std::string &name2 = cache_->GetImage(data.image_id2).Name();
         probeLogger.write_tvg_open(data.image_id1, data.image_id2,
 				   name1, name2,
                                    data.matches.size());
         probeLogger.write_stored_matches_qual(data.image_id1, data.image_id2);
+
+	Timer timer_ip;
         if (inlier_passing) { //if we use inlier_passing than reorder matches
+	  timer_ip.Start();
           inlierPassing.reorder_by_passed_inliers(data.image_id1,
                                                   data.image_id2,
                                                   data.matches);
           probeLogger.write_inl_passed_stat(inlierPassing.get_inliers_passed(data.image_id1,
                                                                              data.image_id2));
+	  timer_ip.Pause();
         }
 
         //IS: Main function where everything is happening
@@ -668,13 +672,22 @@ void TwoViewGeometryVerifier::Run() {
         //----
 
         if (inlier_passing) { //if we use inlier passing than save inliers
+	  timer_ip.Start();
           inlierPassing.save_inliers(data.image_id1, 
                                      data.image_id2,
                                      data.two_view_geometry.inlier_matches);
+	  timer_ip.Pause();
+	  probeLogger.write_tvg_close(data.two_view_geometry.inlier_matches.size(),
+                                      data.two_view_geometry.config,
+                                      timer_all.ElapsedSeconds(), 
+				      timer_ip.ElapsedSeconds());
+
         }
-        probeLogger.write_tvg_close(data.two_view_geometry.inlier_matches.size(),
-                                    data.two_view_geometry.config,
-                                    timer.ElapsedSeconds());
+	else {
+          probeLogger.write_tvg_close(data.two_view_geometry.inlier_matches.size(),
+                                      data.two_view_geometry.config,
+                                      timer_all.ElapsedSeconds());
+	}
       }
 
       CHECK(output_queue_->Push(data));

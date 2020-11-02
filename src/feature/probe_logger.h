@@ -65,6 +65,7 @@ class ProbeLogger {
 
     void write_inliers(const std::vector<char>* const best_inlier_mask);
     void write_tvg_close(size_t inl_num, int config, double time);
+    void write_tvg_close(size_t inl_num, int config, double time_all, double time_ip);
     void write_tvgs_close();
     //2tab -- tvgs -- END
     

@@ -188,6 +188,14 @@ namespace colmap {
     ostream << inner_dict_end();
   }
 
+  void ProbeLogger::write_tvg_close(size_t inl_num, int config, double time_all, double time_ip) {
+    ostream << tab_kv_string("inl_num", static_cast<int>(inl_num));
+    ostream << tab_kv_string("config", config);
+    ostream << tab_kv_string("time", time_all);
+    ostream << tab_kv_string("time_ip", time_ip);
+    ostream << inner_dict_end();
+  }
+
   void ProbeLogger::write_tvgs_close() {
     ostream << inner_arr_end();
   }

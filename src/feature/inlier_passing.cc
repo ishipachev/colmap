@@ -50,15 +50,23 @@ void InlierPassing::save_inliers(image_t img_i, image_t img_j, FeatureMatches& i
   //pair_inliers[{img_i, img_j}].resize(inliers.size());
 
   std::vector<point2D_t> &pair_inliers_ij = pair_inliers[{img_i, img_j}];
+  std::vector<point2D_t> &pair_inliers_ji = pair_inliers[{img_j, img_i}];
+
   pair_inliers_ij.resize(inliers.size());
+  pair_inliers_ji.resize(inliers.size());
 
   for (int s = 0; s < pair_inliers_ij.size(); ++s) {
     pair_inliers_ij[s] = inliers[s].point2D_idx2;   //from pair copying only indicies of j's image 
+    pair_inliers_ji[s] = inliers[s].point2D_idx1;   //from pair copying only indiceis of i's image
   }
   std::sort(pair_inliers_ij.begin(), pair_inliers_ij.end());
+  std::sort(pair_inliers_ji.begin(), pair_inliers_ji.end());
 
   if (connected_by.size() < img_j + 1) { connected_by.resize(img_j + 1); }
+  if (connected_by.size() < img_i + 1) { connected_by.resize(img_i + 1); }
+
   connected_by[img_j].push_back(img_i);
+  connected_by[img_i].push_back(img_j);
 }
 
 //Reordering matches_jk by putting first inliers from aldready calculated models from i to j
@@ -79,21 +87,37 @@ void InlierPassing::reorder_by_passed_inliers(image_t img_j,
     for (int s = 0; s < matches_jk_j.size(); ++s) {
       matches_jk_j[s] = matches_jk[s].point2D_idx1;   //from pair copying only indicies of j's image 
     }
-    CHECK(std::is_sorted(matches_jk_j.begin(), matches_jk_j.end()));
+    //so just by all experiments its always sorted as it should be
+    //CHECK(std::is_sorted(matches_jk_j.begin(), matches_jk_j.end()));
 
     size_t best_i = 0;
-    size_t best_pci_size = 0;
+    //size_t best_pci_size = 0;
+    std::vector<size_t> best_pci_ijk(0);
     for (image_t img_i : connected_by[img_j]) {      
-      std::vector<point2D_t> &inliers_ij_j = pair_inliers[{img_i, img_j}];
       std::vector<size_t> pci_ijk;
+
+      std::vector<point2D_t> &inliers_ij_j = pair_inliers[{img_i, img_j}];
+      if (inliers_ij_j.size() <= best_pci_ijk.size()) {
+        //that means that with intersection we won't get more than in best
+	//as it is checked further, so just skip it to save time
+	continue; 
+      }
       pci_ijk = get_intersection_ids(inliers_ij_j, matches_jk_j);
-      std::sort(pci_ijk.begin(), pci_ijk.end());
-      pci[{img_i, img_j, img_k}] = pci_ijk;
-      if (best_pci_size < pci_ijk.size()){
-        best_pci_size = pci_ijk.size();
-        best_i = img_i;
+
+      CHECK(std::is_sorted(pci_ijk.begin(), pci_ijk.end()));
+      //substituted with just a sort check, because it should be sorted already
+      //std::sort(pci_ijk.begin(), pci_ijk.end()); 
+
+      //pci[{img_i, img_j, img_k}] = pci_ijk;
+      //if (best_pci_size < pci_ijk.size()){
+      //  best_pci_size = pci_ijk.size();
+      //  best_i = img_i;
+      if (best_pci_ijk.size() < pci_ijk.size()){
+	best_pci_ijk = std::move(pci_ijk);
+	best_i = img_i;
       }
     }      
+    pci[{best_i, img_j, img_k}] = best_pci_ijk;
     size_t reord_idx = 0;
     for (auto s: pci[{best_i, img_j, img_k}]) {
       if (reord_idx >= matches_jk.size() || s >= matches_jk.size()) { //Not needed but just in case to keep it
@@ -142,7 +166,7 @@ const InlierPassing::get_inliers_passed(image_t img_j, image_t img_k) {
       if (pci.find({img_i, img_j, img_k}) != pci.end()){      
         res[img_i] = pci[{img_i, img_j, img_k}];
       } else {
-        res[img_i] = std::vector<size_t>(0);	      
+        //res[img_i] = std::vector<size_t>(0);	      
       }
     }
   }
