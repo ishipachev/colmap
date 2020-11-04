@@ -23,7 +23,7 @@ std::vector<size_t> get_intersection_ids(std::vector<point2D_t> &inliers,
   std::vector<size_t> pci(inliers.size());
   size_t pci_idx = 0;
 
-  while ((i_idx < inliers.size()) && (m_idx < inliers.size())) {
+  while ((i_idx < inliers.size()) && (m_idx < matches.size())) {
     i = inliers[i_idx];
     m = matches[m_idx];
 
@@ -88,7 +88,7 @@ void InlierPassing::reorder_by_passed_inliers(image_t img_j,
       matches_jk_j[s] = matches_jk[s].point2D_idx1;   //from pair copying only indicies of j's image 
     }
     //so just by all experiments its always sorted as it should be
-    //CHECK(std::is_sorted(matches_jk_j.begin(), matches_jk_j.end()));
+    CHECK(std::is_sorted(matches_jk_j.begin(), matches_jk_j.end()));
 
     size_t best_i = 0;
     //size_t best_pci_size = 0;
@@ -102,6 +102,7 @@ void InlierPassing::reorder_by_passed_inliers(image_t img_j,
 	//as it is checked further, so just skip it to save time
 	continue; 
       }
+      CHECK(std::is_sorted(inliers_ij_j.begin(), inliers_ij_j.end()));
       pci_ijk = get_intersection_ids(inliers_ij_j, matches_jk_j);
 
       CHECK(std::is_sorted(pci_ijk.begin(), pci_ijk.end()));
