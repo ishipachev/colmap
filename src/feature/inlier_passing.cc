@@ -55,7 +55,7 @@ void InlierPassing::save_inliers(image_t img_i, image_t img_j, FeatureMatches& i
   pair_inliers_ij.resize(inliers.size());
   pair_inliers_ji.resize(inliers.size());
 
-  for (int s = 0; s < pair_inliers_ij.size(); ++s) {
+  for (size_t s = 0; s < pair_inliers_ij.size(); ++s) {
     pair_inliers_ij[s] = inliers[s].point2D_idx2;   //from pair copying only indicies of j's image 
     pair_inliers_ji[s] = inliers[s].point2D_idx1;   //from pair copying only indiceis of i's image
   }
@@ -84,7 +84,7 @@ void InlierPassing::reorder_by_passed_inliers(image_t img_j,
     //get rid of the second index which we don't need
     //supposed to be sorted by point2D_idx1 field
     std::vector<point2D_t> matches_jk_j(matches_jk.size());
-    for (int s = 0; s < matches_jk_j.size(); ++s) {
+    for (size_t s = 0; s < matches_jk_j.size(); ++s) {
       matches_jk_j[s] = matches_jk[s].point2D_idx1;   //from pair copying only indicies of j's image 
     }
     //so just by all experiments its always sorted as it should be
@@ -162,17 +162,17 @@ void InlierPassing::store_matches_qual(image_t img_i, image_t img_j,
 
 void InlierPassing::sort_matches_by_qual(const image_t img_i, const  image_t img_j,
 					 FeatureMatches &matches){
-  std::vector<std::pair<point2D_t, float>> merged(matches.size());
-  auto &q = m_qual[{img_i, img_j}];
-  for(int i = 0; i < merged.size(); ++i){
+  std::vector<std::pair<FeatureMatch, float>> merged(matches.size());
+  std::vector<float> &q = m_qual[{img_i, img_j}];   
+  for (size_t i = 0; i < merged.size(); ++i){
     merged[i].first = matches[i];
     merged[i].second = q[i];
   }
-  auto sortLambda = [](std::pair<point2D_t, float> a, std::pair<point2D_t, float> b) -> bool{
-    return a.second < b.second;
-  }
+  //auto sortLambda = [](const auto &a, const auto &b) -> bool
+  auto sortLambda = [](const std::pair<FeatureMatch, float> &a, const std::pair<FeatureMatch, float> &b) -> bool
+                      { return a.second < b.second; };
   std::sort(merged.begin(), merged.end(), sortLambda);
-  for(int i = 0; i < matches.size(); ++i){
+  for (size_t i = 0; i < matches.size(); ++i){
     matches[i] = merged[i].first;
   }
   m_qual.erase({img_i, img_j});//clean memory, we don't need it anymore
