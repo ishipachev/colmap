@@ -135,7 +135,7 @@ void FeatureMatchingTab::CreateGeneralOptions() {
   options_widget_->AddOptionBool(&options_->sift_matching->inlier_passing,
                                  "inlier_passing");
   options_widget_->AddOptionBool(&options_->sift_matching->prosac_qual,
-                                 "inlier_passing");
+                                 "prosac_qual");
 
   options_widget_->AddSpacer();
 

@@ -68,6 +68,7 @@ namespace colmap {
     ostream << tab_kv_string("min_inlier_ratio", options.min_inlier_ratio);
     ostream << tab_kv_string("guided_matching", options.guided_matching);
     ostream << tab_kv_string("inlier_passing", options.inlier_passing);
+    ostream << tab_kv_string("prosac_qual", options.prosac_qual);
     ostream << inner_dict_end();
   }
 

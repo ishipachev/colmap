@@ -68,6 +68,7 @@ struct RANSACOptions {
   //IS: Whether to use inlier passing method as a prosac seed for geometric verification
   bool inlier_passing = false;
   
+  //IS: Whether to use ordering based on sift ratio for prosac sampler
   bool prosac_qual = false;
 
   void Check() const {

@@ -320,7 +320,7 @@ void OptionManager::AddMatchingOptions() {
                               &sift_matching->guided_matching);
   AddAndRegisterDefaultOption("SiftMatching.inlier_passing",
                               &sift_matching->inlier_passing);
-  AddAndRegisterDefaultOption("SiftMatching.inlier_passing",
+  AddAndRegisterDefaultOption("SiftMatching.prosac_qual",
                               &sift_matching->prosac_qual);
   AddAndRegisterDefaultOption("SiftMatching.probe_logger_output",
                               &sift_matching->probe_logger_output);

@@ -599,7 +599,7 @@ TwoViewGeometryVerifier::TwoViewGeometryVerifier(
 
   two_view_geometry_options_.ransac_options.inlier_passing = 
       options_.inlier_passing;
-  two_view_geometry_options_.ransac_options.inlier_passing = 
+  two_view_geometry_options_.ransac_options.prosac_qual = 
       options_.prosac_qual;
 
 }
@@ -668,6 +668,10 @@ void TwoViewGeometryVerifier::Run() {
 	  timer_ip.Pause();
         }
 
+	if (prosac_qual) {
+	  printf("PROSAC quality sorting...\n");
+          inlierPassing.sort_matches_by_qual(data.image_id1, data.image_id2, data.matches);
+	}
         //IS: Main function where everything is happening
         data.two_view_geometry.Estimate(camera1, points1, camera2, points2,
                                         data.matches,
