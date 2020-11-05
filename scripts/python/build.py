@@ -184,6 +184,7 @@ def check_md5_hash(path, md5_hash):
 
 
 def download_zipfile(url, archive_path, unzip_path, md5_hash):
+    print(f"Downloading from adress: \n\t {url}\n") 
     if not os.path.exists(archive_path):
         urllib.request.urlretrieve(url, archive_path)
     check_md5_hash(archive_path, md5_hash)
@@ -221,10 +222,15 @@ def build_eigen(args):
     if os.path.exists(path):
         return
 
+    #url = "http://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.zip"
+    #IS: link below is not working anymore
     url = "https://bitbucket.org/eigen/eigen/get/3.3.7.zip"
     archive_path = os.path.join(args.download_path, "eigen-3.3.7.zip")
+    #download_zipfile(url, archive_path, args.build_path,
+    #                 "0d9c8496922d5c07609b9f3585f00e49")
+    #hash changed for the one, downloaded from gitlab
     download_zipfile(url, archive_path, args.build_path,
-                     "0d9c8496922d5c07609b9f3585f00e49")
+                      "888aab45512cc0c734b3e8f60280daba")
     shutil.move(glob.glob(os.path.join(args.build_path, "eigen-*"))[0], path)
 
     build_cmake_project(args, os.path.join(path, "__build__"))
@@ -434,13 +440,18 @@ def build_colmap(args):
     if args.boost_path != "":
         extra_config_args.append(
             "-DBOOST_ROOT={}".format(args.boost_path))
-        extra_config_args.append(
-            "-DBOOST_LIBRARYDIR={}".format(args.boost_path))
+        #extra_config_args.append(
+        #    "-DBOOST_LIBRARYDIR={}".format(args.boost_path + "/lib"))
+        #extra_config_args.append(
+        #    "-DBOOST_INCLUDEDIR={}".format(args.boost_path + "/include"))
+        extra_config_args.append("-DBoost_NO_BOOST_CMAKE=TRUE")
+
 
     if args.cuda_path != "":
         extra_config_args.append(
             "-DCUDA_TOOLKIT_ROOT_DIR={}".format(args.cuda_path))
 
+    
     if args.with_cuda:
         extra_config_args.append("-DCUDA_ENABLED=ON")
     else:
