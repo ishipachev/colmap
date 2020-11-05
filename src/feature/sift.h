@@ -164,6 +164,8 @@ struct SiftMatchingOptions {
 
   //IS: Whether to use inlier passing method as a prosac seed for geometric verification
   bool inlier_passing = false;
+  //IS: Whether to use prosac sorting according to sift ration quality
+  bool prosac_qual = false;
 
   //IS: path to ouput .txt file create by probeLogger class (see probe_logger.cpp)
   std::string probe_logger_output = "test.txt";  //by default next to .exe file

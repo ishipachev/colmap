@@ -598,7 +598,8 @@ TwoViewGeometryVerifier::TwoViewGeometryVerifier(
 
   two_view_geometry_options_.ransac_options.inlier_passing = 
       options_.inlier_passing;
-
+  two_view_geometry_options_.ransac_options.inlier_passing = 
+      options_.prosac_qual;
 
 }
 
@@ -638,6 +639,7 @@ void TwoViewGeometryVerifier::Run() {
 
       //IS: New block of code with inlier passing and PROSAC
       bool inlier_passing = two_view_geometry_options_.ransac_options.inlier_passing;
+      bool prosac_qual    = two_view_geometry_options_.ransac_options.prosac_qual;
 
       printf("IMG %d to %d, matches %d:\n", data.image_id1, data.image_id2, data.matches.size());
       if (options_.multiple_models) {

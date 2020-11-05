@@ -306,7 +306,7 @@ void TwoViewGeometry::EstimateCalibrated(
 
   probeLogger.write_model_report_open("E");
 
-  if (options.ransac_options.inlier_passing) {
+  if (options.ransac_options.inlier_passing || options.ransac_options.prosac_qual) {
     const auto E_report_prog = E_ransac_prog.Estimate(matched_points1_normalized, matched_points2_normalized);
     copyLoransacReport<EssentialMatrixFivePointEstimator, 
       InlierSupportMeasurer, 
@@ -357,7 +357,7 @@ void TwoViewGeometry::EstimateCalibrated(
 
   probeLogger.write_model_report_open("F");
 
-  if (options.ransac_options.inlier_passing) {
+  if (options.ransac_options.inlier_passing || options.ransac_options.prosac_qual) {
     const auto F_report_prog = F_ransac_prog.Estimate(matched_points1, matched_points2);
     copyLoransacReport<FundamentalMatrixSevenPointEstimator, 
       InlierSupportMeasurer, 
@@ -408,7 +408,7 @@ void TwoViewGeometry::EstimateCalibrated(
 
   probeLogger.write_model_report_open("H");
 
-  if (options.ransac_options.inlier_passing) {
+  if (options.ransac_options.inlier_passing || options.ransac_options.prosac_qual) {
     const auto H_report_prog = H_ransac_prog.Estimate(matched_points1, matched_points2);
     copyLoransacReport<HomographyMatrixEstimator, 
       InlierSupportMeasurer, 
@@ -568,7 +568,7 @@ void TwoViewGeometry::EstimateUncalibrated(
 
   probeLogger.write_model_report_open("F");
 
-  if (options.ransac_options.inlier_passing) {
+  if (options.ransac_options.inlier_passing || options.ransac_options.prosac_qual) {
     const auto F_report_prog = F_ransac_prog.Estimate(matched_points1, matched_points2);
     copyLoransacReport<FundamentalMatrixSevenPointEstimator,
       InlierSupportMeasurer,
@@ -621,7 +621,7 @@ void TwoViewGeometry::EstimateUncalibrated(
 
   probeLogger.write_model_report_open("H");
 
-  if (options.ransac_options.inlier_passing) {
+  if (options.ransac_options.inlier_passing || options.ransac_options.prosac_qual) {
     const auto H_report_prog = H_ransac_prog.Estimate(matched_points1, matched_points2);
     copyLoransacReport<HomographyMatrixEstimator,
       InlierSupportMeasurer,

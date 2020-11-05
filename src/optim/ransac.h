@@ -67,6 +67,8 @@ struct RANSACOptions {
 
   //IS: Whether to use inlier passing method as a prosac seed for geometric verification
   bool inlier_passing = false;
+  
+  bool prosac_qual = false;
 
   void Check() const {
     CHECK_GT(max_error, 0);
