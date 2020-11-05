@@ -19,11 +19,13 @@ class InlierPassing {
   void save_inliers(image_t img1, image_t img2, FeatureMatches &inliers);
   void reorder_by_passed_inliers(image_t img_j,
                                  image_t img_k,
-                                 FeatureMatches& matches);
+                                 FeatureMatches &matches);
   //get list of amount of inliers passed to img_j from all other img_i for all i's
   std::unordered_map<image_t, size_t> const calc_inliers_passed(image_t img_j, image_t img_k);
   std::unordered_map<image_t, std::vector<size_t>> const get_inliers_passed(image_t img_j, image_t img_k);
 
+  void store_matches_qual(image_t img_i, image_t img_j, std::vector<float> &matches_dist);
+  void sort_matches_by_qual(const image_t img_i, const image_t img_j, FeatureMatches &matches); 
  private:
    //j's inliers of model i-to-j related to j's detections
   std::unordered_map<std::pair<image_t, image_t>, std::vector<point2D_t>> pair_inliers; 
@@ -43,6 +45,7 @@ class InlierPassing {
 
 
   std::unordered_map<triplet_t, std::vector<size_t>, hash_fn> pci;
+  std::unordered_map<std::pair<image_t, image_t>, std::vector<float>> m_qual;
 };
 
 }  // namespace colmap

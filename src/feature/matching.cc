@@ -383,6 +383,7 @@ void SiftCPUFeatureMatcher::Run() {
       std::vector<float> matches_qual;
       MatchSiftFeaturesCPU(options_, descriptors1, descriptors2, &data.matches, &matches_qual);
       probeLogger.store_matches_qual(data.image_id1, data.image_id2, matches_qual);
+      inlierPassing.store_matches_qual(data.image_id1, data.image_id2, matches_qual);
       CHECK(output_queue_->Push(data));
     }
   }
@@ -655,7 +656,7 @@ void TwoViewGeometryVerifier::Run() {
 				   name1, name2,
                                    data.matches.size());
         probeLogger.write_stored_matches_qual(data.image_id1, data.image_id2);
-
+        
 	Timer timer_ip;
         if (inlier_passing) { //if we use inlier_passing than reorder matches
 	  timer_ip.Start();

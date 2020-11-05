@@ -155,6 +155,29 @@ const InlierPassing::calc_inliers_passed(image_t img_j, image_t img_k) {
   return res;
 }
 
+void InlierPassing::store_matches_qual(image_t img_i, image_t img_j,
+		                       std::vector<float> &matches_qual){
+  m_qual[{img_i, img_j}] = matches_qual;
+}
+
+void InlierPassing::sort_matches_by_qual(const image_t img_i, const  image_t img_j,
+					 FeatureMatches &matches){
+  std::vector<std::pair<point2D_t, float>> merged(matches.size());
+  auto &q = m_qual[{img_i, img_j}];
+  for(int i = 0; i < merged.size(); ++i){
+    merged[i].first = matches[i];
+    merged[i].second = q[i];
+  }
+  auto sortLambda = [](std::pair<point2D_t, float> a, std::pair<point2D_t, float> b) -> bool{
+    return a.second < b.second;
+  }
+  std::sort(merged.begin(), merged.end(), sortLambda);
+  for(int i = 0; i < matches.size(); ++i){
+    matches[i] = merged[i].first;
+  }
+  m_qual.erase({img_i, img_j});//clean memory, we don't need it anymore
+}
+
 std::unordered_map<image_t, std::vector<size_t>> 
 const InlierPassing::get_inliers_passed(image_t img_j, image_t img_k) {
   std::unordered_map<image_t, std::vector<size_t>> res;

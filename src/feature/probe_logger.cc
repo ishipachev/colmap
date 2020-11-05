@@ -93,7 +93,7 @@ namespace colmap {
 
   void ProbeLogger::store_matches_qual(image_t img1, image_t img2, 
                                        std::vector<float> &matches_qual) {
-    m_qual[{img1, img2}] = std::move(matches_qual);
+    m_qual[{img1, img2}] = matches_qual;
   }
 
   void ProbeLogger::write_stored_matches_qual(image_t img1, image_t img2) {
