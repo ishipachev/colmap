@@ -165,20 +165,24 @@ void InlierPassing::sort_matches_by_qual(const image_t img_i, const  image_t img
   std::vector<std::pair<FeatureMatch, float>> merged(matches.size());
   std::vector<float> &q = m_qual[{img_i, img_j}];   
   //test printing
-  printf("QUAL before: %2.3f, %2.3f \n", q[0], q[1]);
-  for (size_t i = 0; i < merged.size(); ++i){
-    merged[i].first = matches[i];
-    merged[i].second = q[i];
+  if (q.size() ==  matches.size()) {
+    printf("QUAL before: %2.3f, %2.3f \n", q[0], q[1]);
+    for (size_t i = 0; i < merged.size(); ++i){
+      merged[i].first = matches[i];
+      merged[i].second = q[i];
+    }
+    //auto sortLambda = [](const auto &a, const auto &b) -> bool
+    auto sortLambda = [](const std::pair<FeatureMatch, float> &a, const std::pair<FeatureMatch, float> &b) -> bool
+                        { return a.second < b.second; };
+    std::sort(merged.begin(), merged.end(), sortLambda);
+    for (size_t i = 0; i < matches.size(); ++i){
+      matches[i] = merged[i].first;
+    }
+   printf("QUAL after: %2.3f, %2.3f \n", merged[0].second, merged[1].second);
+   m_qual.erase({img_i, img_j});//clean memory, we don't need it anymore
+  } else {
+    printf("NO QUAL\n");
   }
-  //auto sortLambda = [](const auto &a, const auto &b) -> bool
-  auto sortLambda = [](const std::pair<FeatureMatch, float> &a, const std::pair<FeatureMatch, float> &b) -> bool
-                      { return a.second < b.second; };
-  std::sort(merged.begin(), merged.end(), sortLambda);
-  for (size_t i = 0; i < matches.size(); ++i){
-    matches[i] = merged[i].first;
-  }
- printf("QUAL after: %2.3f, %2.3f \n", merged[0].second, merged[1].second);
- m_qual.erase({img_i, img_j});//clean memory, we don't need it anymore
 }
 
 std::unordered_map<image_t, std::vector<size_t>> 

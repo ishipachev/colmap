@@ -10,7 +10,7 @@
 #include "estimators/fundamental_matrix.h"
 #include "estimators/homography_matrix.h"
 
-#define FULL_QUAL_LOGS true
+#define FULL_QUAL_LOGS false
 
 namespace colmap {
 
