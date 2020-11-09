@@ -10,6 +10,8 @@
 #include "estimators/fundamental_matrix.h"
 #include "estimators/homography_matrix.h"
 
+#define FULL_QUAL_LOGS true
+
 namespace colmap {
 
   ProbeLogger probeLogger;    //bringing probeLogger to the global colmap namespace
@@ -98,9 +100,12 @@ namespace colmap {
   }
 
   void ProbeLogger::write_stored_matches_qual(image_t img1, image_t img2) {
-    //ostream << tab_kvs_string("matches_quality", m_qual[{img1, img2}]);
-    //to decrease the size of logs have it commented out
-    ostream << tab_kv_string("matches_quality:","[]");
+    // moved it back//to decrease the size of logs have it commented out
+    if (FULL_QUAL_LOGS) { 
+      ostream << tab_kvs_string("matches_quality", m_qual[{img1, img2}]);
+    } else {
+      ostream << tab_kv_string("matches_quality:","[]");
+    }
     m_qual.erase({img1, img2});  //we don't need this array after printing
   }
 
@@ -159,9 +164,12 @@ namespace colmap {
         ostream << inner_dict_start();
         ostream << tab_kv_string("from", static_cast<size_t>(key_val.first));
         ostream << tab_kv_string("pci", static_cast<size_t>(key_val.second.size()));
-        //to decrease the size of logs commented out array logs
-        //ostream << tab_kvs_string("inds", key_val.second);
-        ostream << tab_kv_string("inds:", "[]");
+        // moved it back //to decrease the size of logs commented out array logs
+	if (FULL_QUAL_LOGS) {
+          ostream << tab_kvs_string("inds", key_val.second);
+        } else {
+          ostream << tab_kv_string("inds:", "[]");
+	}
         ostream << inner_dict_end();
       }
     }
@@ -177,9 +185,12 @@ namespace colmap {
       }
     }
     inds.resize(cnt);
-    //ostream << tab_kvs_string("inliers", inds);
-    //to decrease the size of logs commented out array logs
-    ostream << tab_kv_string("inliers:", "[]");
+    //moved it back//to decrease the size of logs commented out array logs
+    if (FULL_QUAL_LOGS) {
+      ostream << tab_kvs_string("inliers", inds);
+    } else {
+      ostream << tab_kv_string("inliers:", "[]");
+    }
   }
 
   void ProbeLogger::write_tvg_close(size_t inl_num, int config, double time) {
