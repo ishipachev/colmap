@@ -670,16 +670,15 @@ void TwoViewGeometryVerifier::Run() {
 
 	if (prosac_qual) {
 	  printf("PROSAC quality sorting...\n");
-          inlierPassing.sort_matches_by_qual(data.image_id1, data.image_id2, data.matches);
+          inlierPassing.sort_matches_by_qual(data.image_id1, data.image_id2, data.matches); 
 	}
         //IS: Main function where everything is happening
         data.two_view_geometry.Estimate(camera1, points1, camera2, points2,
                                         data.matches,
                                         two_view_geometry_options_);
         //----
-
-        if (inlier_passing) { //if we use inlier passing than save inliers
-	  timer_ip.Start();
+ 	if (inlier_passing) {
+        //if (inlier_passing && (data.two_view_geometry.config == TwoViewGeometry::ConfigurationType::UNCALIBRATED)) { //if we use inlier passing than save inliers
           inlierPassing.save_inliers(data.image_id1, 
                                      data.image_id2,
                                      data.two_view_geometry.inlier_matches);

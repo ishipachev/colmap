@@ -11,6 +11,7 @@
 #include "estimators/homography_matrix.h"
 
 #define FULL_QUAL_LOGS false
+#define PCI_IDS_LOGS true
 
 namespace colmap {
 
@@ -165,7 +166,7 @@ namespace colmap {
         ostream << tab_kv_string("from", static_cast<size_t>(key_val.first));
         ostream << tab_kv_string("pci", static_cast<size_t>(key_val.second.size()));
         // moved it back //to decrease the size of logs commented out array logs
-	if (FULL_QUAL_LOGS) {
+	if (PCI_IDS_LOGS) {
           ostream << tab_kvs_string("inds", key_val.second);
         } else {
           ostream << tab_kv_string("inds:", "[]");
@@ -186,7 +187,7 @@ namespace colmap {
     }
     inds.resize(cnt);
     //moved it back//to decrease the size of logs commented out array logs
-    if (FULL_QUAL_LOGS) {
+    if (PCI_IDS_LOGS) {
       ostream << tab_kvs_string("inliers", inds);
     } else {
       ostream << tab_kv_string("inliers:", "[]");
