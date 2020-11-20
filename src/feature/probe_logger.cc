@@ -11,7 +11,7 @@
 #include "estimators/homography_matrix.h"
 
 #define FULL_QUAL_LOGS false
-#define PCI_IDS_LOGS true
+#define PCI_IDS_LOGS false
 
 namespace colmap {
 

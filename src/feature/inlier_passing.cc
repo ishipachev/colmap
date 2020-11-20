@@ -93,14 +93,15 @@ void InlierPassing::reorder_by_passed_inliers(image_t img_j,
     size_t best_i = 0;
     //size_t best_pci_size = 0;
     std::vector<size_t> best_pci_ijk(0);
-    for (image_t img_i : connected_by[img_j]) {      
+    for (image_t img_i : connected_by[img_j]) { 
+      if (img_i > img_j) { continue;  }
       std::vector<size_t> pci_ijk;
 
       std::vector<point2D_t> &inliers_ij_j = pair_inliers[{img_i, img_j}];
       if (inliers_ij_j.size() <= best_pci_ijk.size()) {
         //that means that with intersection we won't get more than in best
-	//as it is checked further, so just skip it to save time
-	continue; 
+	      //as it is checked further, so just skip it to save time
+	      continue; 
       }
       CHECK(std::is_sorted(inliers_ij_j.begin(), inliers_ij_j.end()));
       pci_ijk = get_intersection_ids(inliers_ij_j, matches_jk_j);
@@ -114,8 +115,8 @@ void InlierPassing::reorder_by_passed_inliers(image_t img_j,
       //  best_pci_size = pci_ijk.size();
       //  best_i = img_i;
       if (best_pci_ijk.size() < pci_ijk.size()){
-	best_pci_ijk = std::move(pci_ijk);
-	best_i = img_i;
+	      best_pci_ijk = std::move(pci_ijk);
+	      best_i = img_i;
       }
     }      
     pci[{best_i, img_j, img_k}] = best_pci_ijk;
@@ -125,8 +126,8 @@ void InlierPassing::reorder_by_passed_inliers(image_t img_j,
         break;
       }
       if (reord_idx == s) {
-	reord_idx++;
-	continue;
+	      reord_idx++;
+	      continue;
       }
       std::swap(matches_jk[reord_idx++], matches_jk[s]);
     }
