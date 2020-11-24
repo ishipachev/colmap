@@ -129,8 +129,6 @@ LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
   max_num_trials = std::min<size_t>(max_num_trials, sampler.MaxNumSamples());
   size_t dyn_max_num_trials = max_num_trials;
 
-  printf("LORANSAC:\n");
-
   //probeLogger.write_ransac_open();
 
   for (report.num_trials = 0; report.num_trials < max_num_trials;

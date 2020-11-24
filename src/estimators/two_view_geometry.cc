@@ -307,6 +307,7 @@ void TwoViewGeometry::EstimateCalibrated(
   probeLogger.write_model_report_open("E");
 
   if (options.ransac_options.inlier_passing || options.ransac_options.prosac_qual) {
+    printf("PROSAC:\n");
     const auto E_report_prog = E_ransac_prog.Estimate(matched_points1_normalized, matched_points2_normalized);
     copyLoransacReport<EssentialMatrixFivePointEstimator, 
       InlierSupportMeasurer, 
@@ -314,6 +315,7 @@ void TwoViewGeometry::EstimateCalibrated(
       RandomSampler>
       (E_report_prog, E_report);
   } else {
+    printf("LORANSAC:\n");
     const auto E_report_rand = E_ransac_rand.Estimate(matched_points1_normalized, matched_points2_normalized);
     copyLoransacReport<EssentialMatrixFivePointEstimator, 
       InlierSupportMeasurer, 
@@ -358,6 +360,7 @@ void TwoViewGeometry::EstimateCalibrated(
   probeLogger.write_model_report_open("F");
 
   if (options.ransac_options.inlier_passing || options.ransac_options.prosac_qual) {
+    printf("PROSAC:\n");
     const auto F_report_prog = F_ransac_prog.Estimate(matched_points1, matched_points2);
     copyLoransacReport<FundamentalMatrixSevenPointEstimator, 
       InlierSupportMeasurer, 
@@ -365,6 +368,7 @@ void TwoViewGeometry::EstimateCalibrated(
       RandomSampler>
       (F_report_prog, F_report);
   } else {
+    printf("LORANSAC:\n");
     const auto F_report_rand = F_ransac_rand.Estimate(matched_points1, matched_points2);
     copyLoransacReport<FundamentalMatrixSevenPointEstimator, 
       InlierSupportMeasurer, 
@@ -409,6 +413,7 @@ void TwoViewGeometry::EstimateCalibrated(
   probeLogger.write_model_report_open("H");
 
   if (options.ransac_options.inlier_passing || options.ransac_options.prosac_qual) {
+    printf("PROSAC:\n");
     const auto H_report_prog = H_ransac_prog.Estimate(matched_points1, matched_points2);
     copyLoransacReport<HomographyMatrixEstimator, 
       InlierSupportMeasurer, 
@@ -416,6 +421,7 @@ void TwoViewGeometry::EstimateCalibrated(
       RandomSampler>
       (H_report_prog, H_report);
   } else {
+    printf("LORANSAC:\n");
     const auto H_report_rand = H_ransac_rand.Estimate(matched_points1, matched_points2);
     copyLoransacReport<HomographyMatrixEstimator, 
       InlierSupportMeasurer, 
@@ -569,6 +575,7 @@ void TwoViewGeometry::EstimateUncalibrated(
   probeLogger.write_model_report_open("F");
 
   if (options.ransac_options.inlier_passing || options.ransac_options.prosac_qual) {
+    printf("PROSAC:\n");
     const auto F_report_prog = F_ransac_prog.Estimate(matched_points1, matched_points2);
     copyLoransacReport<FundamentalMatrixSevenPointEstimator,
       InlierSupportMeasurer,
@@ -576,6 +583,7 @@ void TwoViewGeometry::EstimateUncalibrated(
       RandomSampler>
       (F_report_prog, F_report);
   } else {
+    printf("LORANSAC:\n");
     const auto F_report_rand = F_ransac_rand.Estimate(matched_points1, matched_points2);
     copyLoransacReport<FundamentalMatrixSevenPointEstimator,
       InlierSupportMeasurer,
@@ -622,6 +630,7 @@ void TwoViewGeometry::EstimateUncalibrated(
   probeLogger.write_model_report_open("H");
 
   if (options.ransac_options.inlier_passing || options.ransac_options.prosac_qual) {
+    printf("PROSAC:\n");
     const auto H_report_prog = H_ransac_prog.Estimate(matched_points1, matched_points2);
     copyLoransacReport<HomographyMatrixEstimator,
       InlierSupportMeasurer,
@@ -630,6 +639,7 @@ void TwoViewGeometry::EstimateUncalibrated(
       (H_report_prog, H_report);
 
   } else {
+    printf("LORANSAC:\n");
     const auto H_report_rand = H_ransac_rand.Estimate(matched_points1, matched_points2);
     copyLoransacReport<HomographyMatrixEstimator,
       InlierSupportMeasurer,

@@ -57,11 +57,11 @@ void StartProbeLogging(const SequentialMatchingOptions &seq_options,
 
   //probeLogger.init("c:\\work\\colmap\\tests\\ip_in_colmap\\test.txt", false);
   probeLogger.init(match_options.probe_logger_output, false);
-  probeLogger.write_head_open("v0.1", "fist_debug_iteration");
+  probeLogger.write_head_open("v0.2", "inlier passing logged, but not applied");
   probeLogger.write_conf_open();
   probeLogger.write_conf_algo( {
     {"inlier_passing", match_options.inlier_passing},
-                              {"num_prog_iters", 10000}
+                              {"num_prog_iters", 100000}
                               } );
   probeLogger.write_conf_sequential_matching(seq_options);
   probeLogger.write_conf_tvg_matching(match_options);
@@ -658,11 +658,14 @@ void TwoViewGeometryVerifier::Run() {
         probeLogger.write_stored_matches_qual(data.image_id1, data.image_id2);
         
 	      Timer timer_ip;
-        if (inlier_passing) { //if we use inlier_passing than reorder matches
-	        timer_ip.Start();
+        //if (inlier_passing) { //if we use inlier_passing than reorder matches
+        if (true) {
+	      //use inlier passing to write statistic, but without appliing it  
+          timer_ip.Start();
           inlierPassing.reorder_by_passed_inliers(data.image_id1,
                                                   data.image_id2,
                                                   data.matches);
+          printf("Wrote IP, but didn't reorder\n");
           probeLogger.write_inl_passed_stat(inlierPassing.get_inliers_passed(data.image_id1,
                                                                              data.image_id2));
 	        timer_ip.Pause();
@@ -676,7 +679,9 @@ void TwoViewGeometryVerifier::Run() {
                                         data.matches,
                                         two_view_geometry_options_);
         //----
- 	      if (inlier_passing) {
+        //use inlier passing to write statistic, but without appliing it  
+        if (true) {
+ 	      //if (inlier_passing) {
         //if (inlier_passing && (data.two_view_geometry.config == TwoViewGeometry::ConfigurationType::UNCALIBRATED)) { //if we use inlier passing than save inliers
           inlierPassing.save_inliers(data.image_id1, 
                                      data.image_id2,
@@ -686,7 +691,6 @@ void TwoViewGeometryVerifier::Run() {
                                       data.two_view_geometry.config,
                                       timer_all.ElapsedSeconds(), 
 				  timer_ip.ElapsedSeconds());
-
         } else {
           probeLogger.write_tvg_close(data.two_view_geometry.inlier_matches.size(),
                                       data.two_view_geometry.config,

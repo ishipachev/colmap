@@ -121,6 +121,8 @@ void InlierPassing::reorder_by_passed_inliers(image_t img_j,
     }      
     pci[{best_i, img_j, img_k}] = best_pci_ijk;
     size_t reord_idx = 0;
+    printf("WE DON'T REORDER FOR TESTING PURPOSE\n");
+    /*
     for (auto s: pci[{best_i, img_j, img_k}]) {
       if (reord_idx >= matches_jk.size() || s >= matches_jk.size()) { //Not needed but just in case to keep it
         break;
@@ -131,6 +133,7 @@ void InlierPassing::reorder_by_passed_inliers(image_t img_j,
       }
       std::swap(matches_jk[reord_idx++], matches_jk[s]);
     }
+    */
     printf("IP: %d out of %d matches were reordered by model from %d to %d\n", reord_idx, matches_jk.size(), best_i, img_j);
     //if (reord_idx >= matches_jk.size()) {
      // break; //this part should be rewritten that prioritize points which we often have as inliers for other models
