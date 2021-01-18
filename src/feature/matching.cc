@@ -642,7 +642,7 @@ void TwoViewGeometryVerifier::Run() {
       bool inlier_passing = two_view_geometry_options_.ransac_options.inlier_passing;
       bool prosac_qual    = two_view_geometry_options_.ransac_options.prosac_qual;
 
-      printf("IMG %d to %d, matches %d:\n", data.image_id1, data.image_id2, data.matches.size());
+      printf("IMG %zu to %zu, matches %zu:\n", data.image_id1, data.image_id2, data.matches.size());
       if (options_.multiple_models) {
         data.two_view_geometry.EstimateMultiple(camera1, points1, camera2,
                                                 points2, data.matches,

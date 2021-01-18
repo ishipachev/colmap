@@ -193,13 +193,17 @@ def download_zipfile(url, archive_path, unzip_path, md5_hash):
 
 
 def build_cmake_project(args, path, extra_config_args=[],
-                        extra_build_args=[], cmakelists_path=".."):
+                        extra_build_args=[], cmakelists_path="..", stop_flag=False):
     mkdir_if_not_exists(path)
 
     cmake_command = ["cmake"] \
                     + args.cmake_config_args \
                     + extra_config_args \
                     + [cmakelists_path]
+    print("Calling command: \n\t" + " ".join(cmake_command))
+    print("Path: \n\t" + path)
+    if (stop_flag):
+        sys.exit(1)
     return_code = subprocess.call(cmake_command, cwd=path)
     if return_code != 0:
         print("Command failed:", " ".join(cmake_command))
@@ -211,6 +215,7 @@ def build_cmake_project(args, path, extra_config_args=[],
                      "--config", args.build_type] \
                     + args.cmake_build_args \
                     + extra_build_args
+    
     return_code = subprocess.call(cmake_command, cwd=path)
     if return_code != 0:
         print("Command failed:", " ".join(cmake_command))
@@ -481,6 +486,7 @@ def build_colmap(args):
     build_cmake_project(args, os.path.join(args.build_path, "colmap/__build__"),
                         extra_config_args=extra_config_args,
                         cmakelists_path=os.path.abspath(args.colmap_path))
+                        #cmakelists_path=os.path.abspath(args.colmap_path), stop_flag = True)
 
 
 def build_post_process(args):

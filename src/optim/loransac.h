@@ -219,7 +219,7 @@ LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
                 best_support.num_inliers, num_samples, options_.confidence,
                 options_.dyn_num_trials_multiplier);
 
-        printf("\t\t %5d, %5d: ", report.num_trials, best_support.num_inliers);
+        printf("\t\t %5zu, %5zu: ", report.num_trials, best_support.num_inliers);
         for (auto idx: sample_ids) {
           printf("%4d ", idx);
         }

@@ -384,7 +384,7 @@ void TwoViewGeometry::EstimateCalibrated(
     InlierSupportMeasurer>
     (F_report, timer.ElapsedSeconds());
 
-  printf("F it: %4d; inl: %4d: time: %2.4f\n", 
+  printf("F it: %4zu; inl: %4zu: time: %2.4f\n", 
          F_report.num_trials, 
          F_report.support.num_inliers, 
          timer.ElapsedSeconds());
