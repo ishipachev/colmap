@@ -76,7 +76,6 @@ Dependencies from the default Ubuntu repositories::
         libboost-program-options-dev \
         libboost-filesystem-dev \
         libboost-graph-dev \
-        libboost-regex-dev \
         libboost-system-dev \
         libboost-test-dev \
         libeigen3-dev \
@@ -116,11 +115,6 @@ Configure and compile COLMAP::
     cmake ..
     make -j
     sudo make install
-
-Under newer Ubuntu versions it might be necessary to explicitly select the used
-GCC version due to compatiblity issues with CUDA, which can be done as::
-
-    CC=/usr/bin/gcc-6 CXX=/usr/bin/g++-6 cmake ..
 
 Run COLMAP::
 
@@ -209,6 +203,14 @@ the latest commit in the dev branch, you can use the following options::
     ./vcpkg install colmap:x64-linux --head
 
 To modify the source code, you can further add ``--editable --no-downloads``.
+Or, if you want to build from another folder and use the dependencies from
+vcpkg, first run `./vcpkg integrate install` and then configure COLMAP as::
+
+    cd path/to/colmap
+    mkdir build
+    cd build
+    cmake .. -DCMAKE_TOOLCHAIN_FILE=path/to/vcpkg/scripts/buildsystems/vcpkg.cmake
+    cmake --build . --config release --target colmap_exe --parallel 24
 
 Alternatively, you can also use the Python build script. Please follow the
 instructions in the next section, but VCPKG is now the recommended approach.

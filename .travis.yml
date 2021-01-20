@@ -1,3 +1,6 @@
+arch:
+      - amd64
+      - ppc64le
 language: cpp
 sudo: true
 dist: xenial
@@ -10,7 +13,6 @@ addons:
       - libboost-program-options-dev
       - libboost-filesystem-dev
       - libboost-graph-dev
-      - libboost-regex-dev
       - libboost-system-dev
       - libboost-test-dev
       - libeigen3-dev
