@@ -132,6 +132,8 @@ void FeatureMatchingTab::CreateGeneralOptions() {
                                  "multiple_models");
   options_widget_->AddOptionBool(&options_->sift_matching->guided_matching,
                                  "guided_matching");
+  options_widget_->AddOptionBool(&options_->sift_matching->first_inc_filter,
+                                 "first_inc_filter");
 
   options_widget_->AddSpacer();
 

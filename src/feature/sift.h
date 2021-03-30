@@ -161,6 +161,9 @@ struct SiftMatchingOptions {
   // Whether to perform guided matching, if geometric verification succeeds.
   bool guided_matching = false;
 
+  //Use first inc filter to improve matching (Dmitro Mishink's idea)
+  bool first_inc_filter = false;
+
   bool Check() const;
 };
 

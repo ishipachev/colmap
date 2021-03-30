@@ -302,6 +302,8 @@ void OptionManager::AddMatchingOptions() {
                               &sift_matching->multiple_models);
   AddAndRegisterDefaultOption("SiftMatching.guided_matching",
                               &sift_matching->guided_matching);
+  AddAndRegisterDefaultOption("SiftMatching.first_inc_filter",
+                              &sift_matching->first_inc_filter);
 }
 
 void OptionManager::AddExhaustiveMatchingOptions() {
